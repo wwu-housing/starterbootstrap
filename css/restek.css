@@ -316,11 +316,15 @@ div.picker button.toolbutton:focus {
 }
 
 .summary label {
-    margin-top: 7px;
+    margin-top: 10px;
+}
+.dokuwiki #wiki__editbar .summary label,
+.dokuwiki div.editBar .summary label {
+    white-space: normal;
 }
 .summary span {
   float: left;
-  padding-top: 6px;
+  padding-top: 8px;
   text-align: right;
   *display: inline-block;
   padding-right: 5px;
