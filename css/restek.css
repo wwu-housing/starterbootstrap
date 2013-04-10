@@ -1,0 +1,571 @@
+body {
+    font-size: 0.9em;
+}
+#dokuwiki__sitetools .span12 {
+    margin-left: 0px;
+}
+.well-nav {
+    padding: 8px 0;
+}
+#dokuwiki__header h1 {
+    font-size: 2em;
+}
+h1 {
+    font-size: 2.1em;
+}
+h2 {
+    font-size: 1.9em;
+}
+h3 {
+    font-size: 1.7em;
+}
+h4 {
+    font-size: 1.5em;
+}
+h5 {
+    font-size: 1.3em;
+}
+h6 {
+    font-size: 1em;
+}
+@media (min-width: 980px) {
+    .not-header {
+        margin-top: 60px;
+    }
+}
+.page p:first-child {
+    display: none;
+}
+.dokuwiki a.urlextern {
+    padding-left: 16px;
+    background-size: 12px;
+}
+.affix {
+    right: 20px
+}
+
+@media (max-width: 979px) {
+    .navbar-fixed-top .dropdown-toggle {
+        display: none;
+    }
+    .navbar-fixed-top .dropdown-menu {
+        display: block;
+        margin: 0;
+    }
+    .navbar-fixed-top .action.top {
+        display: none;
+    }
+}
+
+/* in page edit buttons, btn-mini */
+.btn_secedit .button,
+input.button,
+.toolbutton {
+  display: inline-block;
+  *display: inline;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  *margin-left: .3em;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  *zoom: 1;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn_secedit .button:hover,
+.btn_secedit .button:focus,
+.btn_secedit .button:active,
+.btn_secedit .button.active,
+.btn_secedit .button.disabled,
+.btn_secedit .button[disabled],
+input.button:hover,
+input.button:focus,
+input.button.active,
+input.button.disabled,
+input.button[disabled],
+.toolbutton:hover,
+.toolbutton:focus,
+.toolbutton.active,
+.toolbutton.disabled,
+.toolbutton[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.btn_secedit .button:active,
+.btn_secedit .button.active,
+input.button:active,
+input.button.active,
+.toolbutton:active,
+.toolbutton.active {
+  background-color: #cccccc \9;
+}
+.btn_secedit .button:first-child,
+input.button,
+.toolbutton {
+  *margin-left: 0;
+}
+.dokuwiki div.toolbar button.toolbutton {
+    padding: 2px 10px 4px;
+}
+.btn_secedit .button:hover,
+.btn_secedit .button:focus,
+input.button:hover,
+input.button.hover,
+.toolbutton:hover,
+.toolbutton.hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+}
+.btn_secedit .button:focus,
+input.button:focus,
+.toolbutton:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn_secedit .button.active,
+.btn_secedit .button:active,
+input.button.active,
+input.button:active,
+.toolbutton.active,
+.toolbutton:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn_secedit .button.disabled,
+.btn_secedit .button[disabled],
+input.button.disabled,
+input.button[disabled],
+.toolbutton.disabled,
+.toolbutton[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+.btn_secedit .button [class^="icon-"],
+.btn_secedit .button [class*=" icon-"] {
+  margin-top: -1px;
+}
+.btn_secedit .button {
+  padding: 0 6px;
+  font-size: 10.5px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+#insert-table-popup {
+    padding: 0 20px;
+}
+.form-horizontal {
+    margin-bottom: 0px;
+}
+/* edit form */
+#wiki__text {
+    font-family: monospace;
+}
+.dokuwiki textarea.edit {
+       -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.editButtons,
+#tool__bar {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *margin-left: .3em;
+  font-size: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  *zoom: 1;
+}
+.editButtons:first-child,
+#tool__bar:first-child {
+  *margin-left: 0;
+}
+.editButtons > input.button,
+#tool__bar > button.toolbutton {
+  position: relative;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+.editButtons > input.button + input.button,
+#tool__bar > button.toolbutton + button.toolbutton {
+  margin-left: -1px;
+}
+.editButtons > input.button,
+.editButtons > .dropdown-menu,
+.editButtons > .popover,
+#tool__bar > input.toolbutton {
+  font-size: 14px;
+}
+.editButtons > input.button:first-child,
+#tool__bar > button.toolbutton:first-child {
+  margin-left: 0;
+  -webkit-border-bottom-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+          border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+                </ul>
+  -moz-border-radius-topleft: 4px;
+}
+.editButtons > input.button:last-child,
+.editButtons > .dropdown-toggle,
+#tool__bar > button.toolbutton:last-child {
+  -webkit-border-top-right-radius: 4px;
+          border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+.editButtons > input.button:hover,
+.editButtons > input.button:focus,
+.editButtons > input.button:active,
+.editButtons > input.button.active,
+#tool__bar > button.toolbutton:hover,
+#tool__bar > button.toolbutton:focus,
+#tool__bar > button.toolbutton:active,
+#tool__bar > button.toolbutton.active {
+  z-index: 2;
+}
+#edbtn__save {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  *background-color: #0044cc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+#edbtn__save:hover,
+#edbtn__save:focus,
+#edbtn__save:active,
+#edbtn__save.active,
+#edbtn__save.disabled,
+#edbtn__save[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+#edbtn__save:active,
+#edbtn__save.active {
+  background-color: #003399 \9;
+}
+div.picker button.pickerbutton,
+div.picker button.toolbutton {
+    background: transparent;
+}
+#picker2.picker button.pickerbutton,
+#picker2.picker button.toolbutton {
+    width: 20px;
+}
+div.picker button.pickerbutton:hover,
+div.picker button.toolbutton:hover,
+div.picker button.pickerbutton:focus,
+div.picker button.toolbutton:focus {
+    background: #ccc;
+}
+
+.summary label {
+    margin-top: 7px;
+}
+.summary span {
+  float: left;
+  padding-top: 6px;
+  text-align: right;
+  *display: inline-block;
+  padding-right: 5px;
+}
+
+.summary {
+  margin-bottom: 20px;
+  *zoom: 1;
+}
+.summary:before,
+.summary:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.summary:after {
+  clear: both;
+}
+.summary input {
+  display: inline-block;
+  *display: inline;
+  margin-bottom: 0;
+  vertical-align: middle;
+  *zoom: 1;
+}
+
+.license {
+  color: #595959;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* dokuwiki__pagetools */
+#dokuwiki__pagetools {
+    background: #eee;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#dokuwiki__pagetools ul {
+    margin: 10px 15px;
+    padding: 0;
+}
+#dokuwiki__pagetools li {
+    list-style: none;
+}
+
+#config__manager fieldset {
+    width: 100%;
+}
+#config__manager fieldset#_basic {
+    width: auto;
+}
+#config__manager .label {
+    padding: 0;
+    margin: 0;
+    line-height: 14px;
+}
+#config__manager .value {
+    padding: 0;
+    margin: 0;
+}
+
+#dw__toc ul.toc.nav.nav-list li { 
+    list-style-type: disc; 
+    list-style-position: inside; 
+}
+#dw__toc ul.toc.nav.nav-listl ul li { 
+    list-style-type: circle; 
+    list-style-position: inside; 
+    margin-left: 15px; 
+}
+
+#dokuwiki__aside p {
+    margin: 0;
+}
+ul.nav-list {
+    padding: 0;
+}
+.nav-list ul {
+    padding: 0;
+}
+.nav-list>li>a, .nav-list .nav-header {
+    margin: 0;
+}
+.nav-list .nav-header a {
+    color: #666;
+    margin: 0;
+}
+.nav-list div li a {
+    margin-right: 0;
+    margin-left: 0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.nav-list div {
+}
+.nav-list li a {
+    display: block;
+    padding: 3px 15px;
+}
+.nav-list li ul li a {
+    padding: 3px 30px;
+}
+.nav-list li ul li ul li a {
+    padding: 3px 45px;
+}
+.nav-list div .active a,
+.nav-list div .active a:hover,
+.nav-list div .active a:focus {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #0088cc;
+}
+.nav-list li a:hover,
+.nav-list li a:focus {
+    text-decoration: none;
+    background-color: #eeeeee;
+}
+.nav-list [class^="icon-"],
+.nav-list [class*=" icon-"] {
+    margin-right: 2px;
+}
+.nav-list .divider {
+    margin: 9px 16px;
+}
+.nav-list .three-links {
+    margin: 0 15px;
+}
+.nav-list .three-links a {
+    display: inline;
+}
+.nav-list .three-links a:hover,
+.nav-list .three-links a:focus {
+    background-color: transparent;
+}
+
+.nav-list [class^="icon-"],
+.nav-list [class*=" icon-"] {
+    margin-right: 4px;
+}
+.nav-list [class^="icon-"].icon-folder-close,
+.nav-list [class*=" icon-"].icon-folder-close {
+    margin-right: 2px;
+}
+
+#dw_toc {
+    margin-left: 20px;
+    top: 60px;
+    width: 200px;
+}
+#dw_toc .nav-header {
+    cursor: pointer;
+}
+#dw_toc .nav a {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 13px;
+}
+#dw_toc .nav li ul li a {
+    padding: 0 25px;
+}
+#dw_toc .nav li ul li ul li a {
+    padding: 0 35px;
+}
+#dw_toc .nav a:before {
+    display: inline;
+    content: '• ';
+    color: #999;
+    font-size: 16px;
+}
+#dw_toc .nav li ul li a:before {
+    content: '◦ ';
+}
+#dw_toc .nav li ul li ul li a:before {
+    content: '⁃ ';
+}
+#dw_toc .nav-header .caret {
+    margin-top: 8px;
+    margin-left: 6px;
+    color: #999;
+}
+
+#mediamgr_aside {
+    display: block;
+    float: left;
+    width: 32%;
+}
+#mediamgr_content {
+    display: block;
+    float: right;
+    width: 66%;
+}
+#media_tree .nav a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 14px;
+}
+#media_tree .nav a {
+    padding: 1px 5px;
+}
+#media_tree .nav li ul li a {
+    padding: 1px 15px;
+}
+#media_tree .nav li ul li ul li a {
+    padding: 1px 25px;
+}
+label span {
+    margin-right: 3px;
+    position: relative;
+    bottom: 4px;
+}
+.upload, .maxsize {
+    color: #595959; /* simulate help-block for media manager */
+    font-size: .9em;
+}
+.check {
+    min-height: 20px;
+    padding-left: 20px;
+}
+label.check span {
+    bottom: 0px;
+}
+.check input[type="checkbox"] {
+  float: left;
+  margin-left: -20px;
+}
+
+.dokuwiki span.curid a {
+    color: #999999;
+    font-weight: normal;
+}
+
+img.media,
+img.img_detail{
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+       -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+#dokuwiki__detail div.img_detail h2 {
+    margin-top: 0;
+}
