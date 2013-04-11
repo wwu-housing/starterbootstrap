@@ -9,7 +9,8 @@ It aims to replace most of the default Dokuwiki styling with equivalents from av
 
 Created by [Cameron Little](http://camlittle.com) for [WWU ResTek](http://restek.wwu.edu).
 
-==== Features ====
+Features
+====
 
   * Insert table toolbar button.
   * Viewing, editing, and detail pages styled with bootstrap.
