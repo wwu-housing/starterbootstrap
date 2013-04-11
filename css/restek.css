@@ -29,7 +29,7 @@ h6 {
     font-size: 1em;
 }
 @media (min-width: 980px) {
-    .not-header {
+    #dokuwiki__top {
         margin-top: 60px;
     }
 }
@@ -407,14 +407,14 @@ div.picker button.toolbutton:focus {
     margin: 0;
 }
 
-#dw__toc ul.toc.nav.nav-list li { 
-    list-style-type: disc; 
-    list-style-position: inside; 
+#dw__toc ul.toc.nav.nav-list li {
+    list-style-type: disc;
+    list-style-position: inside;
 }
-#dw__toc ul.toc.nav.nav-listl ul li { 
-    list-style-type: circle; 
-    list-style-position: inside; 
-    margin-left: 15px; 
+#dw__toc ul.toc.nav.nav-listl ul li {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
 }
 
 #dokuwiki__aside p {
@@ -591,4 +591,17 @@ img.img_detail{
 }
 #dokuwiki__detail div.img_detail h2 {
     margin-top: 0;
+}
+
+div.notify {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    padding: 8px 35px 8px 33px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(188, 232, 241);;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }

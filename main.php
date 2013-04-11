@@ -45,10 +45,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <?php /* .dokuwiki should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
     <div id="dokuwiki__site" ><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
-        <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
-
     <a href="#dokuwiki__content" class="a11y"><?php echo $lang['skip_to_content'] ?></a></li>
-
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -110,6 +107,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </div>
 
     <div class="container-fluid not-header">
+
+        <div class="row-fluid">
+            <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
+        </div>
+
         <ul class="nav nav-tabs nav-stacked visible-phone">
             <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
         </ul>
