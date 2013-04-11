@@ -17,3 +17,8 @@ Features
   * Built in wiki structure (navigation) sidebar.
   * Supports dokuwiki sidebar page.
   * Collapsible table of contents.
+
+Installation
+====
+
+Install as you would a normal dokuwiki template, but if you want your Config page to be pretty, you'll need to do delete the `./lib/plugins/config/style.css` file and move the `core_files/admin.php` file into your `./lib/plugins/config/` directory.
