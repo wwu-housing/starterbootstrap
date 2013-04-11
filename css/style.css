@@ -33,9 +33,6 @@ h6 {
         margin-top: 60px;
     }
 }
-.page p:first-child {
-    display: none;
-}
 .dokuwiki a.urlextern {
     padding-left: 16px;
     background-size: 12px;
@@ -315,14 +312,14 @@ div.picker button.toolbutton:focus {
     background: #ccc;
 }
 .colorpicker-hue {
-    background-image: url(/wikitest/lib/tpl/starter-bootstrap/img/bootstrap-colorpicker/hue.png);
+    background-image: url(img/bootstrap-colorpicker/hue.png);
 }
 .colorpicker-saturation {
-    background-image: url(/wikitest/lib/tpl/starter-bootstrap/img/bootstrap-colorpicker/saturation.png);
+    background-image: url(img/bootstrap-colorpicker/saturation.png);
 }
 .colorpicker-color,
 .colorpicker-alpha {
-    background-image: url(/wikitest/lib/tpl/starter-bootstrap/img/bootstrap-colorpicker/alpha.png);
+    background-image: url(img/bootstrap-colorpicker/alpha.png);
 }
 .colorpicker.dropdown-menu button#colorpicker-btn {
     margin-top: 5px;
@@ -490,9 +487,6 @@ ul.nav-list {
 }
 
 #dw_toc {
-    margin-left: 20px;
-    top: 60px;
-    width: 200px;
 }
 #dw_toc .nav-header {
     cursor: pointer;

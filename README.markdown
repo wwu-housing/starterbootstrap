@@ -8,3 +8,11 @@ This template is designed to be responsive on all modern devices, accessable, an
 It aims to replace most of the default Dokuwiki styling with equivalents from available Bootstrap styles.
 
 Created by [Cameron Little](http://camlittle.com) for [WWU ResTek](http://restek.wwu.edu).
+
+==== Features ====
+
+  * Insert table toolbar button.
+  * Viewing, editing, and detail pages styled with bootstrap.
+  * Built in wiki structure (navigation) sidebar.
+  * Supports dokuwiki sidebar page.
+  * Collapsible table of contents.

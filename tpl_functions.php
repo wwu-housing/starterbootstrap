@@ -228,7 +228,7 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
     print '</form>';
     return true;
 }
- 
+
 /* table of contents */
 function _tpl_toc($return = false) {
     global $TOC;
@@ -508,8 +508,8 @@ function bootstrap_media_nstree_item($item){
     $pos   = strrpos($item['id'], ':');
     $label = substr($item['id'], $pos > 0 ? $pos + 1 : 0);
     if(!$item['label']) $item['label'] = $label;
-    
-    
+
+
     $class = 'level'.$item['level'];
     // TODO: only deliver an image if it actually has a subtree...
     if($item['open']){
@@ -522,7 +522,7 @@ function bootstrap_media_nstree_item($item){
         $alt   = '+';
     }
     $ret = '<li class="'.$class.'">';
-    
+
     if (!($INPUT->str('do') == 'media'))
     $ret .= '<a href="'.DOKU_BASE.'lib/exe/mediamanager.php?ns='.idfilter($item['id']).'" class="idx_dir">';
     else $ret .= '<a href="'.media_managerURL(array('ns' => idfilter($item['id'], false), 'tab_files' => 'files')).'>';

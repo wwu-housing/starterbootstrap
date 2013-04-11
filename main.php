@@ -31,7 +31,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
     <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/restek.css" rel="stylesheet">
+    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target="#dw_toc">
@@ -124,20 +124,24 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
          <div class="wrapper row-fluid"><!-- PAGE ACTIONS -->
 
             <!-- ********** ASIDE ********** -->
-            <?php if ($showSidebar): ?>
-                <div id="dokuwiki__aside" class="span3">
+            <?php if ($ACT == 'show'): ?>
+            <div id="dokuwiki__aside" class="span3">
+                <?php if ($showSidebar): ?>
+                <div class="sidebar-page">
                     <?php tpl_includeFile('sidebarheader.html') ?>
                     <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
                     <?php tpl_includeFile('sidebarfooter.html') ?>
-                    <?php include('sidebar.php'); ?>
-                </div><!-- /aside -->
+                </div>
+                <?php endif; ?>
+                <?php include('sidebar.php'); ?>
+            </div><!-- /aside -->
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($showSidebar): ?>span9<?php else : ?>span12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>span9<?php else: ?>span12<?php endif; ?>">
 
                 <?php if($conf['youarehere']){ ?>
-                    <div class="row-fluid">
+                    <div class="row-fluid youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
                     </div>
                 <?php } ?>
@@ -145,17 +149,16 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <?php tpl_flush() /* flush the output buffer */ ?>
                 <?php tpl_includeFile('pageheader.html') ?>
 
-                <div class="page row-fluid">
-                    <!-- wikipage start -->
-                    <?php _tpl_toc(); ?>
+                <?php _tpl_toc(); ?>
+                <div class="page">
+                <!-- wikipage start -->
                     <?php tpl_content(false) /* the main content */ ?>
-                    <!-- wikipage stop -->
+                <!-- wikipage stop -->
                 </div>
 
                 <?php tpl_includeFile('pagefooter.html') ?>
             </div><!-- /content -->
 
-            <hr class="a11y" />
         </div><!-- /wrapper -->
 
         <!-- ********** FOOTER ********** -->
