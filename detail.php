@@ -20,18 +20,18 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
         [<?php echo strip_tags($conf['title'])?>]
     </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-    
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/jquery-ui.js" type="text/javascript"></script>
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/bootstrap.js" type="text/javascript"></script>
+
+    <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
     <?php tpl_metaheaders() ?>
+    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
-    <link href="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/css/restek.css" rel="stylesheet">
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/script.js" type="text/javascript"></script>    
+    <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="<?php print DOKU_TPL; ?>css/restek.css" rel="stylesheet">
 </head>
 <body>
     <div id="dokuwiki__detail" class="dokuwiki container-fluid">
@@ -40,7 +40,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
         </div>
 
         <?php if($ERROR){ print '<div class="row-fluid">'.$ERROR.'</div>'; }else{ ?>
-        
+
             <div class="row-fluid">
                 <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></h1>
             </div>

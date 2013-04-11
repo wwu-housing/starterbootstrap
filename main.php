@@ -19,19 +19,19 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-    
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/jquery-ui.js" type="text/javascript"></script>
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/bootstrap.js" type="text/javascript"></script>
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+
+    <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>/js/bootstrap-colorpicker.js" type="text/javascript"></script>
     <?php tpl_metaheaders() ?>
+    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
-    <link href="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/css/restek.css" rel="stylesheet">
-    <script src="https://alvis.restek.wwu.edu/wikitest/lib/tpl/starter-bootstrap/js/script.js" type="text/javascript"></script>    
+    <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="<?php print DOKU_TPL; ?>css/restek.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target="#dw_toc">
@@ -46,25 +46,25 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <div id="dokuwiki__site" ><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
         <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
-    
+
     <a href="#dokuwiki__content" class="a11y"><?php echo $lang['skip_to_content'] ?></a></li>
 
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
                 <?php tpl_includeFile('header.html') ?>
-        
+
                 <!-- ********** HEADER ********** -->
-                
+
                 <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                
+
                 <?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="brand"') ?>
-                
+
                 <div class="nav-collapse collapse">
                     <ul class="nav pull-right">
                          <li class="divider-vertical"></li>
@@ -102,13 +102,13 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                            </ul>
                         </li>
                     </ul>
-                    
+
                     <?php _tpl_searchform() ?>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid not-header">
         <ul class="nav nav-tabs nav-stacked visible-phone">
             <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
@@ -133,7 +133,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content" class="<?php if ($showSidebar): ?>span9<?php else : ?>span12<?php endif; ?>">
-                
+
                 <?php if($conf['youarehere']){ ?>
                     <div class="row-fluid">
                         <?php bootstrap_tpl_youarehere() ?>
