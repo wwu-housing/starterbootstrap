@@ -209,7 +209,7 @@ input.button[disabled],
   display: inline-block;
   *display: inline;
   *margin-left: .3em;
-  font-size: 0;
+  font-size: 100%;
   white-space: nowrap;
   vertical-align: middle;
   *zoom: 1;
