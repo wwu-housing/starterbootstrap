@@ -129,7 +129,7 @@ if (window.toolbar != undefined) {
     };
 }
 /* toolbar button to add color to a table cell */
-function addBtnActionTableCellColorPick($btn, props, edid) {
+/*function addBtnActionTableCellColorPick($btn, props, edid) {
     console.log('testing');
     $btn.colorpicker();
     jQuery('.colorpicker.dropdown-menu').append('<button type="button" id="colorpicker-btn" class="btn btn-mini disabled">Insert</button><small class="muted colorpicker-help">With cursor at the beginning of a table body cell, choose a color and click insert to set its background.');
@@ -138,7 +138,7 @@ function addBtnActionTableCellColorPick($btn, props, edid) {
         $btn.colorpicker('hide');
         var colortext = "@" + window.thecolor + ":";
         insertAtCarret(edid, colortext);
-        /*
+       */ /*
         // insert the text into the page
         var txtarea = jQuery('#' + edid)[0];
         var selection = getSelection(txtarea);
@@ -162,7 +162,7 @@ function addBtnActionTableCellColorPick($btn, props, edid) {
             }
         }
         
-        pasteText(selection, newtext, opts);*/
+        pasteText(selection, newtext, opts);*//*
     }
     var insertbtn = jQuery('#colorpicker-btn');
     insertbtn.bind('click', insertColor);
@@ -184,4 +184,4 @@ if (window.toolbar != undefined) {
         'title' : 'Add color to a table cell',
         'icon'  : '../../tpl/starter-bootstrap/img/table.png'
     };
-}
+}*/
