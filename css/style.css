@@ -203,6 +203,17 @@ input.button[disabled],
             box-sizing: border-box;
 }
 
+#cke_wiki__text {
+    margin-bottom: 5px;
+}
+.editButtons #complex_tables,
+.editButtons #complex_tables_label {
+    display: none;
+}
+.editButtons {
+    display: block;
+    margin-bottom: 5px;
+}
 .editButtons,
 #tool__bar {
   position: relative;
@@ -221,6 +232,7 @@ input.button[disabled],
 .editButtons > input.button,
 #tool__bar > button.toolbutton {
   position: relative;
+  float: left;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
@@ -244,7 +256,6 @@ input.button[disabled],
   -webkit-border-top-left-radius: 4px;
           border-top-left-radius: 4px;
   -moz-border-radius-bottomleft: 4px;
-                </ul>
   -moz-border-radius-topleft: 4px;
 }
 .editButtons > input.button:last-child,
@@ -267,7 +278,8 @@ input.button[disabled],
 #tool__bar > button.toolbutton.active {
   z-index: 2;
 }
-#edbtn__save {
+#edbtn__save,
+.editButtons input.button[value="Save"] {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #006dcc;
@@ -288,13 +300,21 @@ input.button[disabled],
 #edbtn__save:active,
 #edbtn__save.active,
 #edbtn__save.disabled,
-#edbtn__save[disabled] {
+#edbtn__save[disabled],
+.editButtons input.button[value="Save"]:hover,
+.editButtons input.button[value="Save"]:focus,
+.editButtons input.button[value="Save"]:active,
+.editButtons input.button[value="Save"].active,
+.editButtons input.button[value="Save"].disabled,
+.editButtons input.button[value="Save"][disabled] {
   color: #ffffff;
   background-color: #0044cc;
   *background-color: #003bb3;
 }
 #edbtn__save:active,
-#edbtn__save.active {
+#edbtn__save.active,
+.editButtons input.button[value="Save"]:active,
+.editButtons input.button[value="Save"].active {
   background-color: #003399 \9;
 }
 div.picker button.pickerbutton,
