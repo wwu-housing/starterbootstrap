@@ -15,7 +15,7 @@ Features
   * Insert table toolbar button.
   * Viewing, editing, and detail pages styled with bootstrap.
   * Built in wiki structure (navigation) sidebar.
-  * Supports dokuwiki sidebar page.
+  * Supports collapsible dokuwiki sidebar menu.
   * Collapsible table of contents.
 
 Installation
