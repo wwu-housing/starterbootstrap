@@ -1,11 +1,22 @@
-window.onload = function() {
+function init() {
 
     jQuery('.ui-dialog-titlebar-close').click(function() {
         jQuery('.ui-dialog').hide();
     });
 
-    jQuery('abbr').tooltip({
+    /*jQuery('abbr').tooltip({
         delay: { open: 500, close: 100 }
+    });*/
+
+    jQuery('.sidebar-page ul .li').each(function() {
+        var $that = jQuery(this);
+        if ($that.parent().find('ul').length > 0) {
+            $that.append('<i class="icon-chevron-down pull-right"></i>');
+        }
+    });
+
+    jQuery('.sidebar-page ul .li').click(function() {
+        jQuery(this).parent().find('ul').first().slideToggle(300);
     });
 
 }
@@ -144,7 +155,7 @@ if (window.toolbar != undefined) {
         var selection = getSelection(txtarea);
         var text = selection.getText();
         var newtext = "";
-        
+
         if (!text) {
             // nothing selected
             alert("No table cell detected, please highlight the cell(s) you wish to apply a background to.");
@@ -154,19 +165,19 @@ if (window.toolbar != undefined) {
                 nosel: true
             };
         }
-        
+
         for (var i = 1; i < text.length; i++) {
             newtext.concat(text[i]);
             if (text[i] == '|') {
                 newtext.concat(colortext);
             }
         }
-        
+
         pasteText(selection, newtext, opts);*//*
     }
     var insertbtn = jQuery('#colorpicker-btn');
     insertbtn.bind('click', insertColor);
-    
+
     // set up what happens when the button is clicked
     $btn.click(function() {
         $btn.on('changeColor', function(e) {

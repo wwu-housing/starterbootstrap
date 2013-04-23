@@ -34,7 +34,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target="#dw_toc">
+<body data-spy="scroll" data-target="#dw_toc" onLoad="init()">
     <?php /* with these Conditional Comments you can better address IE issues in CSS files,
              precede CSS rules by #IE6 for IE6, #IE7 for IE7 and #IE8 for IE8 (div closes at the bottom) */ ?>
     <!--[if IE 6 ]><div id="IE6"><![endif]--><!--[if IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
@@ -133,7 +133,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                     <?php tpl_includeFile('sidebarfooter.html') ?>
                 </div>
                 <?php endif; ?>
-                <?php include('sidebar.php'); ?>
+                <?php //include('sidebar.php'); ?>
             </div><!-- /aside -->
             <?php endif; ?>
 
