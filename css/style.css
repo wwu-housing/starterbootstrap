@@ -141,7 +141,7 @@ h6 {
     margin-right: 4px;
     margin-left: 6px;
 }
-.sidebar-page ul ul > li.level4 > .li:before {
+.sidebar-page ul ul > li.level4 > .li:before {="" 
     content: "\2023";
     display: inline-block;
     margin-right: 4px;
@@ -720,4 +720,59 @@ div.notify {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+}
+
+
+.page table {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-collapse: separate;
+    border-left: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    display: table;
+    margin-bottom: 20px;
+}
+.page table thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-spacing: 0;
+}
+.page table tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.page table thead:first-child,
+.page table th:first-child,
+.page table tr:first-child {
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top: 0;
+}
+.page table th {
+    border-left: 1px solid #dddddd;
+    font-weight: bold;
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+}
+.page tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.page td {
+    border-left: 1px solid #dddddd;
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
 }
