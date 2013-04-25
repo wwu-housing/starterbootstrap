@@ -23,13 +23,13 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
-    <script src="<?php print DOKU_TPL; ?>/js/bootstrap-colorpicker.js" type="text/javascript"></script>
     <?php tpl_metaheaders() ?>
     <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
+    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
 </head>
@@ -116,7 +116,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
         </ul>
 
-        <div class="row-fluid">
+        <div class="row-fluid" id="breadcrumbs">
             <!-- BREADCRUMBS -->
             <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
         </div>

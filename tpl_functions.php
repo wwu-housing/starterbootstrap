@@ -392,7 +392,7 @@ function bootstrap_tpl_youarehere($sep = '&#187;') {
     // check if enabled
     if (!$conf['youarehere']) return false;
 
-    $sep = '<span class="">&nbsp;' . $sep . '&nbsp;</span>';
+    $sep = '<span class="separator">&nbsp;' . $sep . '&nbsp;</span>';
     $parts = explode(':', $ID);
     $count = count($parts);
 

@@ -17,10 +17,46 @@ video,
 #dokuwiki__aside,
 .dokuwiki .breadcrumbs,
 .dokuwiki .toc,
-#dw__toc,
-#dokuwiki__pagetools,
-#dokuwiki__footer {
+#dw__toc, #dw_toc,
+#dokuwiki__pagetools, #dokuwiki_pagetools,
+#dokuwiki__footer, #dokuwiki_footer,
+#breadcrumbs,
+.skip-to-content {
     display: none;
+}
+
+* {
+    border: none;
+    border-bottom: none;
+}
+.navbar.navbar-fixed-top {
+    position: static;
+}
+.navbar .navbar-inner {
+    -webkit-box-shadow:none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:none;
+    min-height: auto;
+    height: auto;
+    background-color: #fff;
+    background-image: none;
+    filter: none;
+
+}
+.navbar .container-fluid * {
+    display: none;
+}
+.navbar a.brand {
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 150%;
+    color: #000;
+    margin-bottom: -30px;
 }
 
 h1,
@@ -31,9 +67,13 @@ h5,
 caption,
 legend {
     clear: both;
+    margin: 10px 0 10px;
+}
+p, table, pre, ul, ol {
+    margin: 0 0 10px;
 }
 
-ul {
+/*ul {
     list-style: disc outside;
 }
 ol {
@@ -50,7 +90,7 @@ ol ol ol ol {
 }
 ol ol ol ol ol {
     list-style-type: lower-roman;
-}
+}*/
 
 /* undo icons */
 a:link,
@@ -64,11 +104,14 @@ a:visited {
 }
 
 /* display href after link */
-a.urlextern:after,
-a.interwiki:after,
-a.mail:after {
+a:after {
    content: " [" attr(href) "]";
    font-size: 90%;
+}
+a.brand:after,
+a.btn:after {
+    display: none;
+    content: "";
 }
 
 /* code blocks */
@@ -113,7 +156,7 @@ blockquote {
 }
 
 /* tables */
-table {
+/*table {
     border-collapse: collapse;
     empty-cells: show;
     border-spacing: 0;
@@ -133,11 +176,37 @@ td {
 }
 th {
     font-weight: bold;
-}
+}*/
 
+.youarehere .breadcrumb.well {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: none;
+}
+.youarehere .home {
+    display: none;
+}
+.youarehere .home a:after {
+    display: none;
+    content: "";
+}
+.youarehere .separator {
+    display: none;
+}
+.youarehere li {
+    display: none;
+    list-style: none;
+}
+.youarehere li:last-child {
+    display: inline;
+}
 
 /*____________ a bit of layout ____________*/
 
+#dokuwiki__top {
+    margin-top: 0px !important;
+}
 #dokuwiki__header {
     border-bottom: 2pt solid #ccc;
 }
@@ -152,6 +221,10 @@ th {
     border-top: 1pt solid #000;
     margin-top: 10pt;
 }
+#dokuwiki__content {
+    width: 100%;
+    margin-left: 0px;
+}
 
 
 /*____________ @deprecated ____________*/
@@ -164,6 +237,25 @@ div.success,
 div.error,
 .dokuwiki .secedit {
     display: none;
+}
+
+.visible-phone .skip-to-content {
+    display: none !important;
+}
+.visible-phone {
+    margin: 0;
+    padding: 0;
+}
+.visible-phone li {
+    margin:0;
+    padding:0;
+}
+.navbar .btn.btn-navbar {
+    display: none;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 /* align table cells */
