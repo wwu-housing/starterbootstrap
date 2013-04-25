@@ -325,6 +325,7 @@ input.button[disabled],
   font-size: 100%;
   white-space: nowrap;
   vertical-align: middle;
+  max-width: 100%;
   *zoom: 1;
 }
 .editButtons:first-child,
@@ -339,6 +340,7 @@ input.button[disabled],
      -moz-border-radius: 0;
           border-radius: 0;
 }
+
 
 .editButtons > input.button + input.button,
 #tool__bar > button.toolbutton + button.toolbutton {
@@ -499,7 +501,7 @@ div.picker button.toolbutton:focus {
 #dokuwiki__pagetools {
     background: #eee;
     position: fixed;
-    bottom: 20px;
+    bottom: 20px;border
     right: 20px;
 }
 #dokuwiki__pagetools ul {
@@ -511,7 +513,7 @@ div.picker button.toolbutton:focus {
 }
 
 #config__manager fieldset {
-    width: 100%;
+    width: 100%;border
 }
 #config__manager fieldset#_basic {
     width: auto;
@@ -544,7 +546,7 @@ ul.nav-list {
 }
 .nav-list ul {
     padding: 0;
-}
+}border
 .nav-list>li>a, .nav-list .nav-header {
     margin: 0;
 }
@@ -571,7 +573,7 @@ ul.nav-list {
 }
 .nav-list div .active a,
 .nav-list div .active a:hover,
-.nav-list div .active a:focus {
+.nav-list div .active a:focus {border
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
     background-color: #0088cc;
@@ -589,7 +591,7 @@ ul.nav-list {
     margin: 9px 16px;
 }
 .nav-list .three-links {
-    margin: 0 15px;
+    margin: 0 15px;border
 }
 .nav-list .three-links a {
     display: inline;
@@ -682,7 +684,7 @@ label span {
 label.check span {
     bottom: 0px;
 }
-.check input[type="checkbox"] {
+.check input[type="checkbox"] {border
   float: left;
   margin-left: -20px;
 }
@@ -761,7 +763,7 @@ div.notify {
     font-weight: bold;
     padding: 8px;
     line-height: 20px;
-    text-align: left;
+    text-align: left;border
 }
 .page tbody {
     display: table-row-group;
