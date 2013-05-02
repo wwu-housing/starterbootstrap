@@ -312,9 +312,9 @@ input.button[disabled],
 .editButtons #complex_tables_label {
     display: none;
 }
-.editButtons {
+.dokuwiki #wiki__editbar .editButtons {
     display: block;
-    margin-bottom: 5px;
+    height: 35px;
 }
 .editButtons,
 #tool__bar {
