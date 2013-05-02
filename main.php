@@ -17,7 +17,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 <head>
     <meta charset="UTF-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+    <title>
+        <?php tpl_pagetitle() ?>
+        [<?php echo strip_tags($conf['title'])?>]
+    </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
     <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>

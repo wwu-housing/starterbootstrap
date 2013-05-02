@@ -30,8 +30,9 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
+    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/restek.css" rel="stylesheet">
+    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
 </head>
 <body>
     <div id="dokuwiki__detail" class="dokuwiki container-fluid">

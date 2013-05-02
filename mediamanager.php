@@ -25,13 +25,14 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
     <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
     <?php tpl_metaheaders() ?>
+    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
+    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/restek.css" rel="stylesheet">
-    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
+    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
 </head>
 
 <body>
