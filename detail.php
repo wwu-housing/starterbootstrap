@@ -21,10 +21,10 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
     </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
+    <?php tpl_metaheaders() ?>
     <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
-    <?php tpl_metaheaders() ?>
     <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
