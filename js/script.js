@@ -4,10 +4,6 @@ function init() {
         jQuery('.ui-dialog').hide();
     });
 
-    /*jQuery('abbr').tooltip({
-        delay: { open: 500, close: 100 }
-    });*/
-
     jQuery('.sidebar-page ul .li').each(function() {
         var $that = jQuery(this);
         if ($that.parent().find('ul').length > 0) {
@@ -17,6 +13,10 @@ function init() {
 
     jQuery('.sidebar-page ul .li').click(function() {
         jQuery(this).parent().find('ul').first().slideToggle(300);
+    });
+
+    jQuery('abbr').tooltip({
+        delay: { open: 500, close: 100 }
     });
 
 }
