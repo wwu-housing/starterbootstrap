@@ -119,10 +119,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
         </ul>
 
-        <div class="row-fluid" id="breadcrumbs">
-            <!-- BREADCRUMBS -->
-            <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
-        </div>
+        <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
          <div class="wrapper row-fluid"><!-- PAGE ACTIONS -->
 
@@ -183,5 +180,12 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <!--[if ( IE 6 | IE 7 | IE 8 ) ]></div><![endif]-->
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        var _gaq=[['_setAccount','<?php echo tpl_getConf('google_analytics'); ?>'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 </body>
 </html>

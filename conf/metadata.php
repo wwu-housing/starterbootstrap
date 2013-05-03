@@ -9,3 +9,4 @@ $meta['userPage']         = array('string');
 $meta['hideTools']        = array('onoff');
 $meta['tagline']          = array('string');
 $meta['sidebarID']        = array('string');
+$meta['google_analytics'] = array('string');
