@@ -18,7 +18,7 @@
  * ========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -26,9 +26,9 @@
   /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
    * ======================================================= */
 
-  $(function () {
+  jQuery(function () {
 
-    $.support.transition = (function () {
+    jQuery.support.transition = (function () {
 
       var transitionEnd = (function () {
 
@@ -77,7 +77,7 @@
  * ========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -87,39 +87,39 @@
 
   var dismiss = '[data-dismiss="alert"]'
     , Alert = function (el) {
-        $(el).on('click', dismiss, this.close)
+        jQuery(el).on('click', dismiss, this.close)
       }
 
   Alert.prototype.close = function (e) {
-    var $this = $(this)
-      , selector = $this.attr('data-target')
-      , $parent
+    var jQuerythis = jQuery(this)
+      , selector = jQuerythis.attr('data-target')
+      , jQueryparent
 
     if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = jQuerythis.attr('href')
+      selector = selector && selector.replace(/.*(?=#[^\s]*jQuery)/, '') //strip for ie7
     }
 
-    $parent = $(selector)
+    jQueryparent = jQuery(selector)
 
     e && e.preventDefault()
 
-    $parent.length || ($parent = $this.hasClass('alert') ? $this : $this.parent())
+    jQueryparent.length || (jQueryparent = jQuerythis.hasClass('alert') ? jQuerythis : jQuerythis.parent())
 
-    $parent.trigger(e = $.Event('close'))
+    jQueryparent.trigger(e = jQuery.Event('close'))
 
     if (e.isDefaultPrevented()) return
 
-    $parent.removeClass('in')
+    jQueryparent.removeClass('in')
 
     function removeElement() {
-      $parent
+      jQueryparent
         .trigger('closed')
         .remove()
     }
 
-    $.support.transition && $parent.hasClass('fade') ?
-      $parent.on($.support.transition.end, removeElement) :
+    jQuery.support.transition && jQueryparent.hasClass('fade') ?
+      jQueryparent.on(jQuery.support.transition.end, removeElement) :
       removeElement()
   }
 
@@ -127,25 +127,25 @@
  /* ALERT PLUGIN DEFINITION
   * ======================= */
 
-  var old = $.fn.alert
+  var old = jQuery.fn.alert
 
-  $.fn.alert = function (option) {
+  jQuery.fn.alert = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('alert')
-      if (!data) $this.data('alert', (data = new Alert(this)))
-      if (typeof option == 'string') data[option].call($this)
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('alert')
+      if (!data) jQuerythis.data('alert', (data = new Alert(this)))
+      if (typeof option == 'string') data[option].call(jQuerythis)
     })
   }
 
-  $.fn.alert.Constructor = Alert
+  jQuery.fn.alert.Constructor = Alert
 
 
  /* ALERT NO CONFLICT
   * ================= */
 
-  $.fn.alert.noConflict = function () {
-    $.fn.alert = old
+  jQuery.fn.alert.noConflict = function () {
+    jQuery.fn.alert = old
     return this
   }
 
@@ -153,7 +153,7 @@
  /* ALERT DATA-API
   * ============== */
 
-  $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
+  jQuery(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
 
 }(window.jQuery);/* ============================================================
  * bootstrap-button.js v2.3.1
@@ -175,7 +175,7 @@
  * ============================================================ */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -184,68 +184,68 @@
   * ============================== */
 
   var Button = function (element, options) {
-    this.$element = $(element)
-    this.options = $.extend({}, $.fn.button.defaults, options)
+    this.jQueryelement = jQuery(element)
+    this.options = jQuery.extend({}, jQuery.fn.button.defaults, options)
   }
 
   Button.prototype.setState = function (state) {
     var d = 'disabled'
-      , $el = this.$element
-      , data = $el.data()
-      , val = $el.is('input') ? 'val' : 'html'
+      , jQueryel = this.jQueryelement
+      , data = jQueryel.data()
+      , val = jQueryel.is('input') ? 'val' : 'html'
 
     state = state + 'Text'
-    data.resetText || $el.data('resetText', $el[val]())
+    data.resetText || jQueryel.data('resetText', jQueryel[val]())
 
-    $el[val](data[state] || this.options[state])
+    jQueryel[val](data[state] || this.options[state])
 
     // push to event loop to allow forms to submit
     setTimeout(function () {
       state == 'loadingText' ?
-        $el.addClass(d).attr(d, d) :
-        $el.removeClass(d).removeAttr(d)
+        jQueryel.addClass(d).attr(d, d) :
+        jQueryel.removeClass(d).removeAttr(d)
     }, 0)
   }
 
   Button.prototype.toggle = function () {
-    var $parent = this.$element.closest('[data-toggle="buttons-radio"]')
+    var jQueryparent = this.jQueryelement.closest('[data-toggle="buttons-radio"]')
 
-    $parent && $parent
+    jQueryparent && jQueryparent
       .find('.active')
       .removeClass('active')
 
-    this.$element.toggleClass('active')
+    this.jQueryelement.toggleClass('active')
   }
 
 
  /* BUTTON PLUGIN DEFINITION
   * ======================== */
 
-  var old = $.fn.button
+  var old = jQuery.fn.button
 
-  $.fn.button = function (option) {
+  jQuery.fn.button = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('button')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('button')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('button', (data = new Button(this, options)))
+      if (!data) jQuerythis.data('button', (data = new Button(this, options)))
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
     })
   }
 
-  $.fn.button.defaults = {
+  jQuery.fn.button.defaults = {
     loadingText: 'loading...'
   }
 
-  $.fn.button.Constructor = Button
+  jQuery.fn.button.Constructor = Button
 
 
  /* BUTTON NO CONFLICT
   * ================== */
 
-  $.fn.button.noConflict = function () {
-    $.fn.button = old
+  jQuery.fn.button.noConflict = function () {
+    jQuery.fn.button = old
     return this
   }
 
@@ -253,10 +253,10 @@
  /* BUTTON DATA-API
   * =============== */
 
-  $(document).on('click.button.data-api', '[data-toggle^=button]', function (e) {
-    var $btn = $(e.target)
-    if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
-    $btn.button('toggle')
+  jQuery(document).on('click.button.data-api', '[data-toggle^=button]', function (e) {
+    var jQuerybtn = jQuery(e.target)
+    if (!jQuerybtn.hasClass('btn')) jQuerybtn = jQuerybtn.closest('.btn')
+    jQuerybtn.button('toggle')
   })
 
 }(window.jQuery);/* ==========================================================
@@ -279,7 +279,7 @@
  * ========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -288,12 +288,12 @@
   * ========================= */
 
   var Carousel = function (element, options) {
-    this.$element = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
+    this.jQueryelement = jQuery(element)
+    this.jQueryindicators = this.jQueryelement.find('.carousel-indicators')
     this.options = options
-    this.options.pause == 'hover' && this.$element
-      .on('mouseenter', $.proxy(this.pause, this))
-      .on('mouseleave', $.proxy(this.cycle, this))
+    this.options.pause == 'hover' && this.jQueryelement
+      .on('mouseenter', jQuery.proxy(this.pause, this))
+      .on('mouseleave', jQuery.proxy(this.cycle, this))
   }
 
   Carousel.prototype = {
@@ -303,24 +303,24 @@
       if (this.interval) clearInterval(this.interval);
       this.options.interval
         && !this.paused
-        && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+        && (this.interval = setInterval(jQuery.proxy(this.next, this), this.options.interval))
       return this
     }
 
   , getActiveIndex: function () {
-      this.$active = this.$element.find('.item.active')
-      this.$items = this.$active.parent().children()
-      return this.$items.index(this.$active)
+      this.jQueryactive = this.jQueryelement.find('.item.active')
+      this.jQueryitems = this.jQueryactive.parent().children()
+      return this.jQueryitems.index(this.jQueryactive)
     }
 
   , to: function (pos) {
       var activeIndex = this.getActiveIndex()
         , that = this
 
-      if (pos > (this.$items.length - 1) || pos < 0) return
+      if (pos > (this.jQueryitems.length - 1) || pos < 0) return
 
       if (this.sliding) {
-        return this.$element.one('slid', function () {
+        return this.jQueryelement.one('slid', function () {
           that.to(pos)
         })
       }
@@ -329,13 +329,13 @@
         return this.pause().cycle()
       }
 
-      return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
+      return this.slide(pos > activeIndex ? 'next' : 'prev', jQuery(this.jQueryitems[pos]))
     }
 
   , pause: function (e) {
       if (!e) this.paused = true
-      if (this.$element.find('.next, .prev').length && $.support.transition.end) {
-        this.$element.trigger($.support.transition.end)
+      if (this.jQueryelement.find('.next, .prev').length && jQuery.support.transition.end) {
+        this.jQueryelement.trigger(jQuery.support.transition.end)
         this.cycle(true)
       }
       clearInterval(this.interval)
@@ -354,8 +354,8 @@
     }
 
   , slide: function (type, next) {
-      var $active = this.$element.find('.item.active')
-        , $next = next || $active[type]()
+      var jQueryactive = this.jQueryelement.find('.item.active')
+        , jQuerynext = next || jQueryactive[type]()
         , isCycling = this.interval
         , direction = type == 'next' ? 'left' : 'right'
         , fallback  = type == 'next' ? 'first' : 'last'
@@ -366,43 +366,43 @@
 
       isCycling && this.pause()
 
-      $next = $next.length ? $next : this.$element.find('.item')[fallback]()
+      jQuerynext = jQuerynext.length ? jQuerynext : this.jQueryelement.find('.item')[fallback]()
 
-      e = $.Event('slide', {
-        relatedTarget: $next[0]
+      e = jQuery.Event('slide', {
+        relatedTarget: jQuerynext[0]
       , direction: direction
       })
 
-      if ($next.hasClass('active')) return
+      if (jQuerynext.hasClass('active')) return
 
-      if (this.$indicators.length) {
-        this.$indicators.find('.active').removeClass('active')
-        this.$element.one('slid', function () {
-          var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
-          $nextIndicator && $nextIndicator.addClass('active')
+      if (this.jQueryindicators.length) {
+        this.jQueryindicators.find('.active').removeClass('active')
+        this.jQueryelement.one('slid', function () {
+          var jQuerynextIndicator = jQuery(that.jQueryindicators.children()[that.getActiveIndex()])
+          jQuerynextIndicator && jQuerynextIndicator.addClass('active')
         })
       }
 
-      if ($.support.transition && this.$element.hasClass('slide')) {
-        this.$element.trigger(e)
+      if (jQuery.support.transition && this.jQueryelement.hasClass('slide')) {
+        this.jQueryelement.trigger(e)
         if (e.isDefaultPrevented()) return
-        $next.addClass(type)
-        $next[0].offsetWidth // force reflow
-        $active.addClass(direction)
-        $next.addClass(direction)
-        this.$element.one($.support.transition.end, function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
+        jQuerynext.addClass(type)
+        jQuerynext[0].offsetWidth // force reflow
+        jQueryactive.addClass(direction)
+        jQuerynext.addClass(direction)
+        this.jQueryelement.one(jQuery.support.transition.end, function () {
+          jQuerynext.removeClass([type, direction].join(' ')).addClass('active')
+          jQueryactive.removeClass(['active', direction].join(' '))
           that.sliding = false
-          setTimeout(function () { that.$element.trigger('slid') }, 0)
+          setTimeout(function () { that.jQueryelement.trigger('slid') }, 0)
         })
       } else {
-        this.$element.trigger(e)
+        this.jQueryelement.trigger(e)
         if (e.isDefaultPrevented()) return
-        $active.removeClass('active')
-        $next.addClass('active')
+        jQueryactive.removeClass('active')
+        jQuerynext.addClass('active')
         this.sliding = false
-        this.$element.trigger('slid')
+        this.jQueryelement.trigger('slid')
       }
 
       isCycling && this.cycle()
@@ -416,50 +416,50 @@
  /* CAROUSEL PLUGIN DEFINITION
   * ========================== */
 
-  var old = $.fn.carousel
+  var old = jQuery.fn.carousel
 
-  $.fn.carousel = function (option) {
+  jQuery.fn.carousel = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('carousel')
-        , options = $.extend({}, $.fn.carousel.defaults, typeof option == 'object' && option)
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('carousel')
+        , options = jQuery.extend({}, jQuery.fn.carousel.defaults, typeof option == 'object' && option)
         , action = typeof option == 'string' ? option : options.slide
-      if (!data) $this.data('carousel', (data = new Carousel(this, options)))
+      if (!data) jQuerythis.data('carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
       else if (options.interval) data.pause().cycle()
     })
   }
 
-  $.fn.carousel.defaults = {
+  jQuery.fn.carousel.defaults = {
     interval: 5000
   , pause: 'hover'
   }
 
-  $.fn.carousel.Constructor = Carousel
+  jQuery.fn.carousel.Constructor = Carousel
 
 
  /* CAROUSEL NO CONFLICT
   * ==================== */
 
-  $.fn.carousel.noConflict = function () {
-    $.fn.carousel = old
+  jQuery.fn.carousel.noConflict = function () {
+    jQuery.fn.carousel = old
     return this
   }
 
  /* CAROUSEL DATA-API
   * ================= */
 
-  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
-    var $this = $(this), href
-      , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-      , options = $.extend({}, $target.data(), $this.data())
+  jQuery(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+    var jQuerythis = jQuery(this), href
+      , jQuerytarget = jQuery(jQuerythis.attr('data-target') || (href = jQuerythis.attr('href')) && href.replace(/.*(?=#[^\s]+jQuery)/, '')) //strip for ie7
+      , options = jQuery.extend({}, jQuerytarget.data(), jQuerythis.data())
       , slideIndex
 
-    $target.carousel(options)
+    jQuerytarget.carousel(options)
 
-    if (slideIndex = $this.attr('data-slide-to')) {
-      $target.data('carousel').pause().to(slideIndex).cycle()
+    if (slideIndex = jQuerythis.attr('data-slide-to')) {
+      jQuerytarget.data('carousel').pause().to(slideIndex).cycle()
     }
 
     e.preventDefault()
@@ -485,7 +485,7 @@
  * ============================================================ */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -494,11 +494,11 @@
   * ================================ */
 
   var Collapse = function (element, options) {
-    this.$element = $(element)
-    this.options = $.extend({}, $.fn.collapse.defaults, options)
+    this.jQueryelement = jQuery(element)
+    this.options = jQuery.extend({}, jQuery.fn.collapse.defaults, options)
 
     if (this.options.parent) {
-      this.$parent = $(this.options.parent)
+      this.jQueryparent = jQuery(this.options.parent)
     }
 
     this.options.toggle && this.toggle()
@@ -509,7 +509,7 @@
     constructor: Collapse
 
   , dimension: function () {
-      var hasWidth = this.$element.hasClass('width')
+      var hasWidth = this.jQueryelement.hasClass('width')
       return hasWidth ? 'width' : 'height'
     }
 
@@ -519,11 +519,11 @@
         , actives
         , hasData
 
-      if (this.transitioning || this.$element.hasClass('in')) return
+      if (this.transitioning || this.jQueryelement.hasClass('in')) return
 
       dimension = this.dimension()
-      scroll = $.camelCase(['scroll', dimension].join('-'))
-      actives = this.$parent && this.$parent.find('> .accordion-group > .in')
+      scroll = jQuery.camelCase(['scroll', dimension].join('-'))
+      actives = this.jQueryparent && this.jQueryparent.find('> .accordion-group > .in')
 
       if (actives && actives.length) {
         hasData = actives.data('collapse')
@@ -532,29 +532,29 @@
         hasData || actives.data('collapse', null)
       }
 
-      this.$element[dimension](0)
-      this.transition('addClass', $.Event('show'), 'shown')
-      $.support.transition && this.$element[dimension](this.$element[0][scroll])
+      this.jQueryelement[dimension](0)
+      this.transition('addClass', jQuery.Event('show'), 'shown')
+      jQuery.support.transition && this.jQueryelement[dimension](this.jQueryelement[0][scroll])
     }
 
   , hide: function () {
       var dimension
-      if (this.transitioning || !this.$element.hasClass('in')) return
+      if (this.transitioning || !this.jQueryelement.hasClass('in')) return
       dimension = this.dimension()
-      this.reset(this.$element[dimension]())
-      this.transition('removeClass', $.Event('hide'), 'hidden')
-      this.$element[dimension](0)
+      this.reset(this.jQueryelement[dimension]())
+      this.transition('removeClass', jQuery.Event('hide'), 'hidden')
+      this.jQueryelement[dimension](0)
     }
 
   , reset: function (size) {
       var dimension = this.dimension()
 
-      this.$element
+      this.jQueryelement
         .removeClass('collapse')
         [dimension](size || 'auto')
         [0].offsetWidth
 
-      this.$element[size !== null ? 'addClass' : 'removeClass']('collapse')
+      this.jQueryelement[size !== null ? 'addClass' : 'removeClass']('collapse')
 
       return this
     }
@@ -564,24 +564,24 @@
         , complete = function () {
             if (startEvent.type == 'show') that.reset()
             that.transitioning = 0
-            that.$element.trigger(completeEvent)
+            that.jQueryelement.trigger(completeEvent)
           }
 
-      this.$element.trigger(startEvent)
+      this.jQueryelement.trigger(startEvent)
 
       if (startEvent.isDefaultPrevented()) return
 
       this.transitioning = 1
 
-      this.$element[method]('in')
+      this.jQueryelement[method]('in')
 
-      $.support.transition && this.$element.hasClass('collapse') ?
-        this.$element.one($.support.transition.end, complete) :
+      jQuery.support.transition && this.jQueryelement.hasClass('collapse') ?
+        this.jQueryelement.one(jQuery.support.transition.end, complete) :
         complete()
     }
 
   , toggle: function () {
-      this[this.$element.hasClass('in') ? 'hide' : 'show']()
+      this[this.jQueryelement.hasClass('in') ? 'hide' : 'show']()
     }
 
   }
@@ -590,30 +590,30 @@
  /* COLLAPSE PLUGIN DEFINITION
   * ========================== */
 
-  var old = $.fn.collapse
+  var old = jQuery.fn.collapse
 
-  $.fn.collapse = function (option) {
+  jQuery.fn.collapse = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('collapse')
-        , options = $.extend({}, $.fn.collapse.defaults, $this.data(), typeof option == 'object' && option)
-      if (!data) $this.data('collapse', (data = new Collapse(this, options)))
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('collapse')
+        , options = jQuery.extend({}, jQuery.fn.collapse.defaults, jQuerythis.data(), typeof option == 'object' && option)
+      if (!data) jQuerythis.data('collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.collapse.defaults = {
+  jQuery.fn.collapse.defaults = {
     toggle: true
   }
 
-  $.fn.collapse.Constructor = Collapse
+  jQuery.fn.collapse.Constructor = Collapse
 
 
  /* COLLAPSE NO CONFLICT
   * ==================== */
 
-  $.fn.collapse.noConflict = function () {
-    $.fn.collapse = old
+  jQuery.fn.collapse.noConflict = function () {
+    jQuery.fn.collapse = old
     return this
   }
 
@@ -621,14 +621,14 @@
  /* COLLAPSE DATA-API
   * ================= */
 
-  $(document).on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {
-    var $this = $(this), href
-      , target = $this.attr('data-target')
+  jQuery(document).on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {
+    var jQuerythis = jQuery(this), href
+      , target = jQuerythis.attr('data-target')
         || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-      , option = $(target).data('collapse') ? 'toggle' : $this.data()
-    $this[$(target).hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
-    $(target).collapse(option)
+        || (href = jQuerythis.attr('href')) && href.replace(/.*(?=#[^\s]+jQuery)/, '') //strip for ie7
+      , option = jQuery(target).data('collapse') ? 'toggle' : jQuerythis.data()
+    jQuerythis[jQuery(target).hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+    jQuery(target).collapse(option)
   })
 
 }(window.jQuery);/* ============================================================
@@ -651,7 +651,7 @@
  * ============================================================ */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -661,9 +661,9 @@
 
   var toggle = '[data-toggle=dropdown]'
     , Dropdown = function (element) {
-        var $el = $(element).on('click.dropdown.data-api', this.toggle)
-        $('html').on('click.dropdown.data-api', function () {
-          $el.parent().removeClass('open')
+        var jQueryel = jQuery(element).on('click.dropdown.data-api', this.toggle)
+        jQuery('html').on('click.dropdown.data-api', function () {
+          jQueryel.parent().removeClass('open')
         })
       }
 
@@ -672,64 +672,64 @@
     constructor: Dropdown
 
   , toggle: function (e) {
-      var $this = $(this)
-        , $parent
+      var jQuerythis = jQuery(this)
+        , jQueryparent
         , isActive
 
-      if ($this.is('.disabled, :disabled')) return
+      if (jQuerythis.is('.disabled, :disabled')) return
 
-      $parent = getParent($this)
+      jQueryparent = getParent(jQuerythis)
 
-      isActive = $parent.hasClass('open')
+      isActive = jQueryparent.hasClass('open')
 
       clearMenus()
 
       if (!isActive) {
-        $parent.toggleClass('open')
+        jQueryparent.toggleClass('open')
       }
 
-      $this.focus()
+      jQuerythis.focus()
 
       return false
     }
 
   , keydown: function (e) {
-      var $this
-        , $items
-        , $active
-        , $parent
+      var jQuerythis
+        , jQueryitems
+        , jQueryactive
+        , jQueryparent
         , isActive
         , index
 
       if (!/(38|40|27)/.test(e.keyCode)) return
 
-      $this = $(this)
+      jQuerythis = jQuery(this)
 
       e.preventDefault()
       e.stopPropagation()
 
-      if ($this.is('.disabled, :disabled')) return
+      if (jQuerythis.is('.disabled, :disabled')) return
 
-      $parent = getParent($this)
+      jQueryparent = getParent(jQuerythis)
 
-      isActive = $parent.hasClass('open')
+      isActive = jQueryparent.hasClass('open')
 
       if (!isActive || (isActive && e.keyCode == 27)) {
-        if (e.which == 27) $parent.find(toggle).focus()
-        return $this.click()
+        if (e.which == 27) jQueryparent.find(toggle).focus()
+        return jQuerythis.click()
       }
 
-      $items = $('[role=menu] li:not(.divider):visible a', $parent)
+      jQueryitems = jQuery('[role=menu] li:not(.divider):visible a', jQueryparent)
 
-      if (!$items.length) return
+      if (!jQueryitems.length) return
 
-      index = $items.index($items.filter(':focus'))
+      index = jQueryitems.index(jQueryitems.filter(':focus'))
 
       if (e.keyCode == 38 && index > 0) index--                                        // up
-      if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+      if (e.keyCode == 40 && index < jQueryitems.length - 1) index++                        // down
       if (!~index) index = 0
 
-      $items
+      jQueryitems
         .eq(index)
         .focus()
     }
@@ -737,50 +737,50 @@
   }
 
   function clearMenus() {
-    $(toggle).each(function () {
-      getParent($(this)).removeClass('open')
+    jQuery(toggle).each(function () {
+      getParent(jQuery(this)).removeClass('open')
     })
   }
 
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-      , $parent
+  function getParent(jQuerythis) {
+    var selector = jQuerythis.attr('data-target')
+      , jQueryparent
 
     if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = jQuerythis.attr('href')
+      selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*jQuery)/, '') //strip for ie7
     }
 
-    $parent = selector && $(selector)
+    jQueryparent = selector && jQuery(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parent()
+    if (!jQueryparent || !jQueryparent.length) jQueryparent = jQuerythis.parent()
 
-    return $parent
+    return jQueryparent
   }
 
 
   /* DROPDOWN PLUGIN DEFINITION
    * ========================== */
 
-  var old = $.fn.dropdown
+  var old = jQuery.fn.dropdown
 
-  $.fn.dropdown = function (option) {
+  jQuery.fn.dropdown = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('dropdown')
-      if (!data) $this.data('dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('dropdown')
+      if (!data) jQuerythis.data('dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call(jQuerythis)
     })
   }
 
-  $.fn.dropdown.Constructor = Dropdown
+  jQuery.fn.dropdown.Constructor = Dropdown
 
 
  /* DROPDOWN NO CONFLICT
   * ==================== */
 
-  $.fn.dropdown.noConflict = function () {
-    $.fn.dropdown = old
+  jQuery.fn.dropdown.noConflict = function () {
+    jQuery.fn.dropdown = old
     return this
   }
 
@@ -788,7 +788,7 @@
   /* APPLY TO STANDARD DROPDOWN ELEMENTS
    * =================================== */
 
-  $(document)
+  jQuery(document)
     .on('click.dropdown.data-api', clearMenus)
     .on('click.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.dropdown-menu', function (e) { e.stopPropagation() })
@@ -816,7 +816,7 @@
  * ========================================================= */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -826,9 +826,9 @@
 
   var Modal = function (element, options) {
     this.options = options
-    this.$element = $(element)
-      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+    this.jQueryelement = jQuery(element)
+      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', jQuery.proxy(this.hide, this))
+    this.options.remote && this.jQueryelement.find('.modal-body').load(this.options.remote)
   }
 
   Modal.prototype = {
@@ -841,9 +841,9 @@
 
     , show: function () {
         var that = this
-          , e = $.Event('show')
+          , e = jQuery.Event('show')
 
-        this.$element.trigger(e)
+        this.jQueryelement.trigger(e)
 
         if (this.isShown || e.isDefaultPrevented()) return
 
@@ -852,27 +852,27 @@
         this.escape()
 
         this.backdrop(function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
+          var transition = jQuery.support.transition && that.jQueryelement.hasClass('fade')
 
-          if (!that.$element.parent().length) {
-            that.$element.appendTo(document.body) //don't move modals dom position
+          if (!that.jQueryelement.parent().length) {
+            that.jQueryelement.appendTo(document.body) //don't move modals dom position
           }
 
-          that.$element.show()
+          that.jQueryelement.show()
 
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            that.jQueryelement[0].offsetWidth // force reflow
           }
 
-          that.$element
+          that.jQueryelement
             .addClass('in')
             .attr('aria-hidden', false)
 
           that.enforceFocus()
 
           transition ?
-            that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-            that.$element.focus().trigger('shown')
+            that.jQueryelement.one(jQuery.support.transition.end, function () { that.jQueryelement.focus().trigger('shown') }) :
+            that.jQueryelement.focus().trigger('shown')
 
         })
       }
@@ -882,9 +882,9 @@
 
         var that = this
 
-        e = $.Event('hide')
+        e = jQuery.Event('hide')
 
-        this.$element.trigger(e)
+        this.jQueryelement.trigger(e)
 
         if (!this.isShown || e.isDefaultPrevented()) return
 
@@ -892,22 +892,22 @@
 
         this.escape()
 
-        $(document).off('focusin.modal')
+        jQuery(document).off('focusin.modal')
 
-        this.$element
+        this.jQueryelement
           .removeClass('in')
           .attr('aria-hidden', true)
 
-        $.support.transition && this.$element.hasClass('fade') ?
+        jQuery.support.transition && this.jQueryelement.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
       }
 
     , enforceFocus: function () {
         var that = this
-        $(document).on('focusin.modal', function (e) {
-          if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
-            that.$element.focus()
+        jQuery(document).on('focusin.modal', function (e) {
+          if (that.jQueryelement[0] !== e.target && !that.jQueryelement.has(e.target).length) {
+            that.jQueryelement.focus()
           }
         })
       }
@@ -915,22 +915,22 @@
     , escape: function () {
         var that = this
         if (this.isShown && this.options.keyboard) {
-          this.$element.on('keyup.dismiss.modal', function ( e ) {
+          this.jQueryelement.on('keyup.dismiss.modal', function ( e ) {
             e.which == 27 && that.hide()
           })
         } else if (!this.isShown) {
-          this.$element.off('keyup.dismiss.modal')
+          this.jQueryelement.off('keyup.dismiss.modal')
         }
       }
 
     , hideWithTransition: function () {
         var that = this
           , timeout = setTimeout(function () {
-              that.$element.off($.support.transition.end)
+              that.jQueryelement.off(jQuery.support.transition.end)
               that.hideModal()
             }, 500)
 
-        this.$element.one($.support.transition.end, function () {
+        this.jQueryelement.one(jQuery.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
         })
@@ -938,49 +938,49 @@
 
     , hideModal: function () {
         var that = this
-        this.$element.hide()
+        this.jQueryelement.hide()
         this.backdrop(function () {
           that.removeBackdrop()
-          that.$element.trigger('hidden')
+          that.jQueryelement.trigger('hidden')
         })
       }
 
     , removeBackdrop: function () {
-        this.$backdrop && this.$backdrop.remove()
-        this.$backdrop = null
+        this.jQuerybackdrop && this.jQuerybackdrop.remove()
+        this.jQuerybackdrop = null
       }
 
     , backdrop: function (callback) {
         var that = this
-          , animate = this.$element.hasClass('fade') ? 'fade' : ''
+          , animate = this.jQueryelement.hasClass('fade') ? 'fade' : ''
 
         if (this.isShown && this.options.backdrop) {
-          var doAnimate = $.support.transition && animate
+          var doAnimate = jQuery.support.transition && animate
 
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+          this.jQuerybackdrop = jQuery('<div class="modal-backdrop ' + animate + '" />')
             .appendTo(document.body)
 
-          this.$backdrop.click(
+          this.jQuerybackdrop.click(
             this.options.backdrop == 'static' ?
-              $.proxy(this.$element[0].focus, this.$element[0])
-            : $.proxy(this.hide, this)
+              jQuery.proxy(this.jQueryelement[0].focus, this.jQueryelement[0])
+            : jQuery.proxy(this.hide, this)
           )
 
-          if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+          if (doAnimate) this.jQuerybackdrop[0].offsetWidth // force reflow
 
-          this.$backdrop.addClass('in')
+          this.jQuerybackdrop.addClass('in')
 
           if (!callback) return
 
           doAnimate ?
-            this.$backdrop.one($.support.transition.end, callback) :
+            this.jQuerybackdrop.one(jQuery.support.transition.end, callback) :
             callback()
 
-        } else if (!this.isShown && this.$backdrop) {
-          this.$backdrop.removeClass('in')
+        } else if (!this.isShown && this.jQuerybackdrop) {
+          this.jQuerybackdrop.removeClass('in')
 
-          $.support.transition && this.$element.hasClass('fade')?
-            this.$backdrop.one($.support.transition.end, callback) :
+          jQuery.support.transition && this.jQueryelement.hasClass('fade')?
+            this.jQuerybackdrop.one(jQuery.support.transition.end, callback) :
             callback()
 
         } else if (callback) {
@@ -993,33 +993,33 @@
  /* MODAL PLUGIN DEFINITION
   * ======================= */
 
-  var old = $.fn.modal
+  var old = jQuery.fn.modal
 
-  $.fn.modal = function (option) {
+  jQuery.fn.modal = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('modal')
-        , options = $.extend({}, $.fn.modal.defaults, $this.data(), typeof option == 'object' && option)
-      if (!data) $this.data('modal', (data = new Modal(this, options)))
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('modal')
+        , options = jQuery.extend({}, jQuery.fn.modal.defaults, jQuerythis.data(), typeof option == 'object' && option)
+      if (!data) jQuerythis.data('modal', (data = new Modal(this, options)))
       if (typeof option == 'string') data[option]()
       else if (options.show) data.show()
     })
   }
 
-  $.fn.modal.defaults = {
+  jQuery.fn.modal.defaults = {
       backdrop: true
     , keyboard: true
     , show: true
   }
 
-  $.fn.modal.Constructor = Modal
+  jQuery.fn.modal.Constructor = Modal
 
 
  /* MODAL NO CONFLICT
   * ================= */
 
-  $.fn.modal.noConflict = function () {
-    $.fn.modal = old
+  jQuery.fn.modal.noConflict = function () {
+    jQuery.fn.modal = old
     return this
   }
 
@@ -1027,18 +1027,18 @@
  /* MODAL DATA-API
   * ============== */
 
-  $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
-    var $this = $(this)
-      , href = $this.attr('href')
-      , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
+  jQuery(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
+    var jQuerythis = jQuery(this)
+      , href = jQuerythis.attr('href')
+      , jQuerytarget = jQuery(jQuerythis.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+jQuery)/, ''))) //strip for ie7
+      , option = jQuerytarget.data('modal') ? 'toggle' : jQuery.extend({ remote:!/#/.test(href) && href }, jQuerytarget.data(), jQuerythis.data())
 
     e.preventDefault()
 
-    $target
+    jQuerytarget
       .modal(option)
       .one('hide', function () {
-        $this.focus()
+        jQuerythis.focus()
       })
   })
 
@@ -1064,7 +1064,7 @@
  * ========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -1088,7 +1088,7 @@
         , i
 
       this.type = type
-      this.$element = $(element)
+      this.jQueryelement = jQuery(element)
       this.options = this.getOptions(options)
       this.enabled = true
 
@@ -1097,22 +1097,22 @@
       for (i = triggers.length; i--;) {
         trigger = triggers[i]
         if (trigger == 'click') {
-          this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+          this.jQueryelement.on('click.' + this.type, this.options.selector, jQuery.proxy(this.toggle, this))
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
-          this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
-          this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
+          this.jQueryelement.on(eventIn + '.' + this.type, this.options.selector, jQuery.proxy(this.enter, this))
+          this.jQueryelement.on(eventOut + '.' + this.type, this.options.selector, jQuery.proxy(this.leave, this))
         }
       }
 
       this.options.selector ?
-        (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
+        (this._options = jQuery.extend({}, this.options, { trigger: 'manual', selector: '' })) :
         this.fixTitle()
     }
 
   , getOptions: function (options) {
-      options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
+      options = jQuery.extend({}, jQuery.fn[this.type].defaults, this.jQueryelement.data(), options)
 
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
@@ -1125,15 +1125,15 @@
     }
 
   , enter: function (e) {
-      var defaults = $.fn[this.type].defaults
+      var defaults = jQuery.fn[this.type].defaults
         , options = {}
         , self
 
-      this._options && $.each(this._options, function (key, value) {
+      this._options && jQuery.each(this._options, function (key, value) {
         if (defaults[key] != value) options[key] = value
       }, this)
 
-      self = $(e.currentTarget)[this.type](options).data(this.type)
+      self = jQuery(e.currentTarget)[this.type](options).data(this.type)
 
       if (!self.options.delay || !self.options.delay.show) return self.show()
 
@@ -1145,7 +1145,7 @@
     }
 
   , leave: function (e) {
-      var self = $(e.currentTarget)[this.type](this._options).data(this.type)
+      var self = jQuery(e.currentTarget)[this.type](this._options).data(this.type)
 
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
@@ -1157,38 +1157,38 @@
     }
 
   , show: function () {
-      var $tip
+      var jQuerytip
         , pos
         , actualWidth
         , actualHeight
         , placement
         , tp
-        , e = $.Event('show')
+        , e = jQuery.Event('show')
 
       if (this.hasContent() && this.enabled) {
-        this.$element.trigger(e)
+        this.jQueryelement.trigger(e)
         if (e.isDefaultPrevented()) return
-        $tip = this.tip()
+        jQuerytip = this.tip()
         this.setContent()
 
         if (this.options.animation) {
-          $tip.addClass('fade')
+          jQuerytip.addClass('fade')
         }
 
         placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
+          this.options.placement.call(this, jQuerytip[0], this.jQueryelement[0]) :
           this.options.placement
 
-        $tip
+        jQuerytip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+        this.options.container ? jQuerytip.appendTo(this.options.container) : jQuerytip.insertAfter(this.jQueryelement)
 
         pos = this.getPosition()
 
-        actualWidth = $tip[0].offsetWidth
-        actualHeight = $tip[0].offsetHeight
+        actualWidth = jQuerytip[0].offsetWidth
+        actualHeight = jQuerytip[0].offsetHeight
 
         switch (placement) {
           case 'bottom':
@@ -1206,26 +1206,26 @@
         }
 
         this.applyPlacement(tp, placement)
-        this.$element.trigger('shown')
+        this.jQueryelement.trigger('shown')
       }
     }
 
   , applyPlacement: function(offset, placement){
-      var $tip = this.tip()
-        , width = $tip[0].offsetWidth
-        , height = $tip[0].offsetHeight
+      var jQuerytip = this.tip()
+        , width = jQuerytip[0].offsetWidth
+        , height = jQuerytip[0].offsetHeight
         , actualWidth
         , actualHeight
         , delta
         , replace
 
-      $tip
+      jQuerytip
         .offset(offset)
         .addClass(placement)
         .addClass('in')
 
-      actualWidth = $tip[0].offsetWidth
-      actualHeight = $tip[0].offsetHeight
+      actualWidth = jQuerytip[0].offsetWidth
+      actualHeight = jQuerytip[0].offsetHeight
 
       if (placement == 'top' && actualHeight != height) {
         offset.top = offset.top + height - actualHeight
@@ -1238,9 +1238,9 @@
         if (offset.left < 0){
           delta = offset.left * -2
           offset.left = 0
-          $tip.offset(offset)
-          actualWidth = $tip[0].offsetWidth
-          actualHeight = $tip[0].offsetHeight
+          jQuerytip.offset(offset)
+          actualWidth = jQuerytip[0].offsetWidth
+          actualHeight = jQuerytip[0].offsetHeight
         }
 
         this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
@@ -1248,7 +1248,7 @@
         this.replaceArrow(actualHeight - height, actualHeight, 'top')
       }
 
-      if (replace) $tip.offset(offset)
+      if (replace) jQuerytip.offset(offset)
     }
 
   , replaceArrow: function(delta, dimension, position){
@@ -1258,47 +1258,47 @@
     }
 
   , setContent: function () {
-      var $tip = this.tip()
+      var jQuerytip = this.tip()
         , title = this.getTitle()
 
-      $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
-      $tip.removeClass('fade in top bottom left right')
+      jQuerytip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
+      jQuerytip.removeClass('fade in top bottom left right')
     }
 
   , hide: function () {
       var that = this
-        , $tip = this.tip()
-        , e = $.Event('hide')
+        , jQuerytip = this.tip()
+        , e = jQuery.Event('hide')
 
-      this.$element.trigger(e)
+      this.jQueryelement.trigger(e)
       if (e.isDefaultPrevented()) return
 
-      $tip.removeClass('in')
+      jQuerytip.removeClass('in')
 
       function removeWithAnimation() {
         var timeout = setTimeout(function () {
-          $tip.off($.support.transition.end).detach()
+          jQuerytip.off(jQuery.support.transition.end).detach()
         }, 500)
 
-        $tip.one($.support.transition.end, function () {
+        jQuerytip.one(jQuery.support.transition.end, function () {
           clearTimeout(timeout)
-          $tip.detach()
+          jQuerytip.detach()
         })
       }
 
-      $.support.transition && this.$tip.hasClass('fade') ?
+      jQuery.support.transition && this.jQuerytip.hasClass('fade') ?
         removeWithAnimation() :
-        $tip.detach()
+        jQuerytip.detach()
 
-      this.$element.trigger('hidden')
+      this.jQueryelement.trigger('hidden')
 
       return this
     }
 
   , fixTitle: function () {
-      var $e = this.$element
-      if ($e.attr('title') || typeof($e.attr('data-original-title')) != 'string') {
-        $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+      var jQuerye = this.jQueryelement
+      if (jQuerye.attr('title') || typeof(jQuerye.attr('data-original-title')) != 'string') {
+        jQuerye.attr('data-original-title', jQuerye.attr('title') || '').attr('title', '')
       }
     }
 
@@ -1307,36 +1307,36 @@
     }
 
   , getPosition: function () {
-      var el = this.$element[0]
-      return $.extend({}, (typeof el.getBoundingClientRect == 'function') ? el.getBoundingClientRect() : {
+      var el = this.jQueryelement[0]
+      return jQuery.extend({}, (typeof el.getBoundingClientRect == 'function') ? el.getBoundingClientRect() : {
         width: el.offsetWidth
       , height: el.offsetHeight
-      }, this.$element.offset())
+      }, this.jQueryelement.offset())
     }
 
   , getTitle: function () {
       var title
-        , $e = this.$element
+        , jQuerye = this.jQueryelement
         , o = this.options
 
-      title = $e.attr('data-original-title')
-        || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
+      title = jQuerye.attr('data-original-title')
+        || (typeof o.title == 'function' ? o.title.call(jQuerye[0]) :  o.title)
 
       return title
     }
 
   , tip: function () {
-      return this.$tip = this.$tip || $(this.options.template)
+      return this.jQuerytip = this.jQuerytip || jQuery(this.options.template)
     }
 
   , arrow: function(){
-      return this.$arrow = this.$arrow || this.tip().find(".tooltip-arrow")
+      return this.jQueryarrow = this.jQueryarrow || this.tip().find(".tooltip-arrow")
     }
 
   , validate: function () {
-      if (!this.$element[0].parentNode) {
+      if (!this.jQueryelement[0].parentNode) {
         this.hide()
-        this.$element = null
+        this.jQueryelement = null
         this.options = null
       }
     }
@@ -1354,12 +1354,12 @@
     }
 
   , toggle: function (e) {
-      var self = e ? $(e.currentTarget)[this.type](this._options).data(this.type) : this
+      var self = e ? jQuery(e.currentTarget)[this.type](this._options).data(this.type) : this
       self.tip().hasClass('in') ? self.hide() : self.show()
     }
 
   , destroy: function () {
-      this.hide().$element.off('.' + this.type).removeData(this.type)
+      this.hide().jQueryelement.off('.' + this.type).removeData(this.type)
     }
 
   }
@@ -1368,21 +1368,21 @@
  /* TOOLTIP PLUGIN DEFINITION
   * ========================= */
 
-  var old = $.fn.tooltip
+  var old = jQuery.fn.tooltip
 
-  $.fn.tooltip = function ( option ) {
+  jQuery.fn.tooltip = function ( option ) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('tooltip')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('tooltip')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
+      if (!data) jQuerythis.data('tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.tooltip.Constructor = Tooltip
+  jQuery.fn.tooltip.Constructor = Tooltip
 
-  $.fn.tooltip.defaults = {
+  jQuery.fn.tooltip.defaults = {
     animation: true
   , placement: 'top'
   , selector: false
@@ -1398,8 +1398,8 @@
  /* TOOLTIP NO CONFLICT
   * =================== */
 
-  $.fn.tooltip.noConflict = function () {
-    $.fn.tooltip = old
+  jQuery.fn.tooltip.noConflict = function () {
+    jQuery.fn.tooltip = old
     return this
   }
 
@@ -1424,7 +1424,7 @@
  * =========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -1440,19 +1440,19 @@
   /* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
      ========================================== */
 
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype, {
+  Popover.prototype = jQuery.extend({}, jQuery.fn.tooltip.Constructor.prototype, {
 
     constructor: Popover
 
   , setContent: function () {
-      var $tip = this.tip()
+      var jQuerytip = this.tip()
         , title = this.getTitle()
         , content = this.getContent()
 
-      $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-      $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
+      jQuerytip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
+      jQuerytip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
 
-      $tip.removeClass('fade top bottom left right in')
+      jQuerytip.removeClass('fade top bottom left right in')
     }
 
   , hasContent: function () {
@@ -1461,24 +1461,24 @@
 
   , getContent: function () {
       var content
-        , $e = this.$element
+        , jQuerye = this.jQueryelement
         , o = this.options
 
-      content = (typeof o.content == 'function' ? o.content.call($e[0]) :  o.content)
-        || $e.attr('data-content')
+      content = (typeof o.content == 'function' ? o.content.call(jQuerye[0]) :  o.content)
+        || jQuerye.attr('data-content')
 
       return content
     }
 
   , tip: function () {
-      if (!this.$tip) {
-        this.$tip = $(this.options.template)
+      if (!this.jQuerytip) {
+        this.jQuerytip = jQuery(this.options.template)
       }
-      return this.$tip
+      return this.jQuerytip
     }
 
   , destroy: function () {
-      this.hide().$element.off('.' + this.type).removeData(this.type)
+      this.hide().jQueryelement.off('.' + this.type).removeData(this.type)
     }
 
   })
@@ -1487,21 +1487,21 @@
  /* POPOVER PLUGIN DEFINITION
   * ======================= */
 
-  var old = $.fn.popover
+  var old = jQuery.fn.popover
 
-  $.fn.popover = function (option) {
+  jQuery.fn.popover = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('popover')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('popover')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('popover', (data = new Popover(this, options)))
+      if (!data) jQuerythis.data('popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.popover.Constructor = Popover
+  jQuery.fn.popover.Constructor = Popover
 
-  $.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
+  jQuery.fn.popover.defaults = jQuery.extend({} , jQuery.fn.tooltip.defaults, {
     placement: 'right'
   , trigger: 'click'
   , content: ''
@@ -1512,8 +1512,8 @@
  /* POPOVER NO CONFLICT
   * =================== */
 
-  $.fn.popover.noConflict = function () {
-    $.fn.popover = old
+  jQuery.fn.popover.noConflict = function () {
+    jQuery.fn.popover = old
     return this
   }
 
@@ -1538,7 +1538,7 @@
  * ============================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -1547,15 +1547,15 @@
   * ========================== */
 
   function ScrollSpy(element, options) {
-    var process = $.proxy(this.process, this)
-      , $element = $(element).is('body') ? $(window) : $(element)
+    var process = jQuery.proxy(this.process, this)
+      , jQueryelement = jQuery(element).is('body') ? jQuery(window) : jQuery(element)
       , href
-    this.options = $.extend({}, $.fn.scrollspy.defaults, options)
-    this.$scrollElement = $element.on('scroll.scroll-spy.data-api', process)
+    this.options = jQuery.extend({}, jQuery.fn.scrollspy.defaults, options)
+    this.jQueryscrollElement = jQueryelement.on('scroll.scroll-spy.data-api', process)
     this.selector = (this.options.target
-      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      || ((href = jQuery(element).attr('href')) && href.replace(/.*(?=#[^\s]+jQuery)/, '')) //strip for ie7
       || '') + ' .nav li > a'
-    this.$body = $('body')
+    this.jQuerybody = jQuery('body')
     this.refresh()
     this.process()
   }
@@ -1566,20 +1566,20 @@
 
     , refresh: function () {
         var self = this
-          , $targets
+          , jQuerytargets
 
-        this.offsets = $([])
-        this.targets = $([])
+        this.offsets = jQuery([])
+        this.targets = jQuery([])
 
-        $targets = this.$body
+        jQuerytargets = this.jQuerybody
           .find(this.selector)
           .map(function () {
-            var $el = $(this)
-              , href = $el.data('target') || $el.attr('href')
-              , $href = /^#\w/.test(href) && $(href)
-            return ( $href
-              && $href.length
-              && [[ $href.position().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]] ) || null
+            var jQueryel = jQuery(this)
+              , href = jQueryel.data('target') || jQueryel.attr('href')
+              , jQueryhref = /^#\w/.test(href) && jQuery(href)
+            return ( jQueryhref
+              && jQueryhref.length
+              && [[ jQueryhref.position().top + (!jQuery.isWindow(self.jQueryscrollElement.get(0)) && self.jQueryscrollElement.scrollTop()), href ]] ) || null
           })
           .sort(function (a, b) { return a[0] - b[0] })
           .each(function () {
@@ -1589,9 +1589,9 @@
       }
 
     , process: function () {
-        var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
-          , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
-          , maxScroll = scrollHeight - this.$scrollElement.height()
+        var scrollTop = this.jQueryscrollElement.scrollTop() + this.options.offset
+          , scrollHeight = this.jQueryscrollElement[0].scrollHeight || this.jQuerybody[0].scrollHeight
+          , maxScroll = scrollHeight - this.jQueryscrollElement.height()
           , offsets = this.offsets
           , targets = this.targets
           , activeTarget = this.activeTarget
@@ -1616,7 +1616,7 @@
 
         this.activeTarget = target
 
-        $(this.selector)
+        jQuery(this.selector)
           .parent('.active')
           .removeClass('active')
 
@@ -1624,7 +1624,7 @@
           + '[data-target="' + target + '"],'
           + this.selector + '[href="' + target + '"]'
 
-        active = $(selector)
+        active = jQuery(selector)
           .parent('li')
           .addClass('active')
 
@@ -1641,21 +1641,21 @@
  /* SCROLLSPY PLUGIN DEFINITION
   * =========================== */
 
-  var old = $.fn.scrollspy
+  var old = jQuery.fn.scrollspy
 
-  $.fn.scrollspy = function (option) {
+  jQuery.fn.scrollspy = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('scrollspy')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('scrollspy')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)))
+      if (!data) jQuerythis.data('scrollspy', (data = new ScrollSpy(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.scrollspy.Constructor = ScrollSpy
+  jQuery.fn.scrollspy.Constructor = ScrollSpy
 
-  $.fn.scrollspy.defaults = {
+  jQuery.fn.scrollspy.defaults = {
     offset: 10
   }
 
@@ -1663,8 +1663,8 @@
  /* SCROLLSPY NO CONFLICT
   * ===================== */
 
-  $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
+  jQuery.fn.scrollspy.noConflict = function () {
+    jQuery.fn.scrollspy = old
     return this
   }
 
@@ -1672,10 +1672,10 @@
  /* SCROLLSPY DATA-API
   * ================== */
 
-  $(window).on('load', function () {
-    $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
-      $spy.scrollspy($spy.data())
+  jQuery(window).on('load', function () {
+    jQuery('[data-spy="scroll"]').each(function () {
+      var jQueryspy = jQuery(this)
+      jQueryspy.scrollspy(jQueryspy.data())
     })
   })
 
@@ -1699,7 +1699,7 @@
  * ======================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -1708,7 +1708,7 @@
   * ==================== */
 
   var Tab = function (element) {
-    this.element = $(element)
+    this.element = jQuery(element)
   }
 
   Tab.prototype = {
@@ -1716,35 +1716,35 @@
     constructor: Tab
 
   , show: function () {
-      var $this = this.element
-        , $ul = $this.closest('ul:not(.dropdown-menu)')
-        , selector = $this.attr('data-target')
+      var jQuerythis = this.element
+        , jQueryul = jQuerythis.closest('ul:not(.dropdown-menu)')
+        , selector = jQuerythis.attr('data-target')
         , previous
-        , $target
+        , jQuerytarget
         , e
 
       if (!selector) {
-        selector = $this.attr('href')
-        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+        selector = jQuerythis.attr('href')
+        selector = selector && selector.replace(/.*(?=#[^\s]*jQuery)/, '') //strip for ie7
       }
 
-      if ( $this.parent('li').hasClass('active') ) return
+      if ( jQuerythis.parent('li').hasClass('active') ) return
 
-      previous = $ul.find('.active:last a')[0]
+      previous = jQueryul.find('.active:last a')[0]
 
-      e = $.Event('show', {
+      e = jQuery.Event('show', {
         relatedTarget: previous
       })
 
-      $this.trigger(e)
+      jQuerythis.trigger(e)
 
       if (e.isDefaultPrevented()) return
 
-      $target = $(selector)
+      jQuerytarget = jQuery(selector)
 
-      this.activate($this.parent('li'), $ul)
-      this.activate($target, $target.parent(), function () {
-        $this.trigger({
+      this.activate(jQuerythis.parent('li'), jQueryul)
+      this.activate(jQuerytarget, jQuerytarget.parent(), function () {
+        jQuerythis.trigger({
           type: 'shown'
         , relatedTarget: previous
         })
@@ -1752,13 +1752,13 @@
     }
 
   , activate: function ( element, container, callback) {
-      var $active = container.find('> .active')
+      var jQueryactive = container.find('> .active')
         , transition = callback
-            && $.support.transition
-            && $active.hasClass('fade')
+            && jQuery.support.transition
+            && jQueryactive.hasClass('fade')
 
       function next() {
-        $active
+        jQueryactive
           .removeClass('active')
           .find('> .dropdown-menu > .active')
           .removeClass('active')
@@ -1780,10 +1780,10 @@
       }
 
       transition ?
-        $active.one($.support.transition.end, next) :
+        jQueryactive.one(jQuery.support.transition.end, next) :
         next()
 
-      $active.removeClass('in')
+      jQueryactive.removeClass('in')
     }
   }
 
@@ -1791,25 +1791,25 @@
  /* TAB PLUGIN DEFINITION
   * ===================== */
 
-  var old = $.fn.tab
+  var old = jQuery.fn.tab
 
-  $.fn.tab = function ( option ) {
+  jQuery.fn.tab = function ( option ) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('tab')
-      if (!data) $this.data('tab', (data = new Tab(this)))
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('tab')
+      if (!data) jQuerythis.data('tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.tab.Constructor = Tab
+  jQuery.fn.tab.Constructor = Tab
 
 
  /* TAB NO CONFLICT
   * =============== */
 
-  $.fn.tab.noConflict = function () {
-    $.fn.tab = old
+  jQuery.fn.tab.noConflict = function () {
+    jQuery.fn.tab = old
     return this
   }
 
@@ -1817,9 +1817,9 @@
  /* TAB DATA-API
   * ============ */
 
-  $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+  jQuery(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
-    $(this).tab('show')
+    jQuery(this).tab('show')
   })
 
 }(window.jQuery);/* =============================================================
@@ -1842,7 +1842,7 @@
  * ============================================================ */
 
 
-!function($){
+!function(jQuery){
 
   "use strict"; // jshint ;_;
 
@@ -1851,14 +1851,14 @@
   * ================================= */
 
   var Typeahead = function (element, options) {
-    this.$element = $(element)
-    this.options = $.extend({}, $.fn.typeahead.defaults, options)
+    this.jQueryelement = jQuery(element)
+    this.options = jQuery.extend({}, jQuery.fn.typeahead.defaults, options)
     this.matcher = this.options.matcher || this.matcher
     this.sorter = this.options.sorter || this.sorter
     this.highlighter = this.options.highlighter || this.highlighter
     this.updater = this.options.updater || this.updater
     this.source = this.options.source
-    this.$menu = $(this.options.menu)
+    this.jQuerymenu = jQuery(this.options.menu)
     this.shown = false
     this.listen()
   }
@@ -1868,8 +1868,8 @@
     constructor: Typeahead
 
   , select: function () {
-      var val = this.$menu.find('.active').attr('data-value')
-      this.$element
+      var val = this.jQuerymenu.find('.active').attr('data-value')
+      this.jQueryelement
         .val(this.updater(val))
         .change()
       return this.hide()
@@ -1880,12 +1880,12 @@
     }
 
   , show: function () {
-      var pos = $.extend({}, this.$element.position(), {
-        height: this.$element[0].offsetHeight
+      var pos = jQuery.extend({}, this.jQueryelement.position(), {
+        height: this.jQueryelement[0].offsetHeight
       })
 
-      this.$menu
-        .insertAfter(this.$element)
+      this.jQuerymenu
+        .insertAfter(this.jQueryelement)
         .css({
           top: pos.top + pos.height
         , left: pos.left
@@ -1897,7 +1897,7 @@
     }
 
   , hide: function () {
-      this.$menu.hide()
+      this.jQuerymenu.hide()
       this.shown = false
       return this
     }
@@ -1905,13 +1905,13 @@
   , lookup: function (event) {
       var items
 
-      this.query = this.$element.val()
+      this.query = this.jQueryelement.val()
 
       if (!this.query || this.query.length < this.options.minLength) {
         return this.shown ? this.hide() : this
       }
 
-      items = $.isFunction(this.source) ? this.source(this.query, $.proxy(this.process, this)) : this.source
+      items = jQuery.isFunction(this.source) ? this.source(this.query, jQuery.proxy(this.process, this)) : this.source
 
       return items ? this.process(items) : this
     }
@@ -1919,7 +1919,7 @@
   , process: function (items) {
       var that = this
 
-      items = $.grep(items, function (item) {
+      items = jQuery.grep(items, function (item) {
         return that.matcher(item)
       })
 
@@ -1952,8 +1952,8 @@
     }
 
   , highlighter: function (item) {
-      var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
-      return item.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+      var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^jQuery|#\s]/g, '\\jQuery&')
+      return item.replace(new RegExp('(' + query + ')', 'ig'), function (jQuery1, match) {
         return '<strong>' + match + '</strong>'
       })
     }
@@ -1961,61 +1961,61 @@
   , render: function (items) {
       var that = this
 
-      items = $(items).map(function (i, item) {
-        i = $(that.options.item).attr('data-value', item)
+      items = jQuery(items).map(function (i, item) {
+        i = jQuery(that.options.item).attr('data-value', item)
         i.find('a').html(that.highlighter(item))
         return i[0]
       })
 
       items.first().addClass('active')
-      this.$menu.html(items)
+      this.jQuerymenu.html(items)
       return this
     }
 
   , next: function (event) {
-      var active = this.$menu.find('.active').removeClass('active')
+      var active = this.jQuerymenu.find('.active').removeClass('active')
         , next = active.next()
 
       if (!next.length) {
-        next = $(this.$menu.find('li')[0])
+        next = jQuery(this.jQuerymenu.find('li')[0])
       }
 
       next.addClass('active')
     }
 
   , prev: function (event) {
-      var active = this.$menu.find('.active').removeClass('active')
+      var active = this.jQuerymenu.find('.active').removeClass('active')
         , prev = active.prev()
 
       if (!prev.length) {
-        prev = this.$menu.find('li').last()
+        prev = this.jQuerymenu.find('li').last()
       }
 
       prev.addClass('active')
     }
 
   , listen: function () {
-      this.$element
-        .on('focus',    $.proxy(this.focus, this))
-        .on('blur',     $.proxy(this.blur, this))
-        .on('keypress', $.proxy(this.keypress, this))
-        .on('keyup',    $.proxy(this.keyup, this))
+      this.jQueryelement
+        .on('focus',    jQuery.proxy(this.focus, this))
+        .on('blur',     jQuery.proxy(this.blur, this))
+        .on('keypress', jQuery.proxy(this.keypress, this))
+        .on('keyup',    jQuery.proxy(this.keyup, this))
 
       if (this.eventSupported('keydown')) {
-        this.$element.on('keydown', $.proxy(this.keydown, this))
+        this.jQueryelement.on('keydown', jQuery.proxy(this.keydown, this))
       }
 
-      this.$menu
-        .on('click', $.proxy(this.click, this))
-        .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
-        .on('mouseleave', 'li', $.proxy(this.mouseleave, this))
+      this.jQuerymenu
+        .on('click', jQuery.proxy(this.click, this))
+        .on('mouseenter', 'li', jQuery.proxy(this.mouseenter, this))
+        .on('mouseleave', 'li', jQuery.proxy(this.mouseleave, this))
     }
 
   , eventSupported: function(eventName) {
-      var isSupported = eventName in this.$element
+      var isSupported = eventName in this.jQueryelement
       if (!isSupported) {
-        this.$element.setAttribute(eventName, 'return;')
-        isSupported = typeof this.$element[eventName] === 'function'
+        this.jQueryelement.setAttribute(eventName, 'return;')
+        isSupported = typeof this.jQueryelement[eventName] === 'function'
       }
       return isSupported
     }
@@ -2045,7 +2045,7 @@
     }
 
   , keydown: function (e) {
-      this.suppressKeyPressRepeat = ~$.inArray(e.keyCode, [40,38,9,13,27])
+      this.suppressKeyPressRepeat = ~jQuery.inArray(e.keyCode, [40,38,9,13,27])
       this.move(e)
     }
 
@@ -2095,13 +2095,13 @@
       e.stopPropagation()
       e.preventDefault()
       this.select()
-      this.$element.focus()
+      this.jQueryelement.focus()
     }
 
   , mouseenter: function (e) {
       this.mousedover = true
-      this.$menu.find('.active').removeClass('active')
-      $(e.currentTarget).addClass('active')
+      this.jQuerymenu.find('.active').removeClass('active')
+      jQuery(e.currentTarget).addClass('active')
     }
 
   , mouseleave: function (e) {
@@ -2115,19 +2115,19 @@
   /* TYPEAHEAD PLUGIN DEFINITION
    * =========================== */
 
-  var old = $.fn.typeahead
+  var old = jQuery.fn.typeahead
 
-  $.fn.typeahead = function (option) {
+  jQuery.fn.typeahead = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('typeahead')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('typeahead')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('typeahead', (data = new Typeahead(this, options)))
+      if (!data) jQuerythis.data('typeahead', (data = new Typeahead(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.typeahead.defaults = {
+  jQuery.fn.typeahead.defaults = {
     source: []
   , items: 8
   , menu: '<ul class="typeahead dropdown-menu"></ul>'
@@ -2135,14 +2135,14 @@
   , minLength: 1
   }
 
-  $.fn.typeahead.Constructor = Typeahead
+  jQuery.fn.typeahead.Constructor = Typeahead
 
 
  /* TYPEAHEAD NO CONFLICT
   * =================== */
 
-  $.fn.typeahead.noConflict = function () {
-    $.fn.typeahead = old
+  jQuery.fn.typeahead.noConflict = function () {
+    jQuery.fn.typeahead = old
     return this
   }
 
@@ -2150,10 +2150,10 @@
  /* TYPEAHEAD DATA-API
   * ================== */
 
-  $(document).on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (e) {
-    var $this = $(this)
-    if ($this.data('typeahead')) return
-    $this.typeahead($this.data())
+  jQuery(document).on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (e) {
+    var jQuerythis = jQuery(this)
+    if (jQuerythis.data('typeahead')) return
+    jQuerythis.typeahead(jQuerythis.data())
   })
 
 }(window.jQuery);
@@ -2177,7 +2177,7 @@
  * ========================================================== */
 
 
-!function ($) {
+!function (jQuery) {
 
   "use strict"; // jshint ;_;
 
@@ -2186,20 +2186,20 @@
   * ====================== */
 
   var Affix = function (element, options) {
-    this.options = $.extend({}, $.fn.affix.defaults, options)
-    this.$window = $(window)
-      .on('scroll.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.affix.data-api',  $.proxy(function () { setTimeout($.proxy(this.checkPosition, this), 1) }, this))
-    this.$element = $(element)
+    this.options = jQuery.extend({}, jQuery.fn.affix.defaults, options)
+    this.jQuerywindow = jQuery(window)
+      .on('scroll.affix.data-api', jQuery.proxy(this.checkPosition, this))
+      .on('click.affix.data-api',  jQuery.proxy(function () { setTimeout(jQuery.proxy(this.checkPosition, this), 1) }, this))
+    this.jQueryelement = jQuery(element)
     this.checkPosition()
   }
 
   Affix.prototype.checkPosition = function () {
-    if (!this.$element.is(':visible')) return
+    if (!this.jQueryelement.is(':visible')) return
 
-    var scrollHeight = $(document).height()
-      , scrollTop = this.$window.scrollTop()
-      , position = this.$element.offset()
+    var scrollHeight = jQuery(document).height()
+      , scrollTop = this.jQuerywindow.scrollTop()
+      , position = this.jQueryelement.offset()
       , offset = this.options.offset
       , offsetBottom = offset.bottom
       , offsetTop = offset.top
@@ -2211,7 +2211,7 @@
     if (typeof offsetBottom == 'function') offsetBottom = offset.bottom()
 
     affix = this.unpin != null && (scrollTop + this.unpin <= position.top) ?
-      false    : offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ?
+      false    : offsetBottom != null && (position.top + this.jQueryelement.height() >= scrollHeight - offsetBottom) ?
       'bottom' : offsetTop != null && scrollTop <= offsetTop ?
       'top'    : false
 
@@ -2220,28 +2220,28 @@
     this.affixed = affix
     this.unpin = affix == 'bottom' ? position.top - scrollTop : null
 
-    this.$element.removeClass(reset).addClass('affix' + (affix ? '-' + affix : ''))
+    this.jQueryelement.removeClass(reset).addClass('affix' + (affix ? '-' + affix : ''))
   }
 
 
  /* AFFIX PLUGIN DEFINITION
   * ======================= */
 
-  var old = $.fn.affix
+  var old = jQuery.fn.affix
 
-  $.fn.affix = function (option) {
+  jQuery.fn.affix = function (option) {
     return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('affix')
+      var jQuerythis = jQuery(this)
+        , data = jQuerythis.data('affix')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('affix', (data = new Affix(this, options)))
+      if (!data) jQuerythis.data('affix', (data = new Affix(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.affix.Constructor = Affix
+  jQuery.fn.affix.Constructor = Affix
 
-  $.fn.affix.defaults = {
+  jQuery.fn.affix.defaults = {
     offset: 0
   }
 
@@ -2249,8 +2249,8 @@
  /* AFFIX NO CONFLICT
   * ================= */
 
-  $.fn.affix.noConflict = function () {
-    $.fn.affix = old
+  jQuery.fn.affix.noConflict = function () {
+    jQuery.fn.affix = old
     return this
   }
 
@@ -2258,17 +2258,17 @@
  /* AFFIX DATA-API
   * ============== */
 
-  $(window).on('load', function () {
-    $('[data-spy="affix"]').each(function () {
-      var $spy = $(this)
-        , data = $spy.data()
+  jQuery(window).on('load', function () {
+    jQuery('[data-spy="affix"]').each(function () {
+      var jQueryspy = jQuery(this)
+        , data = jQueryspy.data()
 
       data.offset = data.offset || {}
 
       data.offsetBottom && (data.offset.bottom = data.offsetBottom)
       data.offsetTop && (data.offset.top = data.offsetTop)
 
-      $spy.affix(data)
+      jQueryspy.affix(data)
     })
   })
 
