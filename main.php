@@ -23,10 +23,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
-    <?php tpl_metaheaders() ?>
     <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
     <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
+    <?php tpl_metaheaders() ?>
     <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
@@ -125,7 +125,12 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <div id="dokuwiki__aside" class="span3">
+            <div id="dokuwiki__aside" class="span<?php
+                                    $cols = (int) tpl_getConf('sidebar_cols');
+                                    if ($cols <= 0 || $cols >= 12) {
+                                        $cols = 3;
+                                    }
+                                    echo $cols; ?>">
                 <?php if ($showSidebar): ?>
                 <div class="sidebar-page">
                     <?php tpl_includeFile('sidebarheader.html') ?>
@@ -138,7 +143,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>span9<?php else: ?>span12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>span<?php echo 12 - $cols; ?><?php else: ?>span12<?php endif; ?>">
 
                 <?php if($conf['youarehere']){ ?>
                     <div class="row-fluid youarehere">
