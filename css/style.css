@@ -34,6 +34,11 @@ h6 {
     padding-left: 16px;
     background-size: 12px;
 }
+#IE6 .dokuwiki a.urlextern,
+#IE7 .dokuwiki a.urlextern {
+    background-image: none;
+    padding-left: 0px;
+}
 .affix {
     right: 20px
 }
@@ -49,6 +54,23 @@ h6 {
     .navbar-fixed-top .action.top {
         display: none;
     }
+}
+
+#IE6 #dokuwiki__content,
+#IE7 #dokuwiki__content {
+    width: 75%;
+    margin: 0;
+    padding: 0;
+}
+#IE6 #dokuwiki__aside,
+#IE7 #dokuwiki__aside {
+    width: 23%;
+    margin: 0 2% 0 0;
+    padding: 0;
+}
+#IE6 .not-header,
+#IE7 .not-header {
+    margin-top: 60px;
 }
 
 /* sidebar */
@@ -431,26 +453,6 @@ div.picker button.toolbutton:hover,
 div.picker button.pickerbutton:focus,
 div.picker button.toolbutton:focus {
     background: #ccc;
-}
-.colorpicker-hue {
-    background-image: url(img/bootstrap-colorpicker/hue.png);
-}
-.colorpicker-saturation {
-    background-image: url(img/bootstrap-colorpicker/saturation.png);
-}
-.colorpicker-color,
-.colorpicker-alpha {
-    background-image: url(img/bootstrap-colorpicker/alpha.png);
-}
-.colorpicker.dropdown-menu button#colorpicker-btn {
-    margin-top: 5px;
-    width: 100%;
-}
-.colorpicker-help {
-    display: block;
-    width: 120px;
-    line-height: 1.1em;
-    margin-top: 5px;
 }
 .summary label {
     margin-top: 10px;
