@@ -728,6 +728,11 @@ div.notify {
 .page {
     padding-top: 20px;
 }
+.page h1:first-of-type {
+    padding-bottom: 9px;
+    margin: 0 0 30px;
+    border-bottom: 1px solid #eee;
+}
 .page table {
     width: 100%;
     border: 1px solid #dddddd;

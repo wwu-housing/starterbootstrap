@@ -110,7 +110,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </div>
 
     <div class="container-fluid not-header">
-
         <div class="row-fluid">
             <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         </div>
@@ -121,11 +120,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
         <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
-         <div class="wrapper row-fluid"><!-- PAGE ACTIONS -->
-
+        <section class="wrapper row-fluid"><!-- PAGE ACTIONS -->
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <div id="dokuwiki__aside" class="span<?php
+            <aside id="dokuwiki__aside" class="span<?php
                                     $cols = (int) tpl_getConf('sidebar_cols');
                                     if ($cols <= 0 || $cols >= 12) {
                                         $cols = 3;
@@ -139,12 +137,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 </div>
                 <?php endif; ?>
                 <?php //include('sidebar.php'); ?>
-            </div><!-- /aside -->
+            </aside><!-- /aside -->
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>span<?php echo 12 - $cols; ?><?php else: ?>span12<?php endif; ?>">
-
                 <?php if($conf['youarehere']){ ?>
                     <div class="row-fluid youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
@@ -155,7 +152,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
                 <?php tpl_includeFile('pageheader.html') ?>
 
                 <?php _tpl_toc(); ?>
-                <div class="page">
+                <div class="page" role="main">
                 <!-- wikipage start -->
                     <?php tpl_content(false) /* the main content */ ?>
                 <!-- wikipage stop -->
@@ -163,11 +160,10 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
                 <?php tpl_includeFile('pagefooter.html') ?>
             </div><!-- /content -->
-
-        </div><!-- /wrapper -->
+        </section><!-- /wrapper -->
 
         <!-- ********** FOOTER ********** -->
-        <div id="dokuwiki__footer">
+        <footer id="dokuwiki__footer">
             <div class="row-fluid">
                 <ul class="doc breadcrumb well pull-right">
                     <li><?php tpl_action('top', 1, ''); ?><span class="divider">&#8226;</span></li>
@@ -177,7 +173,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <div class="row-fluid">
                 <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
             </div>
-        </div><!-- /footer -->
+        </footer><!-- /footer -->
 
         <?php tpl_includeFile('footer.html') ?>
     </div>
