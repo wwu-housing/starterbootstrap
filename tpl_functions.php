@@ -448,7 +448,7 @@ function bootstrap_tpl_userinfo() {
  */
 function bootstrap_tpl_mediaTree() {
     global $NS;
-    ptln('<div id="media_tree" class="well well-nav">');
+    ptln('<div id="media__tree" class="well well-nav">');
     bootstrap_media_nstree($NS);
     ptln('</div>');
 }
