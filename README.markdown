@@ -18,6 +18,13 @@ Features
   * Supports collapsible dokuwiki sidebar menu.
   * Collapsible table of contents.
 
+Javascript
+----
+
+Since dokuwiki uses jQuery 1.6 and bootstrap uses jQuery 1.9, this theme has to use both. ``jQuery`` should be used
+instead of ``$`` when referencing jQuery 1.6 and ``jQNew`` should be used when referencing 1.9. This is enabled using
+``$.noConflict(true)``.
+
 Installation
 ----
 
