@@ -655,6 +655,30 @@ ul.nav-list {
     color: #999;
 }
 
+#media_manager input[type="checkbox"] {
+    display: inline-block;
+    margin-bottom: 6px;
+}
+#media_manager label span {
+    display: inline-block;
+    margin-top: 6px;
+}
+#media_manager label {
+    display: inline-block;
+}
+#media_manager .qq-overwrite-check {
+    float: right;
+}
+#media_manager #media__content a.select {
+    display: block;
+}
+#dw__mediasearch input[type="text"] {
+    margin-bottom: 0;
+}
+#media__tree {
+    overflow-wrap: break-word;
+}
+
 #mediamgr_aside {
     display: block;
     float: left;
@@ -665,18 +689,18 @@ ul.nav-list {
     float: right;
     width: 66%;
 }
-#media_tree .nav a {
+#media__tree .nav a {
     padding-top: 1px;
     padding-bottom: 1px;
     font-size: 14px;
 }
-#media_tree .nav a {
+#media__tree .nav a {
     padding: 1px 5px;
 }
-#media_tree .nav li ul li a {
+#media__tree .nav li ul li a {
     padding: 1px 15px;
 }
-#media_tree .nav li ul li ul li a {
+#media__tree .nav li ul li ul li a {
     padding: 1px 25px;
 }
 label span {
@@ -695,7 +719,7 @@ label span {
 label.check span {
     bottom: 0px;
 }
-.check input[type="checkbox"] {border
+.check input[type="checkbox"] {
   float: left;
   margin-left: -20px;
 }
