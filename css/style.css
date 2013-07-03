@@ -121,10 +121,6 @@ dl dd {
     right: 10px;
     top: 10px;
 }
-.sidebar-page ul .li:hover,
-.sidebar-page ul .li:focus {
-    background: #f0f0f0;
-}
 .sidebar-page ul > li > .li {
     border: 1px solid #ddd;
     -webkit-border-radius: 0;
