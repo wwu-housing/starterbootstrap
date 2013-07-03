@@ -25,6 +25,12 @@ h5 {
 h6 {
     font-size: 1em;
 }
+
+dl dt,
+dl dd {
+    padding: 0.2em 0.4em;
+}
+
 @media (min-width: 980px) {
     #dokuwiki__top {
         margin-top: 60px;
@@ -344,6 +350,7 @@ input.button[disabled],
 .dokuwiki #wiki__editbar .editButtons {
     display: block;
     height: 35px;
+    margin-right: 4em;
 }
 .editButtons,
 #tool__bar {
@@ -659,7 +666,7 @@ ul.nav-list {
     display: inline-block;
     margin-bottom: 6px;
 }
-#media_manager label span {
+label span {
     display: inline-block;
     margin-top: 6px;
 }
@@ -703,6 +710,23 @@ ul.nav-list {
 #media__tree .nav li ul li ul li a {
     padding: 1px 25px;
 }
+
+#mediamanager__page {
+
+}
+#mediamanager__page .panelContent .actions li {
+    display: inline;
+}
+#mediamanager__page .panelContent .actions li form {
+    display: inline-block;
+}
+#mediamanager__page .panelHeader form.options .ui-buttonset .ui-button-text {
+    padding: .3em .5em 0;
+}
+.panelContent .row {
+    margin-left: 0px;
+}
+
 label span {
     margin-right: 3px;
     position: relative;
