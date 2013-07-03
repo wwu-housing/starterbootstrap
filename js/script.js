@@ -1,21 +1,21 @@
 function init() {
 
-    jQuery('.ui-dialog-titlebar-close').click(function() {
-        jQuery('.ui-dialog').hide();
+    jQNew('.ui-dialog-titlebar-close').click(function() {
+        jQNew('.ui-dialog').hide();
     });
 
-    jQuery('.sidebar-page ul .li').each(function() {
-        var $that = jQuery(this);
+    jQNew('.sidebar-page ul .li').each(function() {
+        var $that = jQNew(this);
         if ($that.parent().find('ul').length > 0) {
             $that.append('<i class="icon-chevron-down pull-right"></i>');
         }
     });
 
-    jQuery('.sidebar-page ul .li').click(function() {
-        jQuery(this).parent().find('ul').first().slideToggle(300);
+    jQNew('.sidebar-page ul .li').click(function() {
+        jQNew(this).parent().find('ul').first().slideToggle(300);
     });
 
-    jQuery('abbr').tooltip({
+    jQNew('abbr').tooltip({
         delay: { open: 500, close: 100 }
     });
 
@@ -26,7 +26,7 @@ function addBtnActionInsertTable($btn, props, edid) {
     // set up what happens when the button is clicked
     $btn.click(function() {
         // create a new element on the page.
-        var $picker = jQuery(document.createElement('div'));
+        var $picker = jQNew(document.createElement('div'));
         $picker.addClass('modal hide fade');
         $picker.attr('role', 'dialog')
                .attr('aria-hidden', 'true')
@@ -118,7 +118,7 @@ function addBtnActionInsertTable($btn, props, edid) {
 
         // add the content to the element and insert it into the page
         $picker.append(html);
-        jQuery('body').append($picker);
+        jQNew('body').append($picker);
 
         // set up the insert table action
         $picker.find('.btn-primary').bind('click', bind(tableInsert, $picker.find('form')));

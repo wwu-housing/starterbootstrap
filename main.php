@@ -23,11 +23,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
-    <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="<?php print DOKU_TPL; ?>/js/jquery-ui.js" type="text/javascript"></script>
-    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
     <?php tpl_metaheaders() ?>
-    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
@@ -181,7 +177,16 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <!--[if ( IE 6 | IE 7 | IE 8 ) ]></div><![endif]-->
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"><\/script>')</script>
+    <script type="text/javascript">
+        var jQNew = $.noConflict(true);
+    </script>
+    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         var _gaq=[['_setAccount','<?php echo tpl_getConf('google_analytics'); ?>'],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
