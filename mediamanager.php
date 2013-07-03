@@ -21,10 +21,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
     </title>
     <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 
-    <!-- <script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script> -->
     <?php tpl_metaheaders() ?>
-    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
@@ -51,5 +48,21 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
             </div>
         </div>
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"><\/script>')</script>
+    <script type="text/javascript">
+        var jQNew = $.noConflict(true);
+    </script>
+    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
+    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        var _gaq=[['_setAccount','<?php echo tpl_getConf('google_analytics'); ?>'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 </body>
 </html>

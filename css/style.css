@@ -43,6 +43,16 @@ h6 {
     right: 20px
 }
 
+.rightalign, td.rightalign {
+    text-align: right;
+}
+.leftalign, td.leftalign {
+    text-align: left;
+}
+.centeralign, td.centeralign {
+    text-align: center;
+}
+
 @media (max-width: 979px) {
     .navbar-fixed-top .dropdown-toggle {
         display: none;
@@ -782,7 +792,6 @@ div.notify {
     border-left: 1px solid #dddddd;
     padding: 8px;
     line-height: 20px;
-    text-align: left;
     vertical-align: top;
     border-top: 1px solid #dddddd;
 }
