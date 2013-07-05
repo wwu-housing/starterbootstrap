@@ -450,6 +450,11 @@ input.button[disabled],
 .editButtons input.button[value="Save"].active {
   background-color: #003399 \9;
 }
+
+.section_highlight {
+    background: #d9edf7;
+}
+
 div.picker button.pickerbutton,
 div.picker button.toolbutton {
     background: transparent;
