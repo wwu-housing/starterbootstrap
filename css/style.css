@@ -320,9 +320,6 @@ input.button[disabled],
      -moz-border-radius: 3px;
           border-radius: 3px;
 }
-#insert-table-popup {
-    padding: 0 20px;
-}
 .form-horizontal {
     margin-bottom: 0px;
 }
@@ -467,6 +464,13 @@ div.picker button.pickerbutton:focus,
 div.picker button.toolbutton:focus {
     background: #ccc;
 }
+.preview th:after {
+    content: "Header";
+}
+.preview td:after {
+    content: "content";
+}
+
 .summary label {
     margin-top: 10px;
 }

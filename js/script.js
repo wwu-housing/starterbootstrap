@@ -1,5 +1,4 @@
 function init() {
-
     jQNew('.ui-dialog-titlebar-close').click(function() {
         jQNew('.ui-dialog').hide();
     });
@@ -18,7 +17,6 @@ function init() {
     jQNew('abbr').tooltip({
         delay: { open: 500, close: 100 }
     });
-
 }
 
 /* toolbar button to add a table */
@@ -35,50 +33,66 @@ function addBtnActionInsertTable($btn, props, edid) {
                .css('position', 'absolute');
 
         // set up the content of the element
-        var html =  '<h3>Insert table markup</h3>';
-            html += '<form class="form-horizontal">';
-            html +=  '<div class="control-group">';
-            html +=   '<label class="control-label" for="hrows">Header rows</label>';
-            html +=   '<div class="controls">';
-            html +=    '<input type="number" id="hrows" value=1 min=0 step=1>';
-            html +=   '</div>';
-            html +=  '</div>';
-            html +=  '<div class="control-group">';
-            html +=   '<label class="control-label" for="hcols">Header columns</label>';
-            html +=   '<div class="controls">';
-            html +=    '<input type="number" id="hcols" value=0 min=0 step=1>';
-            html +=   '</div>';
-            html +=  '</div>';
-            html +=  '<div class="control-group">';
-            html +=   '<label class="control-label" for="rows">Body Rows</label>';
-            html +=   '<div class="controls">';
-            html +=    '<input type="number" id="rows" value=3 min=0 step=1>';
-            html +=   '</div>';
-            html +=  '</div>';
-            html +=  '<div class="control-group">';
-            html +=   '<label class="control-label" for="cols">Body Columns</label>';
-            html +=   '<div class="controls">';
-            html +=    '<input type="number" id="cols" value=3 min=0 step=1>';
-            html +=   '</div>';
-            html +=  '</div>';
-            html +=  '<div class="control-group">';
-            html +=   '<div class="controls">';
-            html +=    '<div class="btn-group">';
-            html +=     '<button type="button" class="btn" data-dismiss="modal">Cancel</button>';
-            html +=     '<button type="button" class="btn btn-primary">Insert</button>';
-            html +=    '</div>';
-            html +=   '</div>';
-            html +=  '</div>';
-            html += '</form>';
+        var html = '<div class="modal-header">' +
+                    '<h3>Insert table markup</h3>' +
+                   '</div>' +
+                   '<div class="modal-body">' +
+                    '<form class="form-horizontal">' +
+                     '<div class="control-group">' +
+                      '<label class="control-label" for="hrows">Header rows</label>' +
+                      '<div class="controls">' +
+                       '<input type="number" id="hrows" value=1 min=0 step=1>' +
+                      '</div>' +
+                     '</div>' +
+                     '<div class="control-group">' +
+                      '<label class="control-label" for="hcols">Header columns</label>' +
+                      '<div class="controls">' +
+                       '<input type="number" id="hcols" value=0 min=0 step=1>' +
+                      '</div>' +
+                     '</div>' +
+                     '<div class="control-group">' +
+                      '<label class="control-label" for="rows">Body Rows</label>' +
+                      '<div class="controls">' +
+                       '<input type="number" id="rows" value=3 min=0 step=1>' +
+                      '</div>' +
+                     '</div>' +
+                     '<div class="control-group">' +
+                      '<label class="control-label" for="cols">Body Columns</label>' +
+                      '<div class="controls">' +
+                       '<input type="number" id="cols" value=3 min=0 step=1>' +
+                      '</div>' +
+                     '</div>' +
+                    '</form>' +
+                    '<div class="preview">' +
+                     '<h4>Preview</h4>' +
+                     '<table class="table table-bordered">' +
+                     '</table>' +
+                    '</div>' +
+                    '<div class="markup">' +
+                     '<h4>Markup</h4>' +
+                     '<pre>' +
+                     '</pre>' +
+                    '</div>' +
+                   '</div>' +
+                   '<div class="modal-footer">' +
+                    '<div class="control-group">' +
+                     '<div class="controls">' +
+                      '<div class="btn-group">' +
+                       '<button type="button" class="btn" data-dismiss="modal">Cancel</button>' +
+                       '<button type="button" class="btn btn-primary">Insert</button>' +
+                      '</div>' +
+                     '</div>' +
+                    '</div>' +
+                   '</div>';
 
         // the ultimate action of the new button
-        function tableInsert($form) {
+        function tableInsert($picker) {
             // get the size of the table
             var tabletext = "";
-            var hrows = $form.find('#hrows').val();
-            var hcols = $form.find('#hcols').val();
-            var rows = $form.find('#rows').val();
-            var cols = $form.find('#cols').val();
+            hrows = $picker.find('#hrows').val();
+            hcols = $picker.find('#hcols').val();
+            rows = $picker.find('#rows').val();
+            cols = $picker.find('#cols').val();
 
             // make sure the table has cells
             if (hrows + rows < 1) {
@@ -92,7 +106,7 @@ function addBtnActionInsertTable($btn, props, edid) {
             // create header rows
             for (var i = 0; i < hrows; i++) {
                 for (var j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
-                    tabletext += "^ header ";
+                    tabletext += "^  ";
                 }
                 tabletext += "^\n";
             }
@@ -100,7 +114,7 @@ function addBtnActionInsertTable($btn, props, edid) {
             for (var i = 0; i < rows; i++) {
                 // create header columns
                 for (var j = 0; j < hcols; j++) {
-                    tabletext += "^ header ";
+                    tabletext += "^  ";
                 }
                 // create body columns
                 for (var j = 0; j < cols; j++) {
@@ -116,12 +130,83 @@ function addBtnActionInsertTable($btn, props, edid) {
             $picker.modal('hide').remove();
         }
 
+        function updatePreview() {
+            var $table = $preview.find('table').html('');
+            var $markup = $picker.find('pre').text('');
+
+            var tablehtml = '';
+            var tabletext = "";
+
+            // make sure the table has cells
+            if (hrows + rows < 1) {
+                return false;
+            } else if (hcols + cols < 1) {
+                return false;
+            }
+
+            // create header rows
+            for (var i = 0; i < hrows; i++) {
+                tablehtml += '<tr>';
+                for (var j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
+                    tablehtml += "<th></th>";
+                    tabletext += "^ Header ";
+                }
+                tablehtml += "</tr>\n";
+                tabletext += "^\n";
+            }
+            // create body rows
+            for (var i = 0; i < rows; i++) {
+                tablehtml += '<tr>'
+                // create header columns
+                for (var j = 0; j < hcols; j++) {
+                    tablehtml += "<th></th>";
+                    tabletext += "^ Header ";
+                }
+                // create body columns
+                for (var j = 0; j < cols; j++) {
+                    tablehtml += "<td></td>";
+                    tabletext += "| content ";
+                }
+                tablehtml += "</tr>\n";
+                tabletext += "|\n";
+            }
+
+            $table.html(tablehtml);
+            $markup.text(tabletext);
+        }
+
         // add the content to the element and insert it into the page
         $picker.append(html);
         jQNew('body').append($picker);
 
+        var hrows = $picker.find('#hrows').val();
+        var hcols = $picker.find('#hcols').val();
+        var rows = $picker.find('#rows').val();
+        var cols = $picker.find('#cols').val();
+        var $preview = jQNew('.preview');
+
         // set up the insert table action
-        $picker.find('.btn-primary').bind('click', bind(tableInsert, $picker.find('form')));
+        $picker.find('.btn-primary').bind('click', bind(tableInsert, $picker));
+
+        // set up handlers to show table preview
+        $picker.find('#hrows').on('propertychange keyup input paste', function(e) {
+            hrows = jQNew(this).val();
+            updatePreview();
+        });
+        $picker.find('#hcols').on('propertychange keyup input paste', function(e) {
+            hcols = jQNew(this).val();
+            updatePreview();
+        });
+        $picker.find('#rows').on('propertychange keyup input paste', function(e) {
+            rows = jQNew(this).val();
+            updatePreview();
+        });
+        $picker.find('#cols').on('propertychange keyup input paste', function(e) {
+            cols = jQNew(this).val();
+            updatePreview();
+        });
+
+        updatePreview();
 
         // show the element as a modal window
         $picker.modal('show');
