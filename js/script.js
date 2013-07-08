@@ -88,7 +88,7 @@ function addBtnActionInsertTable($btn, props, edid) {
         // the ultimate action of the new button
         function tableInsert($picker) {
             // get the size of the table
-            var tabletext = "";
+            var tabletext = "\n";
             hrows = $picker.find('#hrows').val();
             hcols = $picker.find('#hcols').val();
             rows = $picker.find('#rows').val();
@@ -124,7 +124,7 @@ function addBtnActionInsertTable($btn, props, edid) {
             }
 
             // insert the table into the page
-            insertAtCarret(edid, tabletext);
+            insertAtCarret(edid, tabletext + '\n');
 
             // hide and remove the element
             $picker.modal('hide').remove();
