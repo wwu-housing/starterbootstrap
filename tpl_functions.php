@@ -217,13 +217,13 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
     // don't print the search form if search action has been disabled
     if(!actionOK('search')) return false;
 
-    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-search pull-right" id="dw__search" method="get">';
+    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-form pull-right" id="dw__search" method="get">';
     print '<input type="hidden" name="do" value="search" />';
     print '<input type="text" ';
     if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
     if(!$autocomplete) print 'autocomplete="off" ';
-    print 'id="qsearch__in" accesskey="f" name="id" class="edit search-query span3" title="[F]" placeholder="Search" /> ';
-    //print '<input type="submit" value="'.$lang['btn_search'].'" class="btn" title="'.$lang['btn_search'].'" />';
+    print 'id="qsearch__in" accesskey="f" name="id" class="form-control col-lg-3" title="[F]" placeholder="Search" /> ';
+    //print '<input type="submit" value="'.$lang['btn_search'].'" class="btn btn-default" title="'.$lang['btn_search'].'" />';
     if($ajax) print '<div id="qsearch__out" class="ajax_qsearch"></div>';
     print '</form>';
     return true;
@@ -288,11 +288,11 @@ function bootstrap_html_TOC($toc){
     if(!count($toc)) return '';
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
-    $out .= '<div id="dw_toc" class="well well-nav pull-right span3">'.DOKU_LF;
-    $out .= '<li class="nav-header" data-toggle="collapse" data-target="#dw_toc .nav:first">';
+    $out .= '<div id="dw_toc" class="panel pull-right col-3">'.DOKU_LF;
+    $out .= '<div class="panel-heading" data-toggle="collapse" data-target="#dw_toc .nav:first">';
     $out .= $lang['toc'];
-    $out .= '<b class="caret"></b></li>'.DOKU_LF;
-    $out .= bootstrap_toc_html_buildlist($toc,'nav nav-list in','html_list_toc','html_li_default',true);
+    $out .= '<b class="caret"></b></div>'.DOKU_LF;
+    $out .= bootstrap_toc_html_buildlist($toc,'in','html_list_toc','html_li_default',true);
     $out .= '</div>'.DOKU_LF;
     $out .= '<!-- TOC END -->'.DOKU_LF;
     return $out;
@@ -308,7 +308,6 @@ function bootstrap_toc_html_buildlist($data,$class,$func,$lifunc='html_li_defaul
     $open  = 0;
 
     foreach ($data as $item){
-
         if( $item['level'] > $level ){
             //open new list
             for($i=0; $i<($item['level'] - $level); $i++){
@@ -353,7 +352,7 @@ function bootstrap_toc_html_buildlist($data,$class,$func,$lifunc='html_li_defaul
     return $ret;
 }
 
-function _tpl_breadcrumbs($sep = '&#8226;') {
+function _tpl_breadcrumbs() {
     global $lang;
     global $conf;
 
@@ -361,11 +360,10 @@ function _tpl_breadcrumbs($sep = '&#8226;') {
     if (!$conf['breadcrumbs']) return false;
 
     $crumbs = breadcrumbs();
-    $crumbs_sep = '<span class="divider">' . $sep . '</span> ';
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row-fluid" id="breadcrumbs"><div class="span12"><ul class="breadcrumb well"><li class="bchead">Last few pages:&nbsp;</li>';
+        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-12"><ul class="breadcrumb well"><li class="bchead">Last few pages:&nbsp;</li>';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
@@ -375,7 +373,6 @@ function _tpl_breadcrumbs($sep = '&#8226;') {
             } else if ($i != $last) {
                 print '<li>';
                 tpl_pagelink(':'.$id, hsc($name), 'title="' . $id . '"');
-                echo $crumbs_sep;
             }
             print '</li>';
         }

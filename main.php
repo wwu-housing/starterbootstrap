@@ -21,16 +21,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <?php tpl_pagetitle() ?>
         [<?php echo strip_tags($conf['title'])?>]
     </title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
-    <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
+    <?php @require_once(dirname(__FILE__).'/head-css.php'); ?>
 </head>
 
 <body data-spy="scroll" data-target="#dw_toc" onLoad="init()">
@@ -46,80 +37,76 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
     <a href="#dokuwiki__content" class="a11y"><?php echo $lang['skip_to_content'] ?></a></li>
     <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <?php tpl_includeFile('header.html') ?>
+        <div class="container">
+            <?php tpl_includeFile('header.html') ?>
 
-                <!-- ********** HEADER ********** -->
+            <!-- ********** HEADER ********** -->
 
-                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
+            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+            <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
 
-                <?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="brand"') ?>
+            <?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="navbar-brand"') ?>
 
-                <div class="nav-collapse collapse">
-                    <ul class="nav pull-right">
-                         <li class="divider-vertical"></li>
-                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-header"><span class="a11y"><?php echo $lang['site_tools'] ?></span>Site Tools</li>
-                                <!-- USER TOOLS -->
-                                <?php if ($conf['useacl'] && $showTools): ?>
-                                <span class="a11y"><?php echo $lang['user_tools'] ?></span>
-                                <?php
-                                    if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
-                                    if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
-                                    if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
-                                ?>
-                                <?php endif ?>
-                                <?php if ($showTools): ?>
-                                <li class="nav-header"><span class="a11y"><?php echo $lang['page_tools'] ?></span>User Tools</li>
-                                <?php
-                                    tpl_action('edit', 1, 'li');
-                                    if ($ACT == 'revisions') { tpl_action('revisions', 1, 'li class="active"'); } else { tpl_action('revisions', 1, 'li'); };
-                                    if ($ACT == 'backlink') { tpl_action('backlink', 1, 'li class="active"'); } else { tpl_action('backlink', 1, 'li'); };
-                                    tpl_action('subscribe', 1, 'li');
-                                    tpl_action('revert', 1, 'li');
-                                    if ($ACT == 'profile') { tpl_action('profile', 1, 'li class="active"'); } else { tpl_action('profile', 1, 'li'); };
-                                    if ($ACT == 'login') { tpl_action('login', 1, 'li class="active"'); } else { tpl_action('login', 1, 'li'); };
-                                    if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
-                                ?>
-                                <?php endif; ?>
-                                <li class="divider"></li>
-                                <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                                 e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
-                                    tpl_action('top', 1, 'li');
-                                ?>
-                           </ul>
-                        </li>
-                    </ul>
+            <div class="nav-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
+                            <!-- USER TOOLS -->
+                            <?php if ($conf['useacl'] && $showTools): ?>
+                            <?php
+                                if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
+                                if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
+                                if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
+                            ?>
+                            <?php endif ?>
+                            <?php if ($showTools): ?>
+                            <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
+                            <?php
+                                tpl_action('edit', 1, 'li');
+                                if ($ACT == 'revisions') { tpl_action('revisions', 1, 'li class="active"'); } else { tpl_action('revisions', 1, 'li'); };
+                                if ($ACT == 'backlink') { tpl_action('backlink', 1, 'li class="active"'); } else { tpl_action('backlink', 1, 'li'); };
+                                tpl_action('subscribe', 1, 'li');
+                                tpl_action('revert', 1, 'li');
+                                if ($ACT == 'profile') { tpl_action('profile', 1, 'li class="active"'); } else { tpl_action('profile', 1, 'li'); };
+                                if ($ACT == 'login') { tpl_action('login', 1, 'li class="active"'); } else { tpl_action('login', 1, 'li'); };
+                                if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
+                            ?>
+                            <?php endif; ?>
+                            <li class="divider"></li>
+                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
+                             e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
+                                tpl_action('top', 1, 'li');
+                            ?>
+                       </ul>
+                    </li>
+                </ul>
 
-                    <?php _tpl_searchform() ?>
-                </div>
+                <?php _tpl_searchform() ?>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid not-header">
-        <div class="row-fluid">
+    <div class="container not-header">
+        <div class="nofications">
             <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         </div>
 
-        <ul class="nav nav-tabs nav-stacked visible-phone">
+        <ul class="nav nav-tabs nav-stacked visible-sm">
             <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
         </ul>
 
         <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
-        <section class="wrapper row-fluid"><!-- PAGE ACTIONS -->
+        <section class="wrapper row"><!-- PAGE ACTIONS -->
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <aside id="dokuwiki__aside" class="span<?php
+            <aside id="dokuwiki__aside" class="col-<?php
                                     $cols = (int) tpl_getConf('sidebar_cols');
                                     if ($cols <= 0 || $cols >= 12) {
                                         $cols = 3;
@@ -137,9 +124,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>span<?php echo 12 - $cols; ?><?php else: ?>span12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-<?php echo 12 - $cols; ?><?php else: ?>col-12<?php endif; ?>">
                 <?php if($conf['youarehere']){ ?>
-                    <div class="row-fluid youarehere">
+                    <div class="youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
                     </div>
                 <?php } ?>
@@ -160,13 +147,13 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
         <!-- ********** FOOTER ********** -->
         <footer id="dokuwiki__footer">
-            <div class="row-fluid">
+            <div class="row">
                 <ul class="doc breadcrumb well pull-right">
-                    <li><?php tpl_action('top', 1, ''); ?><span class="divider">&#8226;</span></li>
+                    <li><?php tpl_action('top', 1, ''); ?></li>
                     <li><?php tpl_pageinfo() /* 'Last modified' etc */ ?></li>
                 </ul>
             </div>
-            <div class="row-fluid">
+            <div class="row">
                 <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
             </div>
         </footer><!-- /footer -->

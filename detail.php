@@ -19,16 +19,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
         <?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?>
         [<?php echo strip_tags($conf['title'])?>]
     </title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
-    <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
+    <?php @require_once(dirname(__FILE__).'/head-css.php'); ?>
 </head>
 <body>
     <div id="dokuwiki__detail" class="dokuwiki container-fluid">

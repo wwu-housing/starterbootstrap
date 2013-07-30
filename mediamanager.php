@@ -19,33 +19,23 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
         <?php echo hsc($lang['mediaselect'])?>
         [<?php echo strip_tags($conf['title'])?>]
     </title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
-    <!-- dokuwiki's php css compressor doesn't play nice with media queries -->
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="<?php print DOKU_TPL; ?>css/style.css" rel="stylesheet">
+    <?php @require_once(dirname(__FILE__).'/head-css.php'); ?>
 </head>
 
 <body>
-    <div id="media_manager" class="dokuwiki container-fluid">
-            <?php html_msgarea() ?>
-            <div id="mediamgr_aside">
-                <h1><?php echo hsc($lang['mediaselect'])?></h1>
+    <div id="media_manager" class="dokuwiki container">
+        <?php html_msgarea() ?>
+        <div id="mediamgr_aside">
+            <h1><?php echo hsc($lang['mediaselect'])?></h1>
 
-                <?php /* keep the id! additional elements are inserted via JS here */?>
-                <div id="media__opts"></div>
+            <?php /* keep the id! additional elements are inserted via JS here */?>
+            <div id="media__opts"></div>
 
-                <?php bootstrap_tpl_mediaTree() ?>
-            </div>
+            <?php bootstrap_tpl_mediaTree() ?>
+        </div>
 
-            <div id="mediamgr_content">
-                <?php tpl_mediaContent() ?>
-            </div>
+        <div id="mediamgr_content">
+            <?php tpl_mediaContent() ?>
         </div>
     </div>
 
