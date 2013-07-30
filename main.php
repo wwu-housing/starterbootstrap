@@ -106,7 +106,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <section class="wrapper row"><!-- PAGE ACTIONS -->
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <aside id="dokuwiki__aside" class="col-<?php
+            <aside id="dokuwiki__aside" class="col-lg-<?php
                                     $cols = (int) tpl_getConf('sidebar_cols');
                                     if ($cols <= 0 || $cols >= 12) {
                                         $cols = 3;
@@ -124,7 +124,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-<?php echo 12 - $cols; ?><?php else: ?>col-12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-lg-<?php echo 12 - $cols; ?><?php else: ?>col-lg-12<?php endif; ?>">
                 <?php if($conf['youarehere']){ ?>
                     <div class="youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
