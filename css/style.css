@@ -1,10 +1,5 @@
-body {
-in}
 #dokuwiki__sitetools .span12 {
     margin-left: 0px;
-}
-.well-nav {
-    padding: 8px 0;
 }
 
 dl dt,
@@ -82,6 +77,10 @@ dl dd {
 #IE6 .not-header,
 #IE7 .not-header {
     margin-top: 60px;
+}
+
+#helpful-links .list-group-item-text {
+    margin-bottom: 0.2em;
 }
 
 /* sidebar */
@@ -589,6 +588,10 @@ input[disabled] {
     display: block;
     margin: 10px 0 0;
     font-size: 0.95em;
+}
+
+.navbar-brand {
+    max-width: 300px;
 }
 
 /* dokuwiki__pagetools */
