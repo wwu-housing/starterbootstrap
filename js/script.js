@@ -25,7 +25,7 @@ function addBtnActionInsertTable($btn, props, edid) {
     $btn.click(function() {
         // create a new element on the page.
         var $picker = jQNew(document.createElement('div'));
-        $picker.addClass('modal hide fade');
+        $picker.addClass('modal fade');
         $picker.attr('role', 'dialog')
                .attr('aria-hidden', 'true')
                .attr('aria-labelledby', 'Insert Table Modal Box')
@@ -33,54 +33,53 @@ function addBtnActionInsertTable($btn, props, edid) {
                .css('position', 'absolute');
 
         // set up the content of the element
-        var html = '<div class="modal-header">' +
-                    '<h3>Insert table markup</h3>' +
-                   '</div>' +
-                   '<div class="modal-body">' +
-                    '<form class="form-horizontal">' +
-                     '<div class="control-group">' +
-                      '<label class="control-label" for="hrows">Header rows</label>' +
-                      '<div class="controls">' +
-                       '<input type="number" id="hrows" value=1 min=0 step=1>' +
+        var html = '<div class="modal-dialog">' +
+                    '<div class="modal-content">' +
+                     '<div class="modal-header">' +
+                     '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+                      '<h3 class="modal-title">Insert table markup</h3>' +
+                     '</div>' +
+                     '<div class="modal-body">' +
+                      '<form class="form-horizontal">' +
+                       '<div class="form-group">' +
+                        '<label class="control-label col-lg-6" for="hrows">Header rows</label>' +
+                        '<div class="col-lg-2">' +
+                         '<input class="form-control" type="number" id="hrows" value=1 min=0 step=1>' +
+                        '</div>' +
+                       '</div>' +
+                       '<div class="form-group">' +
+                        '<label class="control-label col-lg-6" for="hcols">Header columns</label>' +
+                        '<div class="col-lg-2">' +
+                         '<input class="form-control" type="number" id="hcols" value=0 min=0 step=1>' +
+                        '</div>' +
+                       '</div>' +
+                       '<div class="form-group">' +
+                        '<label class="control-label col-lg-6" for="rows">Body Rows</label>' +
+                        '<div class="col-lg-2">' +
+                         '<input class="form-control" type="number" id="rows" value=3 min=0 step=1>' +
+                        '</div>' +
+                       '</div>' +
+                       '<div class="form-group">' +
+                        '<label class="control-label col-lg-6" for="cols">Body Columns</label>' +
+                        '<div class="col-lg-2">' +
+                         '<input class="form-control" type="number" id="cols" value=3 min=0 step=1>' +
+                        '</div>' +
+                       '</div>' +
+                      '</form>' +
+                      '<div class="preview">' +
+                       '<h4>Preview</h4>' +
+                       '<table class="table table-bordered">' +
+                       '</table>' +
+                      '</div>' +
+                      '<div class="markup">' +
+                       '<h4>Markup</h4>' +
+                       '<pre>' +
+                       '</pre>' +
                       '</div>' +
                      '</div>' +
-                     '<div class="control-group">' +
-                      '<label class="control-label" for="hcols">Header columns</label>' +
-                      '<div class="controls">' +
-                       '<input type="number" id="hcols" value=0 min=0 step=1>' +
-                      '</div>' +
-                     '</div>' +
-                     '<div class="control-group">' +
-                      '<label class="control-label" for="rows">Body Rows</label>' +
-                      '<div class="controls">' +
-                       '<input type="number" id="rows" value=3 min=0 step=1>' +
-                      '</div>' +
-                     '</div>' +
-                     '<div class="control-group">' +
-                      '<label class="control-label" for="cols">Body Columns</label>' +
-                      '<div class="controls">' +
-                       '<input type="number" id="cols" value=3 min=0 step=1>' +
-                      '</div>' +
-                     '</div>' +
-                    '</form>' +
-                    '<div class="preview">' +
-                     '<h4>Preview</h4>' +
-                     '<table class="table table-bordered">' +
-                     '</table>' +
-                    '</div>' +
-                    '<div class="markup">' +
-                     '<h4>Markup</h4>' +
-                     '<pre>' +
-                     '</pre>' +
-                    '</div>' +
-                   '</div>' +
-                   '<div class="modal-footer">' +
-                    '<div class="control-group">' +
-                     '<div class="controls">' +
-                      '<div class="btn-group">' +
-                       '<button type="button" class="btn" data-dismiss="modal">Cancel</button>' +
-                       '<button type="button" class="btn btn-primary">Insert</button>' +
-                      '</div>' +
+                     '<div class="modal-footer">' +
+                      '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>' +
+                      '<button type="button" class="btn btn-primary">Insert</button>' +
                      '</div>' +
                     '</div>' +
                    '</div>';
