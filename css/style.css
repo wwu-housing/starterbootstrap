@@ -902,3 +902,14 @@ table th[class^="col-"] {
 .page img {
     max-width: 100%;
 }
+
+.panel .list-group {
+    border-color: inherit;
+}
+.panel .list-group-item {
+    border-color: inherit;
+}
+.navbar {
+    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.9);
+}
