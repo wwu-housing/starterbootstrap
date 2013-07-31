@@ -148,7 +148,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <!-- ********** FOOTER ********** -->
         <footer id="dokuwiki__footer">
             <div class="row">
-                <ul class="doc breadcrumb well pull-right">
+                <ul class="doc breadcrumb pull-right">
                     <li><?php tpl_action('top', 1, ''); ?></li>
                     <li><?php tpl_pageinfo() /* 'Last modified' etc */ ?></li>
                 </ul>

@@ -288,12 +288,14 @@ function bootstrap_html_TOC($toc){
     if(!count($toc)) return '';
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
-    $out .= '<div id="dw_toc" class="panel pull-right col-3">'.DOKU_LF;
-    $out .= '<div class="panel-heading" data-toggle="collapse" data-target="#dw_toc .nav:first">';
+    $out .= '<div id="dw_toc" class="accordion pull-right col-3"><div class="accordion-group">'.DOKU_LF;
+    $out .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#dw_toc" href="#toc_contents">';
     $out .= $lang['toc'];
-    $out .= '<b class="caret"></b></div>'.DOKU_LF;
-    $out .= bootstrap_toc_html_buildlist($toc,'in','html_list_toc','html_li_default',true);
-    $out .= '</div>'.DOKU_LF;
+    $out .= ' <b class="caret"></b></a></div>'.DOKU_LF;
+    $out .= '<div id="toc_contents" class="accordion-body collapse in"><div class="accordion-inner">';
+    $out .= bootstrap_toc_html_buildlist($toc,'','html_list_toc');
+    $out .= '</div></div>';
+    $out .= '</div></div>'.DOKU_LF;
     $out .= '<!-- TOC END -->'.DOKU_LF;
     return $out;
 }
@@ -363,7 +365,7 @@ function _tpl_breadcrumbs() {
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-12"><ul class="breadcrumb well"><li class="bchead">Last few pages:&nbsp;</li>';
+        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-12"><ul class="breadcrumb"><li class="bchead">Last few pages:&nbsp;</li>';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
@@ -381,7 +383,7 @@ function _tpl_breadcrumbs() {
     return true;
 }
 
-function bootstrap_tpl_youarehere($sep = '&#187;') {
+function bootstrap_tpl_youarehere() {
     global $lang;
     global $ID;
     global $conf;
@@ -389,11 +391,10 @@ function bootstrap_tpl_youarehere($sep = '&#187;') {
     // check if enabled
     if (!$conf['youarehere']) return false;
 
-    $sep = '<span class="separator">&nbsp;' . $sep . '&nbsp;</span>';
     $parts = explode(':', $ID);
     $count = count($parts);
 
-    print '<ul class="breadcrumb well">You are here: ';
+    print '<ul class="breadcrumb">You are here: ';
 
     // always brint the start page
     echo '<li class="home">';
@@ -407,7 +408,6 @@ function bootstrap_tpl_youarehere($sep = '&#187;') {
         $page = $part;
         if ($page == $conf['start']) continue; // skip startpage
         echo '<li>';
-        echo $sep;
         tpl_pagelink($page);
         echo '</li>';
     }
@@ -418,7 +418,6 @@ function bootstrap_tpl_youarehere($sep = '&#187;') {
     $page = $part.$parts[$i];
     if ($page == $conf['start']) return true;
     echo '<li>';
-    echo $sep;
     tpl_pagelink($page);
     echo '</li>';
     print '</ul>';

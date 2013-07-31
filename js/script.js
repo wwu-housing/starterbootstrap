@@ -6,7 +6,7 @@ function init() {
     jQNew('.sidebar-page ul .li').each(function() {
         var $that = jQNew(this);
         if ($that.parent().find('ul').length > 0) {
-            $that.append('<i class="icon-chevron-down pull-right"></i>');
+            $that.append('<span class="glyphicon glyphicon-chevron-down pull-right"></span>');
         }
     });
 
