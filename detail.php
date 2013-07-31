@@ -22,23 +22,23 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
     <?php @require_once(dirname(__FILE__).'/head-css.php'); ?>
 </head>
 <body>
-    <div id="dokuwiki__detail" class="dokuwiki container-fluid">
-        <div class="row-fluid">
-        <?php html_msgarea() ?>
-        </div>
+    <div id="dokuwiki__detail" class="dokuwiki container">
+        <div class="row"><?php html_msgarea() ?></div>
 
-        <?php if($ERROR){ print '<div class="row-fluid">'.$ERROR.'</div>'; }else{ ?>
-            <div class="row-fluid">
-                <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></h1>
+        <?php if($ERROR){ print '<div class="row">'.$ERROR.'</div>'; }else{ ?>
+            <div class="row">
+                <div class="col-12">
+                    <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></h1>
+                </div>
             </div>
 
-            <div class="content row-fluid">
-                <div class="span9">
+            <div class="content row">
+                <div class="col-lg-9">
                     <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
                 </div>
 
-                <div class="img_detail span3"><div class="well">
-                    <h2><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h2>
+                <div class="img_detail col-lg-3"><div class="well">
+                    <h3><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h3>
 
                     <div class="details">
                         <p><?php
@@ -76,17 +76,19 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
                 </div></div>
             </div><!-- /.content -->
-            <div class="row-fluid">
-                <div class="btn-group">
-                    <a href="<?php print DOKU_REL . 'doku.php/' . $ID; ?>" class="btn">&larr; <?php print $lang['img_backto'] . ' ' . $ID?></a>
-                    <?php
-                        $imgNS = getNS($IMG);
-                        $authNS = auth_quickaclcheck("$imgNS:*");
-                        if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
-                            $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
-                            echo '<a class="btn" href="'.$mmURL.'">'.$lang['img_manager'].'</a>';
-                        }
-                    ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="btn-group">
+                        <a href="<?php print DOKU_REL . 'doku.php/' . $ID; ?>" class="btn">&larr; <?php print $lang['img_backto'] . ' ' . $ID?></a>
+                        <?php
+                            $imgNS = getNS($IMG);
+                            $authNS = auth_quickaclcheck("$imgNS:*");
+                            if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
+                                $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
+                                echo '<a class="btn btn-default" href="'.$mmURL.'">'.$lang['img_manager'].'</a>';
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         <?php } ?>

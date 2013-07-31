@@ -848,7 +848,7 @@ img.img_detail{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
-#dokuwiki__detail div.img_detail h2 {
+#dokuwiki__detail div.img_detail h3 {
     margin-top: 0;
 }
 
