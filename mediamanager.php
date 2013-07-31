@@ -23,19 +23,21 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 </head>
 
 <body>
-    <div id="media_manager" class="dokuwiki container">
-        <?php html_msgarea() ?>
-        <div id="mediamgr_aside">
-            <h1><?php echo hsc($lang['mediaselect'])?></h1>
+    <div class="container">
+        <div id="media_manager" class="dokuwiki row">
+            <?php html_msgarea() ?>
+            <div id="mediamgr_aside" class="col-sm-4">
+                <h1><?php echo hsc($lang['mediaselect'])?></h1>
 
-            <?php /* keep the id! additional elements are inserted via JS here */?>
-            <div id="media__opts"></div>
+                <?php /* keep the id! additional elements are inserted via JS here */?>
+                <div id="media__opts"></div>
 
-            <?php bootstrap_tpl_mediaTree() ?>
-        </div>
+                <?php bootstrap_tpl_mediaTree() ?>
+            </div>
 
-        <div id="mediamgr_content">
-            <?php tpl_mediaContent() ?>
+            <div id="mediamgr_content" class="col-sm-8">
+                <?php tpl_mediaContent() ?>
+            </div>
         </div>
     </div>
 

@@ -288,7 +288,7 @@ function bootstrap_html_TOC($toc){
     if(!count($toc)) return '';
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
-    $out .= '<div id="dw_toc" class="accordion pull-right col-3"><div class="accordion-group">'.DOKU_LF;
+    $out .= '<div id="dw_toc" class="accordion pull-right col-lg-3"><div class="accordion-group">'.DOKU_LF;
     $out .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#dw_toc" href="#toc_contents">';
     $out .= $lang['toc'];
     $out .= ' <b class="caret"></b></a></div>'.DOKU_LF;
@@ -365,7 +365,7 @@ function _tpl_breadcrumbs() {
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-12"><ul class="breadcrumb"><li class="bchead">Last few pages:&nbsp;</li>';
+        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb"><li class="bchead">Last few pages:&nbsp;</li>';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
@@ -490,7 +490,7 @@ function bootstrap_media_nstree($ns){
         }
     }
 
-    echo bootstrap_toc_html_buildlist($data,'nav nav-list','bootstrap_media_nstree_item','bootstrap_media_nstree_li');
+    echo bootstrap_toc_html_buildlist($data,'','bootstrap_media_nstree_item','bootstrap_media_nstree_li');
 }
 /**
  * Userfunction for html_buildlist
@@ -510,11 +510,11 @@ function bootstrap_media_nstree_item($item){
     // TODO: only deliver an image if it actually has a subtree...
     if($item['open']){
         $class .= ' open';
-        $icon  = '<i class="icon-minus"></i> ';
+        $icon  = '<i class="glyphicon glyphicon-minus"></i> ';
         $alt   = 'âˆ’';
     } else {
         $class .= ' closed';
-        $icon  = '<i class="icon-plus"></i> ';
+        $icon  = '<i class="glyphicon glyphicon-plus"></i> ';
         $alt   = '+';
     }
     $ret = '<li class="'.$class.'">';

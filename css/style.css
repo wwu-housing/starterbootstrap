@@ -1,5 +1,3 @@
-@import url("custom.css") screen;
-
 #dokuwiki__sitetools .span12 {
     margin-left: 0px;
 }
@@ -159,7 +157,8 @@ dl dd {
 /* general button class */
 input.button,
 a.button,
-button.button {
+button.button,
+.btn {
   display: inline-block;
   padding: 8px 12px;
   margin-bottom: 0;
@@ -183,6 +182,7 @@ button.button {
 }
 input.button:focus,
 a.button:focus,
+.btn:focus,
 button.button:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
@@ -190,18 +190,22 @@ button.button:focus {
 }
 input.button:hover,
 a.button:hover,
+.btn:hover,
 button.button:hover,
 input.button:focus,
 a.button:focus,
+.btn:focus,
 button.button:focus {
   color: #ffffff;
   text-decoration: none;
 }
 input.button:active,
 a.button:active,
+.btn:active,
 button.button:active,
 input.button.active,
 a.button.active,
+.btn.active,
 button.button.active {
   outline: 0;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -209,12 +213,15 @@ button.button.active {
 }
 input.button.disabled,
 a.button.disabled,
+.btn.disabled,
 button.button.disabled,
 input.button[disabled],
 a.button[disabled],
+.btn[disabled],
 button.button[disabled],
 fieldset[disabled] input.button,
 fieldset[disabled] a.button,
+fieldset[disabled] .btn,
 fieldset[disabled] button.button {
   pointer-events: none;
   cursor: default;
@@ -227,46 +234,59 @@ fieldset[disabled] button.button {
 }
 input.button:hover,
 a.button:hover,
+.btn:hover,
 button.button:hover,
 input.button:focus,
 a.button:focus,
+.btn:focus,
 button.button:focus,
 input.button:active,
 a.button:active,
+.btn:active,
 button.button:active,
 input.button.active,
 a.button.active,
+.btn:active,
 button.button.active {
   background-color: #3a3c3c;
   border-color: #2e2f2f;
 }
 input.button.disabled,
 a.button.disabled,
+.btn.disabled,
 button.button.disabled,
 fieldset[disabled] .button,
 input.button.disabled:hover,
 a.button.disabled:hover,
+.btn.disabled:hover,
 button.button.disabled:hover,
 input.button[disabled]:hover,
 a.button[disabled]:hover,
+.btn[disabled]:hover,
 button.button[disabled]:hover,
 input.button.disabled:focus,
 a.button.disabled:focus,
+.btn.disabled:focus,
 button.button.disabled:focus,
 input.button[disabled]:focus,
 a.button[disabled]:focus,
+.btn[disabled]:focus,
 button.button[disabled]:focus,
 input.button.disabled:active,
 a.button.disabled:active,
+.btn.disabled:active,
 button.button.disabled:active,
 input.button[disabled]:active,
 a.button[disabled]:active,
+.btn[disabled]:active,
 button.button[disabled]:active,
 input.button.disabled.active,
 a.button.disabled.active,
+.btn.disabled.active,
 button.button.disabled.active,
 input.button[disabled].active,
 a.button[disabled].active,
+.btn[disabled].active,
 button.button[disabled].active,
 fieldset[disabled] input.button:hover,
 fieldset[disabled] input.button:focus,
@@ -276,6 +296,10 @@ fieldset[disabled] a.button:hover,
 fieldset[disabled] a.button:focus,
 fieldset[disabled] a.button:active,
 fieldset[disabled] a.button.active,
+fieldset[disabled] .btn:hover,
+fieldset[disabled] .btn:focus,
+fieldset[disabled] .btn:active,
+fieldset[disabled] .btn.active,
 fieldset[disabled] button.button:hover,
 fieldset[disabled] button.button:focus,
 fieldset[disabled] button.button:active,
@@ -757,16 +781,6 @@ label span {
              hyphenate-lines: 3;
 }
 
-#mediamgr_aside {
-    display: block;
-    float: left;
-    width: 32%;
-}
-#mediamgr_content {
-    display: block;
-    float: right;
-    width: 66%;
-}
 #media__tree .nav a {
     padding-top: 1px;
     padding-bottom: 1px;
