@@ -1,3 +1,5 @@
+@import url("custom.css") screen;
+
 #dokuwiki__sitetools .span12 {
     margin-left: 0px;
 }
@@ -909,7 +911,5 @@ table th[class^="col-"] {
 .panel .list-group-item {
     border-color: inherit;
 }
-.navbar {
-    background-color: #eee;
-    background-color: rgba(238, 238, 238, 0.9);
-}
+
+
