@@ -511,10 +511,10 @@ div.picker button.pickerbutton:focus,
 div.picker button.toolbutton:focus {
     background: #ccc;
 }
-.preview th:after {
+.modal .preview th:after {
     content: "Header";
 }
-.preview td:after {
+.modal .preview td:after {
     content: "content";
 }
 
