@@ -365,7 +365,7 @@ function _tpl_breadcrumbs() {
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb"><li class="bchead">Last few pages:&nbsp;</li>';
+        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb"><li class="bchead">'.$lang['breadcrumb'].':&nbsp;</li>';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
