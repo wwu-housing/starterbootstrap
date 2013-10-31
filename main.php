@@ -100,7 +100,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <section class="wrapper row"><!-- PAGE ACTIONS -->
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <aside id="dokuwiki__aside" class="col-lg-<?php
+            <aside id="dokuwiki__aside" class="col-sm-<?php
                                     $cols = (int) tpl_getConf('sidebar_cols');
                                     if ($cols <= 0 || $cols >= 12) {
                                         $cols = 3;
@@ -118,7 +118,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-lg-<?php echo 12 - $cols; ?><?php else: ?>col-lg-12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $cols; ?><?php else: ?>col-xs-12<?php endif; ?>">
                 <?php if($conf['youarehere']){ ?>
                     <div class="youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
@@ -141,15 +141,11 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 
         <!-- ********** FOOTER ********** -->
         <footer id="dokuwiki__footer">
-            <div class="row">
-                <ul class="doc breadcrumb pull-right">
-                    <li><?php tpl_action('top', 1, ''); ?></li>
-                    <li><?php tpl_pageinfo() /* 'Last modified' etc */ ?></li>
-                </ul>
-            </div>
-            <div class="row">
-                <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
-            </div>
+            <ul class="doc breadcrumb pull-right">
+                <li><?php tpl_action('top', 1, ''); ?></li>
+                <li><?php tpl_pageinfo() /* 'Last modified' etc */ ?></li>
+            </ul>
+            <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
         </footer><!-- /footer -->
 
         <?php tpl_includeFile('footer.html') ?>
