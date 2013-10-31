@@ -290,9 +290,9 @@ function bootstrap_html_TOC($toc){
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
     $out .= '<div id="dw_toc" class="panel panel-default pull-right col-sm-4 col-md-3 col-xs-12">'.DOKU_LF;
-    $out .= '<div class="panel-heading"><a href="#" data-toggle="collapse" data-target="#toc_contents">';
+    $out .= '<div class="panel-heading"><h3 class="panel-title" data-toggle="collapse" data-target="#toc_contents">';
     $out .= $lang['toc'];
-    $out .= '</a> <b class="caret"></b></div>'.DOKU_LF;
+    $out .= ' <b class="caret"></b></h3></div>'.DOKU_LF;
     $out .= '<div id="toc_contents" class="collapse in"><div class="panel-body">';
     $out .= bootstrap_toc_html_buildlist($toc,'','html_list_toc');
     $out .= '</div></div>';
