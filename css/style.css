@@ -11,10 +11,8 @@ dl dd {
     padding-left: 1.2em;
 }
 
-@media (min-width: 980px) {
-    #dokuwiki__top {
-        margin-top: 60px;
-    }
+#dokuwiki__top {
+    margin-top: 60px;
 }
 .dokuwiki a.urlextern {
     padding-left: 0;
@@ -47,19 +45,6 @@ dl dd {
 }
 .centeralign, td.centeralign {
     text-align: center;
-}
-
-@media (max-width: 979px) {
-    .navbar-fixed-top .dropdown-toggle {
-        display: none;
-    }
-    .navbar-fixed-top .dropdown-menu {
-        display: block;
-        margin: 0;
-    }
-    .navbar-fixed-top .action.top {
-        display: none;
-    }
 }
 
 #IE6 #dokuwiki__content,
@@ -155,157 +140,80 @@ dl dd {
     }
 
 /* general button class */
-input.button,
-a.button,
-button.button,
-.btn {
-  display: inline-block;
-  padding: 8px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.428571429;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-user-select: none;
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
        -o-user-select: none;
           user-select: none;
-  color: #ffffff;
-  background-color: #474949;
-  border-color: #474949;
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
 }
-input.button:focus,
-a.button:focus,
-.btn:focus,
-button.button:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+.button:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }
-input.button:hover,
-a.button:hover,
-.btn:hover,
-button.button:hover,
-input.button:focus,
-a.button:focus,
-.btn:focus,
-button.button:focus {
-  color: #ffffff;
-  text-decoration: none;
+.button:hover,
+.button:focus {
+    color: #333;
+    text-decoration: none;
 }
-input.button:active,
-a.button:active,
-.btn:active,
-button.button:active,
-input.button.active,
-a.button.active,
-.btn.active,
-button.button.active {
-  outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+.button:active,
+.button.active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
           box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-input.button.disabled,
-a.button.disabled,
-.btn.disabled,
-button.button.disabled,
-input.button[disabled],
-a.button[disabled],
-.btn[disabled],
-button.button[disabled],
-fieldset[disabled] input.button,
-fieldset[disabled] a.button,
-fieldset[disabled] .btn,
-fieldset[disabled] button.button {
-  pointer-events: none;
-  cursor: default;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background-color: #474949;
-  border-color: #474949;
+.button.disabled,
+.button[disabled],
+fieldset[disabled] .button {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+        box-shadow: none;
 }
-input.button:hover,
-a.button:hover,
-.btn:hover,
-button.button:hover,
-input.button:focus,
-a.button:focus,
-.btn:focus,
-button.button:focus,
-input.button:active,
-a.button:active,
-.btn:active,
-button.button:active,
-input.button.active,
-a.button.active,
-.btn:active,
-button.button.active {
-  background-color: #3a3c3c;
-  border-color: #2e2f2f;
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    color: #333333;
+    background-color: #ebebeb;
+    border-color: #adadad;
 }
-input.button.disabled,
-a.button.disabled,
-.btn.disabled,
-button.button.disabled,
+.button.disabled,
 fieldset[disabled] .button,
-input.button.disabled:hover,
-a.button.disabled:hover,
-.btn.disabled:hover,
-button.button.disabled:hover,
-input.button[disabled]:hover,
-a.button[disabled]:hover,
-.btn[disabled]:hover,
-button.button[disabled]:hover,
-input.button.disabled:focus,
-a.button.disabled:focus,
-.btn.disabled:focus,
-button.button.disabled:focus,
-input.button[disabled]:focus,
-a.button[disabled]:focus,
-.btn[disabled]:focus,
-button.button[disabled]:focus,
-input.button.disabled:active,
-a.button.disabled:active,
-.btn.disabled:active,
-button.button.disabled:active,
-input.button[disabled]:active,
-a.button[disabled]:active,
-.btn[disabled]:active,
-button.button[disabled]:active,
-input.button.disabled.active,
-a.button.disabled.active,
-.btn.disabled.active,
-button.button.disabled.active,
-input.button[disabled].active,
-a.button[disabled].active,
-.btn[disabled].active,
-button.button[disabled].active,
-fieldset[disabled] input.button:hover,
-fieldset[disabled] input.button:focus,
-fieldset[disabled] input.button:active,
-fieldset[disabled] input.button.active,
-fieldset[disabled] a.button:hover,
-fieldset[disabled] a.button:focus,
-fieldset[disabled] a.button:active,
-fieldset[disabled] a.button.active,
-fieldset[disabled] .btn:hover,
-fieldset[disabled] .btn:focus,
-fieldset[disabled] .btn:active,
-fieldset[disabled] .btn.active,
-fieldset[disabled] button.button:hover,
-fieldset[disabled] button.button:focus,
-fieldset[disabled] button.button:active,
-fieldset[disabled] button.button.active {
-  background-color: #474949;
-  border-color: #474949;
+.button.disabled:hover,
+.button[disabled]:hover,
+.button.disabled:focus,
+.button[disabled]:focus,
+.button.disabled:active,
+.button[disabled]:active,
+.button.disabled.active,
+.button[disabled].active,
+fieldset[disabled] .button:hover,
+fieldset[disabled] .button:focus,
+fieldset[disabled] .button:active,
+fieldset[disabled] .button.active {
+  background-color: #fff;
+  border-color: #ccc;
 }
 
 /* in page edit buttons, btn-mini */

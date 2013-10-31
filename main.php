@@ -36,59 +36,54 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <div id="dokuwiki__site" ><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
     <a href="#dokuwiki__content" class="a11y"><?php echo $lang['skip_to_content'] ?></a></li>
-    <div class="navbar navbar-fixed-top">
-        <div class="container">
-            <?php tpl_includeFile('header.html') ?>
-
-            <!-- ********** HEADER ********** -->
-
-            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-            <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <?php tpl_includeFile('header.html') ?>
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#topnav" type="button">
+                <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </a>
-
+            </button>
             <?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="navbar-brand"') ?>
+        </div>
+        <div class="navbar-collapse collapse" id="topnav">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
+                        <!-- USER TOOLS -->
+                        <?php if ($conf['useacl'] && $showTools): ?>
+                        <?php
+                            if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
+                            if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
+                            if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
+                        ?>
+                        <?php endif ?>
+                        <?php if ($showTools): ?>
+                        <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
+                        <?php
+                            tpl_action('edit', 1, 'li');
+                            if ($ACT == 'revisions') { tpl_action('revisions', 1, 'li class="active"'); } else { tpl_action('revisions', 1, 'li'); };
+                            if ($ACT == 'backlink') { tpl_action('backlink', 1, 'li class="active"'); } else { tpl_action('backlink', 1, 'li'); };
+                            tpl_action('subscribe', 1, 'li');
+                            tpl_action('revert', 1, 'li');
+                            if ($ACT == 'profile') { tpl_action('profile', 1, 'li class="active"'); } else { tpl_action('profile', 1, 'li'); };
+                            if ($ACT == 'login') { tpl_action('login', 1, 'li class="active"'); } else { tpl_action('login', 1, 'li'); };
+                            if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
+                        ?>
+                        <?php endif; ?>
+                        <li class="divider"></li>
+                        <?php /* the optional second parameter of tpl_action() switches between a link and a button,
+                         e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
+                            tpl_action('top', 1, 'li');
+                        ?>
+                    </ul>
+                </li>
+            </ul>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav navbar-nav pull-right">
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
-                            <!-- USER TOOLS -->
-                            <?php if ($conf['useacl'] && $showTools): ?>
-                            <?php
-                                if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
-                                if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
-                                if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
-                            ?>
-                            <?php endif ?>
-                            <?php if ($showTools): ?>
-                            <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
-                            <?php
-                                tpl_action('edit', 1, 'li');
-                                if ($ACT == 'revisions') { tpl_action('revisions', 1, 'li class="active"'); } else { tpl_action('revisions', 1, 'li'); };
-                                if ($ACT == 'backlink') { tpl_action('backlink', 1, 'li class="active"'); } else { tpl_action('backlink', 1, 'li'); };
-                                tpl_action('subscribe', 1, 'li');
-                                tpl_action('revert', 1, 'li');
-                                if ($ACT == 'profile') { tpl_action('profile', 1, 'li class="active"'); } else { tpl_action('profile', 1, 'li'); };
-                                if ($ACT == 'login') { tpl_action('login', 1, 'li class="active"'); } else { tpl_action('login', 1, 'li'); };
-                                if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
-                            ?>
-                            <?php endif; ?>
-                            <li class="divider"></li>
-                            <?php /* the optional second parameter of tpl_action() switches between a link and a button,
-                             e.g. a button inside a <li> would be: tpl_action('edit', 0, 'li') */
-                                tpl_action('top', 1, 'li');
-                            ?>
-                       </ul>
-                    </li>
-                </ul>
-
-                <?php _tpl_searchform() ?>
-            </div>
+            <?php _tpl_searchform() ?>
         </div>
     </div>
 
@@ -97,9 +92,8 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
             <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         </div>
 
-        <ul class="nav nav-tabs nav-stacked visible-sm">
-            <li><a href="#dokuwiki__content" class="skip-to-content"><?php echo $lang['skip_to_content'] ?></a></li>
-        </ul>
+        <a href="#dokuwiki__content" class="skip-to-content visible-xs btn-block btn btn-info"><?php echo $lang['skip_to_content'] ?></a>
+        <br>
 
         <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
@@ -165,20 +159,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <!--[if ( IE 6 | IE 7 | IE 8 ) ]></div><![endif]-->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php print DOKU_TPL; ?>/js/jquery-1.9.1.min.js" type="text/javascript"><\/script>')</script>
-    <script type="text/javascript">
-        var jQNew = $.noConflict(true);
-    </script>
-    <script src="<?php print DOKU_TPL; ?>/js/bootstrap.js" type="text/javascript"></script>
-    <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        var _gaq=[['_setAccount','<?php echo tpl_getConf('google_analytics'); ?>'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src='//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+    <?php @require_once(dirname(__FILE__).'/tail-js.php'); ?>
 </body>
 </html>

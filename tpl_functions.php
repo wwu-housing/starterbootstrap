@@ -217,12 +217,14 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
     // don't print the search form if search action has been disabled
     if(!actionOK('search')) return false;
 
-    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-form pull-right" id="dw__search" method="get">';
+    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-form navbar-right" id="dw__search" method="get" role="search">';
     print '<input type="hidden" name="do" value="search" />';
+    print '<div class="form-group">';
     print '<input type="text" ';
     if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
     if(!$autocomplete) print 'autocomplete="off" ';
     print 'id="qsearch__in" accesskey="f" name="id" class="form-control col-lg-3" title="[F]" placeholder="Search" /> ';
+    print '</div>';
     //print '<input type="submit" value="'.$lang['btn_search'].'" class="btn btn-default" title="'.$lang['btn_search'].'" />';
     if($ajax) print '<div id="qsearch__out" class="ajax_qsearch"></div>';
     print '</form>';
