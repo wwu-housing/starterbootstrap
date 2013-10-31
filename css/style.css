@@ -749,10 +749,12 @@ img.img_detail{
        -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    max-width: 100%;
 }
 #dokuwiki__detail div.img_detail h3 {
     margin-top: 0;
 }
+
 
 div.notify {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);

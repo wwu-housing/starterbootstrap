@@ -27,16 +27,17 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
         <?php if($ERROR){ print '<div class="row">'.$ERROR.'</div>'; }else{ ?>
         <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG))?></h1>
-
             <div class="content row">
                 <div class="col-sm-9">
                     <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
                 </div>
 
-                <div class="img_detail col-sm-3"><div class="well">
-                    <h3><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h3>
+                <div class="img_detail col-sm-3"><div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?php print nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h3>
+                    </div>
 
-                    <div class="details">
+                    <div class="details panel-body">
                         <p><?php
                             $config_files = getConfigFiles('mediameta');
                             foreach ($config_files as $config_file) {
@@ -72,20 +73,16 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
                     <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
                 </div></div>
             </div><!-- /.content -->
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="btn-group">
-                        <a href="<?php print DOKU_REL . 'doku.php/' . $ID; ?>" class="btn">&larr; <?php print $lang['img_backto'] . ' ' . $ID?></a>
-                        <?php
-                            $imgNS = getNS($IMG);
-                            $authNS = auth_quickaclcheck("$imgNS:*");
-                            if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
-                                $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
-                                echo '<a class="btn btn-default" href="'.$mmURL.'">'.$lang['img_manager'].'</a>';
-                            }
-                        ?>
-                    </div>
-                </div>
+            <div class="btn-group">
+                <a class="btn btn-default" href="<?php print DOKU_REL . 'doku.php/' . $ID; ?>" class="btn">&larr; <?php print $lang['img_backto'] . ' ' . $ID?></a>
+                <?php
+                    $imgNS = getNS($IMG);
+                    $authNS = auth_quickaclcheck("$imgNS:*");
+                    if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
+                        $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
+                        echo '<a class="btn btn-default" href="'.$mmURL.'">'.$lang['img_manager'].'</a>';
+                    }
+                ?>
             </div>
         <?php } ?>
     </div>
