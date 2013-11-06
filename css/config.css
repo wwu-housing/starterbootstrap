@@ -62,6 +62,9 @@
 #config__manager td.label label {
     clear: left;
     display: block;
+    color: __text__;
+    white-space: normal;
+}
 }
 [dir=rtl] #config__manager td.label label {
     clear: right;
