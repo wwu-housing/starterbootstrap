@@ -6,7 +6,7 @@ function init() {
     jQNew('.sidebar-page ul .li').each(function() {
         var $that = jQNew(this);
         if ($that.parent().find('ul').length > 0) {
-            $that.append('<span class="glyphicon glyphicon-chevron-down pull-right"></span>');
+            $that.prepend('<span class="glyphicon glyphicon-chevron-down pull-right"></span>');
         }
     });
 
@@ -36,7 +36,7 @@ function addBtnActionInsertTable($btn, props, edid) {
         var html = '<div class="modal-dialog">' +
                     '<div class="modal-content">' +
                      '<div class="modal-header">' +
-                     '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+                      '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
                       '<h3 class="modal-title">Insert table markup</h3>' +
                      '</div>' +
                      '<div class="modal-body">' +
@@ -126,7 +126,7 @@ function addBtnActionInsertTable($btn, props, edid) {
             insertAtCarret(edid, tabletext + '\n');
 
             // hide and remove the element
-            $picker.modal('hide').remove();
+            $picker.modal('hide');
         }
 
         function updatePreview() {
@@ -206,6 +206,10 @@ function addBtnActionInsertTable($btn, props, edid) {
         });
 
         updatePreview();
+
+        $picker.on('hidden.bs.modal', function() {
+            $picker.remove();
+        });
 
         // show the element as a modal window
         $picker.modal('show');

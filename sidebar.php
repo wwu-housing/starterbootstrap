@@ -1,12 +1,12 @@
 <?php
 /**
- * Table of content-function that will 
+ * Table of content-function that will
  * create a hierarchical TOC for the site (by namespace)
  * and highlight the current page
  * The startpage if it exists, will always
  * be shown first in the menu
  */
- 
+
 function tpl_processStartPage($ns,$context) {
     // Check if a start page exists and add it first
     global $conf;
@@ -42,10 +42,9 @@ function tpl_processStartPage($ns,$context) {
 
     }
 }
-
 function tpl_pageLinkCreate($fileToLinkID, $linkName, $calledFrom) {
         global $ID;
-        
+
         echo "<li";
         if ($fileToLinkID == $ID) {
             // highlight current page
@@ -60,25 +59,24 @@ function tpl_pageLinkCreate($fileToLinkID, $linkName, $calledFrom) {
         // echo "<em>$fileToLinkID, $linkName, $calledFrom</em>";
         tpl_link($path,$linkName);
 }
- 
 function tpl_list_folder($dataList, $findAndProcessStartpage) {
     global $conf;
     global $ID;
     global $INFO;
-    
+
     require_once(DOKU_INC.'inc/auth.php');
-    
+
     $currentLevel = 1;
-    
+
     $pathinfo = pathinfo($_SERVER['REQUEST_URI']);
     $url = $pathinfo['dirname'];
-    
+
     echo "<div class='well well-nav'><ul class=\"nav nav-list\">\n";
-    
+
     tpl_processStartPage("","tof");
-    
-    for($i=0; $i<count($dataList); $i++) {        
-        
+
+    for($i=0; $i<count($dataList); $i++) {
+
         // Check if page is visible
         if ($dataList[$i]["type"] == "d") {
             $perm = auth_quickaclcheck($dataList[$i]["id"].":*");
@@ -90,7 +88,7 @@ function tpl_list_folder($dataList, $findAndProcessStartpage) {
 
             // don't show start page in normal order
             if (noNS($dataList[$i]["id"]) != $conf['start']) {
-                                 
+
                  // FIXME not sure if this is actually needed
                  // Could we not use noNS($dataList[$i]["id"]) instead???
                  $pageFileName = split(":", $dataList[$i]["id"]);
@@ -157,28 +155,25 @@ function tpl_list_folder($dataList, $findAndProcessStartpage) {
     }
     echo "</ul></div>\n";
 }
-
     global $ID;
     global $ACT;
     global $conf;
-    
-    
+
+
     $folder = getNS($ID);
-    
+
     require_once(DOKU_INC.'inc/search.php');
     require_once(DOKU_INC.'inc/html.php');
-    
-    $ns = cleanID($ID);    
+
+    $ns = cleanID($ID);
     if (empty($ns)) {
         $ns = dirname(str_replace(':','/',$ID));
         if ($ns == '.') $ns ='';
     }
     $ns = utf8_encodeFN(str_replace(':','/',$ns));
-    
+
     $list = array();
     search($list,$conf['datadir'],'search_index',array('ns' => $ns));
-    
-    tpl_list_folder($list,true);
-    
 
+    tpl_list_folder($list,true);
 ?>

@@ -217,13 +217,14 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
     // don't print the search form if search action has been disabled
     if(!actionOK('search')) return false;
 
-    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-form pull-right" id="dw__search" method="get">';
+    print '<form action="'.wl().'" accept-charset="utf-8" class="navbar-form navbar-right" id="dw__search" method="get" role="search">';
     print '<input type="hidden" name="do" value="search" />';
+    print '<div class="form-group">';
     print '<input type="text" ';
     if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
     if(!$autocomplete) print 'autocomplete="off" ';
-    print 'id="qsearch__in" accesskey="f" name="id" class="form-control col-lg-3" title="[F]" placeholder="Search" /> ';
-    //print '<input type="submit" value="'.$lang['btn_search'].'" class="btn btn-default" title="'.$lang['btn_search'].'" />';
+    print 'id="qsearch__in" accesskey="f" name="id" class="form-control col-lg-3" title="[F]" placeholder="' . $lang['btn_search'] . '" /> ';
+    print '</div>';
     if($ajax) print '<div id="qsearch__out" class="ajax_qsearch"></div>';
     print '</form>';
     return true;
@@ -288,14 +289,14 @@ function bootstrap_html_TOC($toc){
     if(!count($toc)) return '';
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
-    $out .= '<div id="dw_toc" class="accordion pull-right col-lg-3"><div class="accordion-group">'.DOKU_LF;
-    $out .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#dw_toc" href="#toc_contents">';
+    $out .= '<div id="dw_toc" class="panel panel-default pull-right col-sm-4 col-md-3 col-xs-12">'.DOKU_LF;
+    $out .= '<div class="panel-heading"><h3 class="panel-title" data-toggle="collapse" data-target="#toc_contents">';
     $out .= $lang['toc'];
-    $out .= ' <b class="caret"></b></a></div>'.DOKU_LF;
-    $out .= '<div id="toc_contents" class="accordion-body collapse in"><div class="accordion-inner">';
+    $out .= ' <b class="caret"></b></h3></div>'.DOKU_LF;
+    $out .= '<div id="toc_contents" class="collapse in"><div class="panel-body">';
     $out .= bootstrap_toc_html_buildlist($toc,'','html_list_toc');
     $out .= '</div></div>';
-    $out .= '</div></div>'.DOKU_LF;
+    $out .= '</div>'.DOKU_LF;
     $out .= '<!-- TOC END -->'.DOKU_LF;
     return $out;
 }
