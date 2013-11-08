@@ -750,6 +750,7 @@ img.img_detail{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     max-width: 100%;
+    height: auto;
 }
 #dokuwiki__detail div.img_detail h3 {
     margin-top: 0;
@@ -776,6 +777,9 @@ div.notify {
 .page table {
   width: 100%;
   margin-bottom: 20px;
+}
+.page table thead th {
+    cursor: pointer;
 }
 .page table thead > tr > th,
 .page table tbody > tr > th,
