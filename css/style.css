@@ -481,21 +481,21 @@ select.quickselect,
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 input[disabled] {
-  cursor: not-allowed;
-  background-color: #eeeeee;
+    cursor: not-allowed;
+    background-color: #eeeeee;
 }
 .summary input[type="checkbox"] {
     float: left;
-    margin: 4px 4px 0 8px;
+    margin: 0px 7px 0 8px;
     line-height: normal;
     padding: 0px;
 }
 .summary input {
-  display: inline-block;
-  *display: inline;
-  margin-bottom: 0;
-  vertical-align: middle;
-  *zoom: 1;
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 0;
+    vertical-align: middle;
+    *zoom: 1;
 }
 .summary label {
     margin-top: 10px;
@@ -512,6 +512,12 @@ input[disabled] {
   text-align: right;
   *display: inline-block;
   padding-right: 5px;
+}
+.summary label + label input[type="checkbox"] {
+    margin-top: 10px;
+}
+.summary label + label span {
+    margin-top: 7px;
 }
 
 .license {
@@ -653,11 +659,18 @@ ul.nav-list {
     margin-bottom: 6px;
 }
 label span {
+    margin-right: 3px;
+    position: relative;
     display: inline-block;
-    margin-top: 6px;
 }
-#media_manager label {
-    display: inline-block;
+.dokuwiki #wiki__editbar .summary label,
+#media_manager label,
+.dokuwiki div.editBar .summary label {
+    vertical-align: top;
+}
+.dokuwiki #wiki__editbar .summary label *,
+.dokuwiki div.editBar .summary label * {
+    vertical-align: middle;
 }
 #media_manager .qq-overwrite-check {
     float: right;
@@ -712,11 +725,6 @@ label span {
     margin-left: 0px;
 }
 
-label span {
-    margin-right: 3px;
-    position: relative;
-    bottom: 6px;
-}
 .upload, .maxsize {
     color: #595959; /* simulate help-block for media manager */
     font-size: .9em;
