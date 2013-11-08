@@ -823,6 +823,29 @@ table th[class^="col-"] {
   background-color: #ffffff;
 }
 
+@media (max-width: 767px) {
+    div.table {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        border: 1px solid #dddddd;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+    }
+    div.table > table {
+        margin-bottom: 0;
+    }
+    div.table > table > thead > tr > th,
+    div.table > table > tbody > tr > th,
+    div.table > table > tfoot > tr > th,
+    div.table > table > thead > tr > td,
+    div.table > table > tbody > tr > td,
+    div.table > table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+}
+
 .page img {
     max-width: 100%;
 }
