@@ -48,6 +48,9 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         </div>
         <div class="navbar-collapse collapse" id="topnav">
             <ul class="nav navbar-nav navbar-right">
+                <?php if ($showTools): ?>
+                    <?php tpl_action('edit', 1, 'li', 0, '', '', 'Edit'); ?>
+                <?php endif; ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang['tools']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">

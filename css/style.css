@@ -451,11 +451,12 @@ input[type="date"],
 input[type="week"],
 input[type="phone"],
 input[type="email"],
+textarea,
 .summary input[type="text"] {
   display: block;
   width: 100%;
-  height: 38px;
-  padding: 8px 12px;
+  height: 34px;
+  padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
   color: #555555;
