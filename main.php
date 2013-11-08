@@ -35,7 +35,6 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
     <?php /* .dokuwiki should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
     <div id="dokuwiki__site" ><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?> <?php echo ($showSidebar) ? 'hasSidebar' : '' ?>">
-    <a href="#dokuwiki__content" class="a11y"><?php echo $lang['skip_to_content'] ?></a></li>
     <div class="navbar navbar-default navbar-fixed-top">
         <?php tpl_includeFile('header.html') ?>
         <div class="navbar-header">
@@ -50,7 +49,7 @@ $showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
         <div class="navbar-collapse collapse" id="topnav">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang['tools']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
                         <!-- USER TOOLS -->
