@@ -4,6 +4,7 @@
     var jQNew = $.noConflict(true);
 </script>
 <script src="<?php print DOKU_TPL; ?>js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php print DOKU_TPL; ?>js/sorttable.js" type="text/javascript"></script>
 <script src="<?php print DOKU_TPL; ?>js/script.js" type="text/javascript"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

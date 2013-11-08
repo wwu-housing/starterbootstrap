@@ -1,4 +1,4 @@
-function init() {
+jQNew(document).ready(function() {
     jQNew('.ui-dialog-titlebar-close').click(function() {
         jQNew('.ui-dialog').hide();
     });
@@ -17,7 +17,12 @@ function init() {
     jQNew('abbr').tooltip({
         delay: { open: 500, close: 100 }
     });
-}
+
+    /* http://www.kryogenix.org/code/browser/sorttable/ */
+    jQNew('#dokuwiki__content .page table').each(function() {
+        sorttable.makeSortable(jQNew(this).get(0));
+    });
+});
 
 /* toolbar button to add a table */
 function addBtnActionInsertTable($btn, props, edid) {
