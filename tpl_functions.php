@@ -366,7 +366,7 @@ function _tpl_breadcrumbs() {
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb"><li class="bchead">'.$lang['breadcrumb'].':&nbsp;</li>';
+        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb">'.$lang['breadcrumb'].':&nbsp; ';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
@@ -377,7 +377,7 @@ function _tpl_breadcrumbs() {
                 print '<li>';
                 tpl_pagelink(':'.$id, hsc($name), 'title="' . $id . '"');
             }
-            print '</li>';
+            print '</li> ';
         }
         print '</ul></div></div>';
     }
@@ -395,12 +395,12 @@ function bootstrap_tpl_youarehere() {
     $parts = explode(':', $ID);
     $count = count($parts);
 
-    print '<ul class="breadcrumb">You are here: ';
+    print '<ul class="breadcrumb">You are here:&nbsp; ';
 
-    // always brint the start page
+    // always print the start page
     echo '<li class="home">';
     tpl_pagelink(':'.$conf['start']);
-    echo '</li>';
+    echo '</li> ';
 
     // print intermediate namespace links
     $part = '';
@@ -410,7 +410,7 @@ function bootstrap_tpl_youarehere() {
         if ($page == $conf['start']) continue; // skip startpage
         echo '<li>';
         tpl_pagelink($page);
-        echo '</li>';
+        echo '</li> ';
     }
 
     // print current page, skipping start page, skipping for namespace index
@@ -420,7 +420,7 @@ function bootstrap_tpl_youarehere() {
     if ($page == $conf['start']) return true;
     echo '<li>';
     tpl_pagelink($page);
-    echo '</li>';
+    echo '</li> ';
     print '</ul>';
     return true;
 }
