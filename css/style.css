@@ -68,6 +68,10 @@ dl dd {
     margin-bottom: 0.2em;
 }
 
+.skip-to-content {
+    margin-bottom: 20px;
+}
+
 /* sidebar */
     .sidebar-page [class^="glyphicon-"],
     .sidebar-page [class*=" glyphicon-"] {
