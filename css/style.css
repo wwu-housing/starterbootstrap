@@ -12,7 +12,7 @@ dl dd {
 }
 
 #dokuwiki__top {
-    margin-top: 55px;
+    margin-top: 50px;
 }
 .dokuwiki a.urlextern {
     padding-left: 0;
@@ -141,7 +141,8 @@ dl dd {
 
 /* general button class */
 .toolbutton,
-.button {
+.button,
+#media_manager .btn {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -165,20 +166,24 @@ dl dd {
     border-color: #cccccc;
 }
 .toolbutton:focus,
-.button:focus {
+.button:focus,
+#media_manager .btn:focus {
     outline: thin dotted #333;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
 .toolbutton:hover,
 .button:hover,
+#media_manager .btn:hover,
 .toolbutton:focus,
-.button:focus {
+.button:focus,
+#media_manager .btn:focus {
     color: #333;
     text-decoration: none;
 }
 .toolbutton:active,
 .button:active,
+#media_manager .btn:active,
 .toolbutton.active,
 .button.active {
     background-image: none;
@@ -188,8 +193,10 @@ dl dd {
 }
 .toolbutton.disabled,
 .button.disabled,
+#media_manager .btn.disabled,
 .toolbutton[disabled],
 .button[disabled],
+#media_manager .btn.disabled,
 fieldset[disabled] .toolbutton,
 fieldset[disabled] .button {
     pointer-events: none;
@@ -201,30 +208,38 @@ fieldset[disabled] .button {
 }
 .toolbutton:hover,
 .button:hover,
+#media_manager .btn:hover,
 .toolbutton:focus,
 .button:focus,
+#media_manager .btn:focus,
 .toolbutton:active,
 .button:active,
+#media_manager .btn:active,
 .toolbutton.active,
-.button.active {
+.button.active,
+#media_manager .btn.active {
     color: #333333;
     background-color: #ebebeb;
     border-color: #adadad;
 }
 .button.disabled,
 .toolbutton.disabled,
+#media_manager .btn.disabled,
 fieldset[disabled] .button,
 fieldset[disabled] .toolbutton,
 .button.disabled:hover,
 .toolbutton.disabled:hover,
+#media_manager .btn.disabled:hover,
 .button[disabled]:hover,
 .toolbutton[disabled]:hover,
 .button.disabled:focus,
 .toolbutton.disabled:focus,
+#media_manager .btn[disabled]:focus,
 .button[disabled]:focus,
 .toolbutton[disabled]:focus,
 .button.disabled:active,
 .toolbutton.disabled:active,
+#media_manager .btn.disabled:focus,
 .button[disabled]:active,
 .toolbutton[disabled]:active,
 .button.disabled.active,
@@ -514,10 +529,9 @@ input[disabled] {
   padding-right: 5px;
 }
 .summary label + label input[type="checkbox"] {
-    margin-top: 10px;
+    margin-top: 3px;
 }
 .summary label + label span {
-    margin-top: 7px;
 }
 
 .license {
@@ -656,7 +670,7 @@ ul.nav-list {
 
 #media_manager input[type="checkbox"] {
     display: inline-block;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 label span {
     margin-right: 3px;
@@ -666,7 +680,10 @@ label span {
 .dokuwiki #wiki__editbar .summary label,
 #media_manager label,
 .dokuwiki div.editBar .summary label {
-    vertical-align: top;
+    vertical-align: baseline;
+}
+#media_manager #media__opts label {
+    display: inline;
 }
 .dokuwiki #wiki__editbar .summary label *,
 .dokuwiki div.editBar .summary label * {
@@ -719,7 +736,26 @@ label span {
     display: inline-block;
 }
 #mediamanager__page .panelHeader form.options .ui-buttonset .ui-button-text {
-    padding: .3em .5em 0;
+    padding: .3em .5em;
+}
+#mediamanager__page form.meta div.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+#mediamanager__page form.meta div.row label {
+    display: inline;
+}
+#mediamanager__page form.meta textarea.edit {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+#mediamanager__page form.meta textarea.edit,
+#mediamanager__page form.meta input {
+    width: 100%;
+}
+#mediamanager__page form.meta input.button {
+    margin-top: 10px;
 }
 .panelContent .row {
     margin-left: 0px;
@@ -766,16 +802,44 @@ img.img_detail{
 }
 
 
+div.error,
+div.info,
+div.success,
 div.notify {
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
-    border: none;
-    background-color: rgb(254, 251, 237);
-    margin: 15px 0 0;
-    padding: 15px 30px;
-    border-left: 5px solid rgb(241, 231, 188);
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-image: none;
+    font-size: inherit;
+}
+div.error {
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+    color: #B94A48;
+}
+div.notify {
+    background-color: #FCF8E3;
+    border-color: #FAEBCC;
+    color: #C09853;
+}
+div.info {
+    background-color: #D9EDF7;
+    border-color: #BCE8F1;
+    color: #3A87AD;
+}
+div.success {
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    color: #468847;
+}
+.notifications {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.notifications > .notify {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .page h1:first-of-type {
@@ -865,5 +929,4 @@ table th[class^="col-"] {
 .panel .list-group-item {
     border-color: inherit;
 }
-
 

@@ -90,12 +90,11 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
     </div>
 
     <div class="container not-header">
-        <div class="nofications">
+        <div class="notifications">
             <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
         </div>
 
         <a href="#dokuwiki__content" class="skip-to-content visible-xs btn-block btn btn-info"><?php echo $lang['skip_to_content'] ?></a>
-        <br>
 
         <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
