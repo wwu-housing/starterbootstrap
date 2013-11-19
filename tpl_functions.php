@@ -395,7 +395,7 @@ function bootstrap_tpl_youarehere() {
     $parts = explode(':', $ID);
     $count = count($parts);
 
-    print '<ul class="breadcrumb">You are here:&nbsp; ';
+    print '<ul class="breadcrumb">' . $lang['youarehere'] . ':&nbsp; ';
 
     // always print the start page
     echo '<li class="home">';
