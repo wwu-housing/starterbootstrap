@@ -11,10 +11,6 @@ dl dd {
     padding-left: 1.2em;
 }
 
-#IE8 {
-    margin-top: 100px;
-    background: red;
-}
 #dokuwiki__top {
     margin-top: 50px;
 }
@@ -32,9 +28,7 @@ dl dd {
     padding-right: 4px;
     font-size: 8px;
 }
-#IE6 .dokuwiki a.urlextern,
-#IE7 .dokuwiki a.urlextern,
-#IE8 .dokuwiki a.urlextern {
+#IE6 .dokuwiki a.urlextern {
     background-image: none;
     padding-left: 0px;
 }
@@ -52,23 +46,17 @@ dl dd {
     text-align: center;
 }
 
-#IE6 #dokuwiki__content,
-#IE7 #dokuwiki__content,
-#IE8 #dokuwiki__content {
+#IE6 #dokuwiki__content {
     width: 75%;
     margin: 0;
     padding: 0;
 }
-#IE6 #dokuwiki__aside,
-#IE7 #dokuwiki__aside,
-#IE8 #dokuwiki__aside {
+#IE6 #dokuwiki__aside {
     width: 23%;
     margin: 0 2% 0 0;
     padding: 0;
 }
-#IE6 .not-header,
-#IE7 .not-header,
-#IE8 .not-header {
+#IE6 .not-header {
     margin-top: 55px;
 }
 
