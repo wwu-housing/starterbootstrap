@@ -110,7 +110,7 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
                 <?php if ($showSidebar): ?>
                 <div class="sidebar-page">
                     <?php tpl_includeFile('sidebarheader.html') ?>
-                    <?php tpl_include_page($conf['sidebar'], 1, 1) /* includes the nearest sidebar page */ ?>
+                    <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
                     <?php tpl_includeFile('sidebarfooter.html') ?>
                 </div>
                 <?php endif; ?>
