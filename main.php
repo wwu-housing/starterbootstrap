@@ -103,7 +103,7 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
             <?php if ($ACT == 'show'): ?>
             <aside id="dokuwiki__aside" class="col-sm-<?php
                                     $cols = (int) tpl_getConf('sidebar_cols');
-                                    if ($cols <= 0 || $cols >= 12) {
+                                    if ($cols < 0 || $cols >= 12) {
                                         $cols = 3;
                                     }
                                     echo $cols; ?>">
