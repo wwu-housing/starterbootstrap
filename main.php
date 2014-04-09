@@ -107,14 +107,13 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
                                         $cols = 3;
                                     }
                                     echo $cols; ?>">
-                <?php if ($showSidebar): ?>
+                <?php if ($showSidebar && $cols > 0): ?>
                 <div class="sidebar-page">
                     <?php tpl_includeFile('sidebarheader.html') ?>
                     <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
                     <?php tpl_includeFile('sidebarfooter.html') ?>
                 </div>
                 <?php endif; ?>
-                <?php //include('sidebar.php'); ?>
             </aside><!-- /aside -->
             <?php endif; ?>
 
