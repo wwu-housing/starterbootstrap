@@ -1,3 +1,21 @@
+h1, .h1 {
+    font-size: 33px;
+}
+h2, .h2 {
+    font-size: 26px;
+}
+h3, .h3 {
+    font-size: 22px;
+}
+h4, .h4 {
+    font-size: 18px;
+}
+h5, .h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
 #dokuwiki__sitetools .span12 {
     margin-left: 0px;
 }

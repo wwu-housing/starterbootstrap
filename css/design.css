@@ -6,6 +6,11 @@
  * @author Andreas Gohr <andi@splitbrain.org>
  */
 
+#dokuwiki__site {
+    margin: 0 auto;
+    max-width: __site_width__;
+    padding: 1.4em 1em;
+}
 
 /* header
 ********************************************************************/
@@ -18,7 +23,14 @@
 }
 
 #dokuwiki__header .headings {
+    float: left;
     margin-bottom: 2.1em;
+}
+[dir=rtl] #dokuwiki__header .headings {
+    float: right;
+}
+#IE6 #dokuwiki__header .headings {
+    width: 50%;
 }
 #dokuwiki__header h1 {
     margin-bottom: 0;
@@ -39,12 +51,29 @@
 
 #dokuwiki__header .tools {
     margin-bottom: 2.1em;
+    float: right;
+    text-align: right;
+}
+[dir=rtl] #dokuwiki__header .tools {
+    float: left;
+    text-align: left;
+}
+#IE6 #dokuwiki__header .tools {
+    width: 50%;
 }
 #dokuwiki__header .tools ul {
     margin-bottom: 0;
 }
 #dokuwiki__header .tools ul li {
     display: inline;
+}
+
+#dokuwiki__site .wrapper {
+    position: relative;
+}
+#IE6 #dokuwiki__site .wrapper,
+#IE7 #dokuwiki__site .wrapper {
+    height: 1%;
 }
 
 #dokuwiki__header form.search {
@@ -179,11 +208,22 @@
 #dokuwiki__aside {
     padding-top: .4em;
     line-height: 1.2;
+    width: __sidebar_width__;
+    float: left;
+    position: relative;
+    display: block;
+}
+[dir=rtl] #dokuwiki__aside {
+    float: right;
 }
 
 #dokuwiki__aside > .pad {
     overflow: hidden;
     word-wrap: break-word;
+    margin: 0 1.5em 0 0;
+}
+[dir=rtl] #dokuwiki__aside > .pad {
+    margin: 0 0 0 1.5em;
 }
 
 /* make sidebar more condensed */
@@ -257,6 +297,7 @@
 
 #dokuwiki__footer {
     margin-bottom: 1em;
+    clear: both;
 }
 #IE6 #dokuwiki__footer,
 #IE7 #dokuwiki__footer {
