@@ -238,9 +238,8 @@ if (window.toolbar != undefined) {
         'icon'  : '../../tpl/starter-bootstrap/img/table.png'
     };
 }
+jQNew('#toc_contents').slideToggle('slow');
 // index of contents dropdown menu on pages
-jQNew(document).ready(function() {
-   jQNew('.accordion-toggle').click( function() {
-      jQNew('#toc_contents').slideToggle('fast');
-  });
+jQNew('#dw_toc .panel-heading').click(function() {
+    jQNew('#toc_contents').slideToggle('fast');
 });
