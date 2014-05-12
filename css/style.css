@@ -601,6 +601,9 @@ input[disabled] {
     padding: 0px;
     margin: 0 0 15px 15px;
 }
+#dw_toc .panel-heading {
+    cursor: pointer;
+}
 #dw_toc ul li {
     list-style-position: inside;
 }
