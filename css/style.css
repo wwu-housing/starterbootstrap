@@ -594,6 +594,9 @@ input[disabled] {
 #toc_contents ul ul {
     margin-left: .8em;
 }
+#toc_contents ul > li:not(> a) {
+    list-style-type: none;
+}
 
 #dokuwiki__aside p {
     margin: 0;

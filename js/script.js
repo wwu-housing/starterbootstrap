@@ -14,6 +14,12 @@ jQNew(document).ready(function() {
         jQNew(this).parent().find('ul').first().slideToggle(300);
     });
 
+    jQNew('#toc_contents ul > li:first-child').each(function(e) {
+        if (jQNew(this).children(':first').filter('ul').length > 0) {
+            jQNew(this).css('list-style-type', 'none');
+        }
+    });
+
     jQNew('abbr').tooltip({
         delay: { open: 500, close: 100 }
     });
