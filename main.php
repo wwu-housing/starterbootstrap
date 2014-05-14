@@ -12,6 +12,11 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER['REMOTE_USER'] );
 $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
+$sidebarCols = (int) tpl_getConf('sidebar_cols');
+if ($sidebarCols < 0 || $sidebarCols >= 12) {
+	$sidebarCols = 3;
+}
+
 ?><!DOCTYPE html>
 <html xml:lang="<?php echo $conf['lang'] ?>" lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
@@ -101,13 +106,8 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
         <section class="wrapper row"><!-- PAGE ACTIONS -->
             <!-- ********** ASIDE ********** -->
             <?php if ($ACT == 'show'): ?>
-            <aside id="dokuwiki__aside" class="col-sm-<?php
-                                    $cols = (int) tpl_getConf('sidebar_cols');
-                                    if ($cols < 0 || $cols >= 12) {
-                                        $cols = 3;
-                                    }
-                                    echo $cols; ?>">
-                <?php if ($showSidebar && $cols > 0): ?>
+            <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?>">
+                <?php if ($showSidebar && $sidebarCols > 0): ?>
                 <div class="sidebar-page">
                     <?php tpl_includeFile('sidebarheader.html') ?>
                     <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
@@ -118,7 +118,7 @@ $showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $cols; ?><?php else: ?>col-xs-12<?php endif; ?>">
+            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $sidebarCols; ?><?php else: ?>col-xs-12<?php endif; ?>">
                 <?php if($conf['youarehere']){ ?>
                     <div class="youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
