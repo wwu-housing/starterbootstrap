@@ -104,21 +104,9 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
         <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
         <section class="wrapper row"><!-- PAGE ACTIONS -->
-            <!-- ********** ASIDE ********** -->
-            <?php if ($ACT == 'show'): ?>
-            <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?>">
-                <?php if ($showSidebar && $sidebarCols > 0): ?>
-                <div class="sidebar-page">
-                    <?php tpl_includeFile('sidebarheader.html') ?>
-                    <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
-                    <?php tpl_includeFile('sidebarfooter.html') ?>
-                </div>
-                <?php endif; ?>
-            </aside><!-- /aside -->
-            <?php endif; ?>
-
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $sidebarCols; ?><?php else: ?>col-xs-12<?php endif; ?>">
+	    <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $sidebarCols; ?>  col-sm-push-<?php echo $sidebarCols; ?>  <?php else: ?>col-xs-12<?php endif; ?>">
+
                 <?php if($conf['youarehere']){ ?>
                     <div class="youarehere">
                         <?php bootstrap_tpl_youarehere() ?>
@@ -137,6 +125,20 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
 
                 <?php tpl_includeFile('pagefooter.html') ?>
             </div><!-- /content -->
+
+            <!-- ********** ASIDE ********** -->
+            <?php if ($ACT == 'show'): ?>
+            <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?> col-sm-pull-<?php echo 12 - $sidebarCols; ?>">
+                <?php if ($showSidebar && $sidebarCols > 0): ?>
+                <div class="sidebar-page">
+                    <?php tpl_includeFile('sidebarheader.html') ?>
+                    <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
+                    <?php tpl_includeFile('sidebarfooter.html') ?>
+                </div>
+                <?php endif; ?>
+            </aside><!-- /aside -->
+            <?php endif; ?>
+
         </section><!-- /wrapper -->
 
         <!-- ********** FOOTER ********** -->
