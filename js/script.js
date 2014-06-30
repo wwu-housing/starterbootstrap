@@ -28,6 +28,24 @@ jQNew(document).ready(function() {
     jQNew('#dokuwiki__content .page table').each(function() {
         sorttable.makeSortable(jQNew(this).get(0));
     });
+
+    // Scroll to a link smoothly
+    smoothToPadding = jQNew('#dokuwiki__top .navbar').first().innerHeight() + 10;
+    function smoothTo() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = jQNew(this.hash);
+            target = target.length ? target : jQNew('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                jQNew('html,body').animate({
+                    scrollTop: target.offset().top - smoothToPadding
+                }, 200);
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+    jQNew('a').click(smoothTo);
 });
 
 /* toolbar button to add a table */
@@ -113,21 +131,22 @@ function addBtnActionInsertTable($btn, props, edid) {
                 return false;
             }
 
+            var i, j;
             // create header rows
-            for (var i = 0; i < hrows; i++) {
-                for (var j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
+            for (i = 0; i < hrows; i++) {
+                for (j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
                     tabletext += "^  ";
                 }
                 tabletext += "^\n";
             }
             // create body rows
-            for (var i = 0; i < rows; i++) {
+            for (i = 0; i < rows; i++) {
                 // create header columns
-                for (var j = 0; j < hcols; j++) {
+                for (j = 0; j < hcols; j++) {
                     tabletext += "^  ";
                 }
                 // create body columns
-                for (var j = 0; j < cols; j++) {
+                for (j = 0; j < cols; j++) {
                     tabletext += "|  ";
                 }
                 tabletext += "|\n";
@@ -154,10 +173,11 @@ function addBtnActionInsertTable($btn, props, edid) {
                 return false;
             }
 
+            var i, j;
             // create header rows
-            for (var i = 0; i < hrows; i++) {
+            for (i = 0; i < hrows; i++) {
                 tablehtml += '<tr>';
-                for (var j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
+                for (j = 0; j < parseInt(hcols) + parseInt(cols); j++) {
                     tablehtml += "<th></th>";
                     tabletext += "^ Header ";
                 }
@@ -165,15 +185,15 @@ function addBtnActionInsertTable($btn, props, edid) {
                 tabletext += "^\n";
             }
             // create body rows
-            for (var i = 0; i < rows; i++) {
-                tablehtml += '<tr>'
+            for (i = 0; i < rows; i++) {
+                tablehtml += '<tr>';
                 // create header columns
-                for (var j = 0; j < hcols; j++) {
+                for (j = 0; j < hcols; j++) {
                     tablehtml += "<th></th>";
                     tabletext += "^ Header ";
                 }
                 // create body columns
-                for (var j = 0; j < cols; j++) {
+                for (j = 0; j < cols; j++) {
                     tablehtml += "<td></td>";
                     tabletext += "| content ";
                 }
@@ -231,7 +251,7 @@ function addBtnActionInsertTable($btn, props, edid) {
     return true;
 }
 // add a new toolbar button
-if (window.toolbar != undefined) {
+if (window.toolbar !== undefined) {
     window.toolbar[window.toolbar.length] = {
         'type'  : 'InsertTable', // new type that links to the function
         'title' : 'Insert Table',
