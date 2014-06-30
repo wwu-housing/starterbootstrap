@@ -100,7 +100,7 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
             </div>
 
             <a href="#dokuwiki__content" class="sr-only "><?php echo $lang['skip_to_content']; ?></a>
-            <a href="#dokuwiki__aside" class="skip-to-sidebar visible-xs btn-block btn btn-info"><?php echo $lang['skip_to_nav']; ?></a>
+            <a href="#dokuwiki__aside" class="skip-to-sidebar visible-xs btn-block btn btn-info"><?php echo "Skip to Navigation"; // echo $lang['skip_to_nav']; ?></a>
 
             <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
