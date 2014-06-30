@@ -46,6 +46,29 @@ jQNew(document).ready(function() {
         }
     }
     jQNew('a').click(smoothTo);
+
+    /* override footnote popups */
+    // kill old event
+    jQuery('a.fn_top').unbind('mouseover', dw_page.footnoteDisplay);
+    dw_page.insituPopup = function(target, popup_id) {
+        // on first hover, set up and show the popover
+        $el = jQNew(target);
+        if (!$el.hasClass('popover-trigger')) {
+            content = jQNew($el.attr('href')).closest('div.fn').html().replace(/((^|\s*,\s*)<sup>.*?<\/sup>)+\s*/gi, '').replace(/\bid=(['"])([^"']+)\1/gi,'id="insitu__$2');
+            $el.popover({
+                'content': content,
+                'toggle': 'popover',
+                'placement': 'bottom',
+                'trigger': 'hover',
+                'container': '#dokuwiki__content'
+            }).addClass('popover-trigger').popover('show');
+        }
+    };
+    dw_page.footnoteDisplay = function() {
+        dw_page.insituPopup(this, 'insitu__fn');
+    };
+    // rebind new event
+    jQNew('a.fn_top').mouseover(dw_page.footnoteDisplay);
 });
 
 /* toolbar button to add a table */
