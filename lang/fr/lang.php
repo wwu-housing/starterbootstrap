@@ -14,5 +14,6 @@ $lang['user_tools'] = 'Outils pour utilisateurs';
 $lang['site_tools'] = 'Outils du site';
 $lang['page_tools'] = 'Outils de la page';
 $lang['skip_to_content'] = 'Aller au contenu';
+$lang['skip_to_nav'] = 'Aller au menu';
 
 //Setup VIM: ex: et ts=2 :

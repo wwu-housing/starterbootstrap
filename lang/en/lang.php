@@ -12,4 +12,5 @@ $lang['userpage']          = 'User page';
 $lang['user_tools']        = 'User Tools';
 $lang['site_tools']        = 'Site Tools';
 $lang['page_tools']        = 'Page Tools';
-$lang['skip_to_content']   = 'skip to content';
+$lang['skip_to_content']   = 'Skip to Content';
+$lang['skip_to_nav']       = 'Skip to Navigation';
