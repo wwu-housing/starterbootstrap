@@ -123,7 +123,13 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
                     <?php _tpl_toc(); ?>
                     <div class="page" role="main">
                     <!-- wikipage start -->
-                        <?php tpl_content(false) /* the main content */ ?>
+                        <?php
+                        if ($ID == "starterbootstrap:index" && auth_quickaclcheck($id) > AUTH_CREATE) {
+                            include_once("generate_index.php");
+                        } else {
+                            tpl_content(false); /* the main content */
+                        }
+                        ?>
                     <!-- wikipage stop -->
                     </div>
 
