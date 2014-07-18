@@ -54,31 +54,33 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
             <div class="navbar-collapse collapse" id="topnav">
                 <ul class="nav navbar-nav navbar-right">
                     <?php if ($showTools): ?>
-                        <?php tpl_action('edit', 1, 'li', 0, '', '', 'Edit'); ?>
+                        <?php tpl_action('edit', 1, 'li'); ?>
                     <?php endif; ?>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang['tools']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
-                            <!-- USER TOOLS -->
-                            <?php if ($conf['useacl'] && $showTools): ?>
-                            <?php
-                                if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
-                                if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
-                                if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
-                            ?>
-                            <?php endif ?>
-                            <?php if ($showTools): ?>
-                            <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
+                            <li class="dropdown-header"><?php echo $lang['page_tools'] ?></li>
                             <?php
                                 tpl_action('edit', 1, 'li');
                                 if ($ACT == 'revisions') { tpl_action('revisions', 1, 'li class="active"'); } else { tpl_action('revisions', 1, 'li'); };
                                 if ($ACT == 'backlink') { tpl_action('backlink', 1, 'li class="active"'); } else { tpl_action('backlink', 1, 'li'); };
                                 tpl_action('subscribe', 1, 'li');
                                 tpl_action('revert', 1, 'li');
+                            ?>
+                            <li class="dropdown-header"><?php echo $lang['site_tools'] ?></li>
+                            <?php if ($showTools): ?>
+                            <?php
+                                if ($ACT == 'recent') { tpl_action('recent', 1, 'li class="active"'); } else { tpl_action('recent', 1, 'li'); };
+                                if ($ACT == 'index') { tpl_action('index', 1, 'li class="active"'); } else { tpl_action('index', 1, 'li'); };
+                                if ($ACT == 'media') { tpl_action('media', 1, 'li class="active"'); } else { tpl_action('media', 1, 'li'); };
+                                if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
+                            ?>
+                            <?php endif ?>
+                            <?php if ($conf['useacl'] && $showTools): ?>
+                            <li class="dropdown-header"><?php echo $lang['user_tools'] ?></li>
+                            <?php
                                 if ($ACT == 'profile') { tpl_action('profile', 1, 'li class="active"'); } else { tpl_action('profile', 1, 'li'); };
                                 if ($ACT == 'login') { tpl_action('login', 1, 'li class="active"'); } else { tpl_action('login', 1, 'li'); };
-                                if ($ACT == 'admin') { tpl_action('admin', 1, 'li class="active"'); } else { tpl_action('admin', 1, 'li'); };
                             ?>
                             <?php endif; ?>
                             <li class="divider"></li>
@@ -104,9 +106,11 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
 
             <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
+            <?php $sidebar_contents = bootstrap_tpl_get_sidebar($conf['sidebar'], false); ?>
+
             <section class="wrapper row"><!-- PAGE ACTIONS -->
                 <!-- ********** CONTENT ********** -->
-                <div id="dokuwiki__content" class="<?php if ($ACT == 'show'): ?>col-sm-<?php echo 12 - $sidebarCols; ?> col-sm-push-<?php echo $sidebarCols; ?> <?php else: ?>col-xs-12<?php endif; ?>">
+                <div id="dokuwiki__content" class="<?php if ($ACT == 'show' && $sidebar_contents != ""): ?>col-sm-<?php echo 12 - $sidebarCols; ?> col-sm-push-<?php echo $sidebarCols; ?> <?php else: ?>col-xs-12<?php endif; ?>">
                     <?php if($conf['youarehere']){ ?>
                         <div class="youarehere">
                             <?php bootstrap_tpl_youarehere() ?>
@@ -131,9 +135,11 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
                 <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?> col-sm-pull-<?php echo 12 - $sidebarCols; ?>">
                     <?php if ($showSidebar && $sidebarCols > 0): ?>
                     <div class="sidebar-page">
-                        <?php tpl_includeFile('sidebarheader.html') ?>
-                        <?php bootstrap_tpl_include_sidebar($conf['sidebar'], false) ?>
-                        <?php tpl_includeFile('sidebarfooter.html') ?>
+                        <?php
+                            tpl_includeFile('sidebarheader.html');
+                            echo $sidebar_contents;
+                            tpl_includeFile('sidebarfooter.html');
+                        ?>
                     </div>
                     <?php endif; ?>
                 </aside><!-- /aside -->

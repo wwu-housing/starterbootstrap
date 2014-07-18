@@ -536,7 +536,7 @@ function bootstrap_media_nstree_li($item){
  *
  * @author Cameron Little <cameron@camlittle.com>
  */
-function bootstrap_tpl_include_sidebar($pageid, $cache) {
+function bootstrap_tpl_get_sidebar($pageid, $cache) {
     global $TOC;
     $oldtoc = $TOC;
     $html = '';
@@ -553,6 +553,5 @@ function bootstrap_tpl_include_sidebar($pageid, $cache) {
         }
     }
 
-    echo $html;
     return $html;
 }
