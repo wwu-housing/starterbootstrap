@@ -25,7 +25,7 @@ jQNew(document).ready(function() {
     });
 
     /* http://www.kryogenix.org/code/browser/sorttable/ */
-    jQNew('#dokuwiki__content .page table').each(function() {
+    jQNew('.page table').each(function() {
         sorttable.makeSortable(jQNew(this).get(0));
     });
 
@@ -60,6 +60,7 @@ jQNew(document).ready(function() {
                 'toggle': 'popover',
                 'placement': 'bottom',
                 'trigger': 'hover',
+                'html': true,
                 'container': '#dokuwiki__content'
             }).addClass('popover-trigger').popover('show');
         }
