@@ -1120,15 +1120,23 @@ mark,
   padding: .2em;
   background-color: #fcf8e3;
 }
+.leftalign,
+td.leftalign,
 .text-left {
   text-align: left;
 }
+.rightalign,
+td.rightalign,
 .text-right {
   text-align: right;
 }
+.centeralign,
+td.centeralign,
 .text-center {
   text-align: center;
 }
+.justifyalign,
+td.justifyalign,
 .text-justify {
   text-align: justify;
 }
@@ -1341,8 +1349,8 @@ samp {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
+  color: #333;
+  background-color: #f5f5f5;
   border-radius: 4px;
 }
 kbd {
@@ -2065,38 +2073,38 @@ caption {
 th {
   text-align: left;
 }
-.table {
+.page table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td {
+.page table > thead > tr > th,
+.page table > tbody > tr > th,
+.page table > tfoot > tr > th,
+.page table > thead > tr > td,
+.page table > tbody > tr > td,
+.page table > tfoot > tr > td {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
 }
-.table > thead > tr > th {
+.page table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
 }
-.table > caption + thead > tr:first-child > th,
-.table > colgroup + thead > tr:first-child > th,
-.table > thead:first-child > tr:first-child > th,
-.table > caption + thead > tr:first-child > td,
-.table > colgroup + thead > tr:first-child > td,
-.table > thead:first-child > tr:first-child > td {
+.page table > caption + thead > tr:first-child > th,
+.page table > colgroup + thead > tr:first-child > th,
+.page table > thead:first-child > tr:first-child > th,
+.page table > caption + thead > tr:first-child > td,
+.page table > colgroup + thead > tr:first-child > td,
+.page table > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
-.table > tbody + tbody {
+.page table > tbody + tbody {
   border-top: 2px solid #ddd;
 }
-.table .table {
+.page table table {
   background-color: #fff;
 }
 .table-condensed > thead > tr > th,
@@ -2107,19 +2115,19 @@ th {
 .table-condensed > tfoot > tr > td {
   padding: 5px;
 }
-.table-bordered {
+.page table {
   border: 1px solid #ddd;
 }
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > td {
+.page table > thead > tr > th,
+.page table > tbody > tr > th,
+.page table > tfoot > tr > th,
+.page table > thead > tr > td,
+.page table > tbody > tr > td,
+.page table > tfoot > tr > td {
   border: 1px solid #ddd;
 }
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td {
+.page table > thead > tr > th,
+.page table > thead > tr > td {
   border-bottom-width: 2px;
 }
 .table-striped > tbody > tr:nth-child(odd) {
@@ -2244,10 +2252,12 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.danger:hover > th {
   background-color: #ebcccc;
 }
+div.table,
 .table-responsive {
   overflow-x: auto;
 }
 @media screen and (max-width: 767px) {
+  div.table,
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
@@ -2255,40 +2265,64 @@ table th[class*="col-"] {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #ddd;
   }
-  .table-responsive > .table {
+  div.table > table,
+  .table-responsive > table {
     margin-bottom: 0;
   }
-  .table-responsive > .table > thead > tr > th,
-  .table-responsive > .table > tbody > tr > th,
-  .table-responsive > .table > tfoot > tr > th,
-  .table-responsive > .table > thead > tr > td,
-  .table-responsive > .table > tbody > tr > td,
-  .table-responsive > .table > tfoot > tr > td {
+  div.table > table > thead > tr > th,
+  .table-responsive > table > thead > tr > th,
+  div.table > table > tbody > tr > th,
+  .table-responsive > table > tbody > tr > th,
+  div.table > table > tfoot > tr > th,
+  .table-responsive > table > tfoot > tr > th,
+  div.table > table > thead > tr > td,
+  .table-responsive > table > thead > tr > td,
+  div.table > table > tbody > tr > td,
+  .table-responsive > table > tbody > tr > td,
+  div.table > table > tfoot > tr > td,
+  .table-responsive > table > tfoot > tr > td {
     white-space: nowrap;
   }
-  .table-responsive > .table-bordered {
+  div.table > table,
+  .table-responsive > table {
     border: 0;
   }
-  .table-responsive > .table-bordered > thead > tr > th:first-child,
-  .table-responsive > .table-bordered > tbody > tr > th:first-child,
-  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
-  .table-responsive > .table-bordered > thead > tr > td:first-child,
-  .table-responsive > .table-bordered > tbody > tr > td:first-child,
-  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  div.table > table > thead > tr > th:first-child,
+  .table-responsive > table > thead > tr > th:first-child,
+  div.table > table > tbody > tr > th:first-child,
+  .table-responsive > table > tbody > tr > th:first-child,
+  div.table > table > tfoot > tr > th:first-child,
+  .table-responsive > table > tfoot > tr > th:first-child,
+  div.table > table > thead > tr > td:first-child,
+  .table-responsive > table > thead > tr > td:first-child,
+  div.table > table > tbody > tr > td:first-child,
+  .table-responsive > table > tbody > tr > td:first-child,
+  div.table > table > tfoot > tr > td:first-child,
+  .table-responsive > table > tfoot > tr > td:first-child {
     border-left: 0;
   }
-  .table-responsive > .table-bordered > thead > tr > th:last-child,
-  .table-responsive > .table-bordered > tbody > tr > th:last-child,
-  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
-  .table-responsive > .table-bordered > thead > tr > td:last-child,
-  .table-responsive > .table-bordered > tbody > tr > td:last-child,
-  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  div.table > table > thead > tr > th:last-child,
+  .table-responsive > table > thead > tr > th:last-child,
+  div.table > table > tbody > tr > th:last-child,
+  .table-responsive > table > tbody > tr > th:last-child,
+  div.table > table > tfoot > tr > th:last-child,
+  .table-responsive > table > tfoot > tr > th:last-child,
+  div.table > table > thead > tr > td:last-child,
+  .table-responsive > table > thead > tr > td:last-child,
+  div.table > table > tbody > tr > td:last-child,
+  .table-responsive > table > tbody > tr > td:last-child,
+  div.table > table > tfoot > tr > td:last-child,
+  .table-responsive > table > tfoot > tr > td:last-child {
     border-right: 0;
   }
-  .table-responsive > .table-bordered > tbody > tr:last-child > th,
-  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
-  .table-responsive > .table-bordered > tbody > tr:last-child > td,
-  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+  div.table > table > tbody > tr:last-child > th,
+  .table-responsive > table > tbody > tr:last-child > th,
+  div.table > table > tfoot > tr:last-child > th,
+  .table-responsive > table > tfoot > tr:last-child > th,
+  div.table > table > tbody > tr:last-child > td,
+  .table-responsive > table > tbody > tr:last-child > td,
+  div.table > table > tfoot > tr:last-child > td,
+  .table-responsive > table > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
 }
@@ -4697,23 +4731,53 @@ a.thumbnail.active {
   padding: 9px;
   color: #333;
 }
+.notifications > .notify,
+div.error,
+div.info,
+div.success,
+div.notify,
 .alert {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
+.notifications > .notify h4,
+div.error h4,
+div.info h4,
+div.success h4,
+div.notify h4,
 .alert h4 {
   margin-top: 0;
   color: inherit;
 }
+.notifications > .notify .alert-link,
+div.error .alert-link,
+div.info .alert-link,
+div.success .alert-link,
+div.notify .alert-link,
 .alert .alert-link {
   font-weight: bold;
 }
+.notifications > .notify > p,
+div.error > p,
+div.info > p,
+div.success > p,
+div.notify > p,
 .alert > p,
+.notifications > .notify > ul,
+div.error > ul,
+div.info > ul,
+div.success > ul,
+div.notify > ul,
 .alert > ul {
   margin-bottom: 0;
 }
+.notifications > .notify > p + p,
+div.error > p + p,
+div.info > p + p,
+div.success > p + p,
+div.notify > p + p,
 .alert > p + p {
   margin-top: 5px;
 }
@@ -4728,47 +4792,59 @@ a.thumbnail.active {
   right: -21px;
   color: inherit;
 }
+div.success,
 .alert-success {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
+div.success hr,
 .alert-success hr {
   border-top-color: #c9e2b3;
 }
+div.success .alert-link,
 .alert-success .alert-link {
   color: #2b542c;
 }
+div.info,
 .alert-info {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
+div.info hr,
 .alert-info hr {
   border-top-color: #a6e1ec;
 }
+div.info .alert-link,
 .alert-info .alert-link {
   color: #245269;
 }
+div.error,
 .alert-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
+div.error hr,
 .alert-warning hr {
   border-top-color: #f7e1b5;
 }
+div.error .alert-link,
 .alert-warning .alert-link {
   color: #66512c;
 }
+div.notify,
 .alert-danger {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+div.notify hr,
 .alert-danger hr {
   border-top-color: #e4b9c0;
 }
+div.notify .alert-link,
 .alert-danger .alert-link {
   color: #843534;
 }

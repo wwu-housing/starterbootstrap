@@ -16,74 +16,9 @@ h5, .h5 {
 }
 
 
-#dokuwiki__sitetools .span12 {
-    margin-left: 0px;
-}
-
 dl dt,
 dl dd {
     padding: 0.2em 0.4em;
-}
-
-code {
-    color: #333;
-    background-color: #f5f5f5;
-}
-
-.dokuwiki ul.idx {
-    padding-left: 1.2em;
-}
-
-#dokuwiki__top {
-    margin-top: 50px;
-}
-.dokuwiki a.urlextern {
-    padding-left: 0;
-    background-image: none;
-}
-.dokuwiki a.urlextern:before {
-    content: "\e135";
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    padding-right: 4px;
-    font-size: 8px;
-}
-#IE6 .dokuwiki a.urlextern {
-    background-image: none;
-    padding-left: 0px;
-}
-.affix {
-    right: 20px
-}
-
-.rightalign, td.rightalign {
-    text-align: right;
-}
-.leftalign, td.leftalign {
-    text-align: left;
-}
-.centeralign, td.centeralign {
-    text-align: center;
-}
-
-#IE6 #dokuwiki__content {
-    width: 75%;
-    margin: 0;
-    padding: 0;
-}
-#IE6 #dokuwiki__aside {
-    width: 23%;
-    margin: 0 2% 0 0;
-    padding: 0;
-}
-#IE8 .sidebar-page {
-    float: left;
-}
-#IE6 .not-header {
-    margin-top: 55px;
 }
 
 #helpful-links .list-group-item-text {
@@ -438,6 +373,7 @@ input.button,
 
 .dokuwiki div.section_highlight {
     border-right-width: 0;
+    margin-left: -0.5em;
 }
 
 div.picker button.pickerbutton,
@@ -832,132 +768,14 @@ img.img_detail{
 }
 
 
-div.error,
-div.info,
-div.success,
-div.notify {
-    border-radius: 4px 4px 4px 4px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-image: none;
-    font-size: inherit;
-}
-div.error {
-    background-color: #F2DEDE;
-    border-color: #EBCCD1;
-    color: #B94A48;
-}
-div.notify {
-    background-color: #FCF8E3;
-    border-color: #FAEBCC;
-    color: #C09853;
-}
-div.info {
-    background-color: #D9EDF7;
-    border-color: #BCE8F1;
-    color: #3A87AD;
-}
-div.success {
-    background-color: #DFF0D8;
-    border-color: #D6E9C6;
-    color: #468847;
-}
-.notifications {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.notifications > .notify {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
 .page h1:first-of-type {
     padding-bottom: 9px;
     margin: 0 0 10px;
     border-bottom: 1px solid #eee;
 }
-.page table {
-  width: 100%;
-  margin-bottom: 20px;
-}
-.page table thead th {
-    cursor: pointer;
-}
-.page table thead > tr > th,
-.page table tbody > tr > th,
-.page table tfoot > tr > th,
-.page table thead > tr > td,
-.page table tbody > tr > td,
-.page table tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border-top: 1px solid #ddd;
-}
-.page table thead > tr > th {
-  vertical-align: bottom;
-}
-.page table caption + thead tr:first-child th,
-.page table colgroup + thead tr:first-child th,
-.page table thead:first-child tr:first-child th,
-.page table caption + thead tr:first-child td,
-.page table colgroup + thead tr:first-child td,
-.page table thead:first-child tr:first-child td {
-  border-top: 0;
-}
-.page table tbody + tbody {
-  border-top: 2px solid #dddddd;
-}
-.page table tr:first-child th,
-.page table tr:first-child td {
-    border-top: none;
-}
-table col[class^="col-"] {
-  display: table-column;
-  float: none;
-}
-table td[class^="col-"],
-table th[class^="col-"] {
-  display: table-cell;
-  float: none;
-}
-.page table table {
-  background-color: #ffffff;
-}
-
-@media (max-width: 767px) {
-    div.table {
-        width: 100%;
-        margin-bottom: 15px;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        border: 1px solid #dddddd;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        -webkit-overflow-scrolling: touch;
-    }
-    div.table > table {
-        margin-bottom: 0;
-    }
-    div.table > table > thead > tr > th,
-    div.table > table > tbody > tr > th,
-    div.table > table > tfoot > tr > th,
-    div.table > table > thead > tr > td,
-    div.table > table > tbody > tr > td,
-    div.table > table > tfoot > tr > td {
-        white-space: nowrap;
-    }
-}
 
 .page img {
     max-width: 100%;
-}
-
-.panel .list-group {
-    border-color: inherit;
-}
-.panel .list-group-item {
-    border-color: inherit;
 }
 
 
