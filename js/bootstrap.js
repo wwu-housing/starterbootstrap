@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript requires jQuery') }
+if (typeof jQNew === 'undefined') { throw new Error('Bootstrap\'s JavaScript requires jQNew') }
 
 /* ========================================================================
  * Bootstrap: transition.js v3.2.0
@@ -64,7 +64,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     }
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: alert.js v3.2.0
@@ -159,7 +159,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: button.js v3.2.0
@@ -274,7 +274,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       $(e.target).closest('.btn').toggleClass('focus', e.type == 'focus')
     })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: carousel.js v3.2.0
@@ -507,7 +507,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     })
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: collapse.js v3.2.0
@@ -679,7 +679,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     Plugin.call($target, option)
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: dropdown.js v3.2.0
@@ -839,7 +839,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown)
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: modal.js v3.2.0
@@ -1123,12 +1123,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     Plugin.call($target, option, this)
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: tooltip.js v3.2.0
  * http://getbootstrap.com/javascript/#tooltip
- * Inspired by the original jQuery.tipsy by Jason Frame
+ * Inspired by the original jQNew.tipsy by Jason Frame
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1590,7 +1590,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     return this
   }
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: popover.js v3.2.0
@@ -1704,7 +1704,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     return this
   }
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: scrollspy.js v3.2.0
@@ -1875,7 +1875,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     })
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: tab.js v3.2.0
@@ -2006,7 +2006,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     Plugin.call($(this), 'show')
   })
 
-}(jQuery);
+}(jQNew);
 
 /* ========================================================================
  * Bootstrap: affix.js v3.2.0
@@ -2169,4 +2169,4 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     })
   })
 
-}(jQuery);
+}(jQNew);

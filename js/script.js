@@ -49,7 +49,7 @@ jQNew(document).ready(function() {
 
     /* override footnote popups */
     // kill old event
-    jQuery('a.fn_top').unbind('mouseover', dw_page.footnoteDisplay);
+    jQNew('a.fn_top').unbind('mouseover', dw_page.footnoteDisplay);
     dw_page.insituPopup = function(target, popup_id) {
         // on first hover, set up and show the popover
         $el = jQNew(target);
