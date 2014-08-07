@@ -14,26 +14,26 @@
 /* ---------------- forms ------------------------ */
 
 .dokuwiki form {
-  border: none;
   display: inline;
+  border: none;
 }
 
 .dokuwiki label.block {
   display: block;
-  text-align: right;
   font-weight: bold;
+  text-align: right;
 }
 [dir=rtl] .dokuwiki label.block {
-    text-align: left;
+  text-align: left;
 }
 
 .dokuwiki label.simple {
   display: block;
-  text-align: left;
   font-weight: normal;
+  text-align: left;
 }
 [dir=rtl] .dokuwiki label.simple {
-    text-align: right;
+  text-align: right;
 }
 
 .dokuwiki label.block select,
@@ -42,15 +42,15 @@
 }
 
 .dokuwiki label span {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .dokuwiki fieldset {
   width: 400px;
+  padding: .5em;
+  margin: auto;
   text-align: center;
   border: 1px solid __border__;
-  padding: 0.5em;
-  margin: auto;
 }
 
 
@@ -59,25 +59,25 @@
   vertical-align: middle;
 }
 .dokuwiki select.edit {
-  padding: 0.1em 0;
+  padding: .1em 0;
 }
 
 
 .dokuwiki input.button,
 .dokuwiki button.button {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 /**
  * Styles for auth forms
  */
 #dw__login label[for="remember__me"] {
-    margin-left: 50%;
-    margin-bottom: 1.4em;
+  margin-bottom: 1.4em;
+  margin-left: 50%;
 }
 #dw__login fieldset,
 #dw__resendpwd fieldset,
 #dw__register fieldset {
-    padding-bottom: 0.7em;
+  padding-bottom: .7em;
 }
 
 
@@ -86,20 +86,20 @@
  */
 
 #subscribe__form {
-    display: block;
-    width: 400px;
-    text-align: center;
+  display: block;
+  width: 400px;
+  text-align: center;
 }
 
 #subscribe__form fieldset {
-    text-align: left;
-    margin: 0.5em 0;
+  margin: .5em 0;
+  text-align: left;
 }
 [dir=rtl] #subscribe__form fieldset {
-    text-align: right;
+  text-align: right;
 }
 
 #subscribe__form label {
-    display: block;
-    margin: 0 0.5em 0.5em;
+  display: block;
+  margin: 0 .5em .5em;
 }
