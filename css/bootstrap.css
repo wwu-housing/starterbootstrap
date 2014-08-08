@@ -4758,53 +4758,23 @@ a.thumbnail.active {
   padding: 9px;
   color: #333;
 }
-.notifications > .notify,
-div.error,
-div.info,
-div.success,
-div.notify,
 .alert {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.notifications > .notify h4,
-div.error h4,
-div.info h4,
-div.success h4,
-div.notify h4,
 .alert h4 {
   margin-top: 0;
   color: inherit;
 }
-.notifications > .notify .alert-link,
-div.error .alert-link,
-div.info .alert-link,
-div.success .alert-link,
-div.notify .alert-link,
 .alert .alert-link {
   font-weight: bold;
 }
-.notifications > .notify > p,
-div.error > p,
-div.info > p,
-div.success > p,
-div.notify > p,
 .alert > p,
-.notifications > .notify > ul,
-div.error > ul,
-div.info > ul,
-div.success > ul,
-div.notify > ul,
 .alert > ul {
   margin-bottom: 0;
 }
-.notifications > .notify > p + p,
-div.error > p + p,
-div.info > p + p,
-div.success > p + p,
-div.notify > p + p,
 .alert > p + p {
   margin-top: 5px;
 }
@@ -4819,59 +4789,47 @@ div.notify > p + p,
   right: -21px;
   color: inherit;
 }
-div.success,
 .alert-success {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
-div.success hr,
 .alert-success hr {
   border-top-color: #c9e2b3;
 }
-div.success .alert-link,
 .alert-success .alert-link {
   color: #2b542c;
 }
-div.info,
 .alert-info {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
-div.info hr,
 .alert-info hr {
   border-top-color: #a6e1ec;
 }
-div.info .alert-link,
 .alert-info .alert-link {
   color: #245269;
 }
-div.error,
 .alert-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
-div.error hr,
 .alert-warning hr {
   border-top-color: #f7e1b5;
 }
-div.error .alert-link,
 .alert-warning .alert-link {
   color: #66512c;
 }
-div.notify,
 .alert-danger {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
-div.notify hr,
 .alert-danger hr {
   border-top-color: #e4b9c0;
 }
-div.notify .alert-link,
 .alert-danger .alert-link {
   color: #843534;
 }
@@ -6448,6 +6406,7 @@ button.close {
   top: 1px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
+  font-size: 80%;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
@@ -6460,8 +6419,17 @@ button.close {
   background-image: none;
 }
 .dokuwiki div.section_highlight {
+  position: relative;
+  left: -.5em;
   margin-left: -.5em;
   border-right-width: 0;
+}
+.dokuwiki span.curid a {
+  font-weight: normal;
+  color: #777;
+}
+.dokuwiki #login {
+  display: none;
 }
 #dokuwiki__top {
   margin-top: 50px;
@@ -6469,54 +6437,43 @@ button.close {
 #dokuwiki__top .navbar-right {
   margin-right: 0;
 }
-#dw__register,
-#dw__login {
-  text-align: left;
-}
-#IE6 #dokuwiki__aside {
-  width: 23%;
-  padding: 0;
-  margin: 0 2% 0 0;
-}
-#dokuwiki__aside p {
-  margin: 0;
-}
-#dokuwiki__footer {
-  margin-top: 6px;
-}
 label span {
   position: relative;
   display: inline-block;
   margin-right: 10px;
 }
-#IE6 #dokuwiki__content {
-  width: 75%;
-  padding: 0;
-  margin: 0;
-}
-#IE6 .not-header {
-  margin-top: 55px;
-}
-.notifications {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 #helpful-links .list-group-item-text {
   margin-bottom: 1px;
 }
+.dokuwiki ul.idx,
+.notifications,
+.block,
 .skip-to-sidebar {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+}
+#dokuwiki__footer,
+.notifications {
+  margin-top: 10px;
+}
+#dokuwiki__aside p {
+  margin: 0;
+}
+#dokuwiki__detail div.img_detail h3 {
+  margin-top: 0;
+}
+#dw__register,
+#dw__profiledelete,
+#dw__login {
+  text-align: left;
 }
 .form-horizontal {
   margin-bottom: 0;
-}
-.block {
-  margin-bottom: 16px;
 }
 .license {
   font-size: 85%;
   color: #777;
 }
+select,
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -6542,6 +6499,7 @@ input[type="email"] {
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+select:focus,
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus,
@@ -6554,6 +6512,7 @@ input[type="email"]:focus {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
+select::-moz-placeholder,
 input[type="text"]::-moz-placeholder,
 input[type="number"]::-moz-placeholder,
 input[type="password"]::-moz-placeholder,
@@ -6564,6 +6523,7 @@ input[type="email"]::-moz-placeholder {
   color: #999;
   opacity: 1;
 }
+select:-ms-input-placeholder,
 input[type="text"]:-ms-input-placeholder,
 input[type="number"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,
@@ -6573,6 +6533,7 @@ input[type="phone"]:-ms-input-placeholder,
 input[type="email"]:-ms-input-placeholder {
   color: #999;
 }
+select::-webkit-input-placeholder,
 input[type="text"]::-webkit-input-placeholder,
 input[type="number"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
@@ -6582,6 +6543,7 @@ input[type="phone"]::-webkit-input-placeholder,
 input[type="email"]::-webkit-input-placeholder {
   color: #999;
 }
+select[disabled],
 input[type="text"][disabled],
 input[type="number"][disabled],
 input[type="password"][disabled],
@@ -6589,6 +6551,7 @@ input[type="date"][disabled],
 input[type="week"][disabled],
 input[type="phone"][disabled],
 input[type="email"][disabled],
+select[readonly],
 input[type="text"][readonly],
 input[type="number"][readonly],
 input[type="password"][readonly],
@@ -6596,6 +6559,7 @@ input[type="date"][readonly],
 input[type="week"][readonly],
 input[type="phone"][readonly],
 input[type="email"][readonly],
+fieldset[disabled] select,
 fieldset[disabled] input[type="text"],
 fieldset[disabled] input[type="number"],
 fieldset[disabled] input[type="password"],
@@ -6607,6 +6571,7 @@ fieldset[disabled] input[type="email"] {
   background-color: #eee;
   opacity: 1;
 }
+textareaselect,
 textareainput[type="text"],
 textareainput[type="number"],
 textareainput[type="password"],
@@ -6616,9 +6581,180 @@ textareainput[type="phone"],
 textareainput[type="email"] {
   height: auto;
 }
-.dokuwiki span.curid a {
+img.media,
+img.img_detail {
+  display: block;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+.page h1:first-of-type {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+.page img {
+  max-width: 100%;
+}
+input[type="checkbox"] + span {
+  min-height: 20px;
+  padding-left: 5px;
+  margin-bottom: 0;
   font-weight: normal;
-  color: #777;
+  cursor: pointer;
+}
+#dw__recent ul,
+#page__revisions ul {
+  padding-left: 0;
+}
+#dw__recent input[type="checkbox"],
+#page__revisions input[type="checkbox"] {
+  position: relative;
+  top: 3px;
+}
+#dw__register input[type="submit"] {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+#dw__register input[type="submit"]:hover,
+#dw__register input[type="submit"]:focus,
+#dw__register input[type="submit"].focus,
+#dw__register input[type="submit"]:active,
+#dw__register input[type="submit"].active,
+.open > .dropdown-toggle#dw__register input[type="submit"] {
+  color: #fff;
+  background-color: #3071a9;
+  border-color: #285e8e;
+}
+#dw__register input[type="submit"]:active,
+#dw__register input[type="submit"].active,
+.open > .dropdown-toggle#dw__register input[type="submit"] {
+  background-image: none;
+}
+#dw__register input[type="submit"].disabled,
+#dw__register input[type="submit"][disabled],
+fieldset[disabled] #dw__register input[type="submit"],
+#dw__register input[type="submit"].disabled:hover,
+#dw__register input[type="submit"][disabled]:hover,
+fieldset[disabled] #dw__register input[type="submit"]:hover,
+#dw__register input[type="submit"].disabled:focus,
+#dw__register input[type="submit"][disabled]:focus,
+fieldset[disabled] #dw__register input[type="submit"]:focus,
+#dw__register input[type="submit"].disabled.focus,
+#dw__register input[type="submit"][disabled].focus,
+fieldset[disabled] #dw__register input[type="submit"].focus,
+#dw__register input[type="submit"].disabled:active,
+#dw__register input[type="submit"][disabled]:active,
+fieldset[disabled] #dw__register input[type="submit"]:active,
+#dw__register input[type="submit"].disabled.active,
+#dw__register input[type="submit"][disabled].active,
+fieldset[disabled] #dw__register input[type="submit"].active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+#dw__register input[type="submit"] .badge {
+  color: #428bca;
+  background-color: #fff;
+}
+.notifications > .notify,
+div.error,
+div.info,
+div.success,
+div.notify {
+  padding: 15px;
+  padding: 5px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.notifications > .notify h4,
+div.error h4,
+div.info h4,
+div.success h4,
+div.notify h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.notifications > .notify .alert-link,
+div.error .alert-link,
+div.info .alert-link,
+div.success .alert-link,
+div.notify .alert-link {
+  font-weight: bold;
+}
+.notifications > .notify > p,
+div.error > p,
+div.info > p,
+div.success > p,
+div.notify > p,
+.notifications > .notify > ul,
+div.error > ul,
+div.info > ul,
+div.success > ul,
+div.notify > ul {
+  margin-bottom: 0;
+}
+.notifications > .notify > p + p,
+div.error > p + p,
+div.info > p + p,
+div.success > p + p,
+div.notify > p + p {
+  margin-top: 5px;
+}
+div.success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+div.success hr {
+  border-top-color: #c9e2b3;
+}
+div.success .alert-link {
+  color: #2b542c;
+}
+div.info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+div.info hr {
+  border-top-color: #a6e1ec;
+}
+div.info .alert-link {
+  color: #245269;
+}
+div.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+div.error hr {
+  border-top-color: #e4b9c0;
+}
+div.error .alert-link {
+  color: #843534;
+}
+div.notify {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+div.notify hr {
+  border-top-color: #f7e1b5;
+}
+div.notify .alert-link {
+  color: #66512c;
 }
 /* Sidebar
  * Also see list-group.less */
@@ -7035,7 +7171,6 @@ div.picker button.toolbutton:focus {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 .dokuwiki #wiki__editbar .editButtons #edit__summary,
 .dokuwiki #wiki__editbar .summary #edit__summary {
@@ -7044,7 +7179,7 @@ div.picker button.toolbutton:focus {
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
@@ -7111,14 +7246,6 @@ textarea.dokuwiki #wiki__editbar .summary #edit__summary {
 fieldset[disabled] .dokuwiki #wiki__editbar .editButtons .nowrap[for="minoredit"] label,
 fieldset[disabled] .dokuwiki #wiki__editbar .summary .nowrap[for="minoredit"] label {
   cursor: not-allowed;
-}
-.dokuwiki #wiki__editbar .editButtons .nowrap[for="minoredit"] span,
-.dokuwiki #wiki__editbar .summary .nowrap[for="minoredit"] span {
-  min-height: 20px;
-  padding-left: 20px;
-  margin-bottom: 0;
-  font-weight: normal;
-  cursor: pointer;
 }
 #config__manager fieldset {
   width: 100%;
@@ -7452,5 +7579,22 @@ textarea#config__manager select {
 }
 #qsearch__out ul > li {
   list-style: none;
+}
+#IE6 #dokuwiki__aside {
+  width: 23%;
+  padding: 0;
+  margin: 0 2% 0 0;
+}
+#IE6 #dokuwiki__content {
+  width: 75%;
+  padding: 0;
+  margin: 0;
+}
+#IE6 .not-header {
+  margin-top: 55px;
+}
+#IE6 .dokuwiki a.urlextern {
+  padding-left: 0;
+  background-image: none;
 }
 /*# sourceMappingURL=bootstrap.css.map */
