@@ -279,7 +279,7 @@ if (window.toolbar !== undefined) {
     window.toolbar[window.toolbar.length] = {
         'type'  : 'InsertTable', // new type that links to the function
         'title' : 'Insert Table',
-        'icon'  : '../../tpl/starter-bootstrap/img/table.png'
+        'icon'  : '../../tpl/starterbootstrap/img/table.png'
     };
 }
 jQNew('#toc_contents').slideToggle('slow');
