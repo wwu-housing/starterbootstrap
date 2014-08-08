@@ -1,5 +1,5 @@
 /* plugin:configmanager */
-#config__manager div.success,
+/*#config__manager div.success,
 #config__manager div.error,
 #config__manager div.info {
   background-position: 0.5em;
@@ -35,7 +35,7 @@
     text-align: right;
 }
 #config__manager fieldset td.value {
-    /* fixed data column width */
+    /* fixed data column width /
     width: 31em;
 }
 
@@ -159,12 +159,12 @@
 }
 
 #config__manager .selection input.checkbox {
-  padding-left: 0.7em;
+  padding-left: .7em;
 }
 
 #config__manager .other {
+  padding-top: .5em;
   clear: both;
-  padding-top: 0.5em;
 }
 
 #config__manager .other label {

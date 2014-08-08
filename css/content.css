@@ -37,13 +37,13 @@
 
 /* existing wikipage */
 .dokuwiki a.wikilink1 {
-    color: __existing__;
-    background-color: inherit;
+  color: __existing__;
+  background-color: inherit;
 }
 /* not existing wikipage */
 .dokuwiki a.wikilink2 {
-    color: __missing__;
-    background-color: inherit;
+  color: __missing__;
+  background-color: inherit;
 }
 
 
@@ -51,33 +51,32 @@
 
 /* embedded images (styles are already partly set in DokuWiki's lib/styles/all.css) */
 .dokuwiki img.media {
-    margin: .2em 0;
+  margin: .2em 0;
 }
 .dokuwiki img.medialeft {
-    margin: .2em 1.5em .2em 0;
+  margin: .2em 1.5em .2em 0;
 }
 .dokuwiki img.mediaright {
-    margin: .2em 0 .2em 1.5em;
+  margin: .2em 0 .2em 1.5em;
 }
 .dokuwiki img.mediacenter {
-    margin: .2em auto;
+  margin: .2em auto;
 }
 
 
 /*____________ tables ____________*/
 
 /* div before each table */
-.dokuwiki div.table {
-}
+
 
 .dokuwiki table.inline {
-    min-width: 50%;
+  min-width: 50%;
 }
 .dokuwiki table.inline tr:hover td {
-    background-color: __background_alt__;
+  background-color: __background_alt__;
 }
 .dokuwiki table.inline tr:hover th {
-    background-color: __border__;
+  background-color: __border__;
 }
 
 
@@ -85,40 +84,35 @@
 
 /* fix if background-color hides underlining */
 .dokuwiki em.u code {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* for code in <file> */
-.dokuwiki pre.file {
-}
+
 
 /* filenames for downloadable file and code blocks */
-.dokuwiki dl.code,
-.dokuwiki dl.file {
-}
+
 
 .dokuwiki dl.code dt,
 .dokuwiki dl.file dt {
-    background-color: __background_alt__;
-    border: solid __border__;
-    border-width: 1px 1px 0;
-    color: inherit;
-    display: inline;
-    padding: .1em .5em .2em;
-    margin-left: 1em;
+  display: inline;
+  padding: .1em .5em .2em;
+  margin-left: 1em;
+  color: inherit;
+  background-color: __background_alt__;
+  border: solid __border__;
+  border-width: 1px 1px 0;
 }
 [dir=rtl] .dokuwiki dl.code dt,
 [dir=rtl] .dokuwiki dl.file dt {
-    margin-left: 0;
-    margin-right: 1em;
+  margin-right: 1em;
+  margin-left: 0;
 }
-.dokuwiki dl.code dt a,
-.dokuwiki dl.file dt a {
-}
+
 
 .dokuwiki dl.code dd,
 .dokuwiki dl.file dd {
-    margin: 0;
+  margin: 0;
 }
 
 
@@ -127,34 +121,34 @@
 /* some headings in the media manager should not look like headings */
 #mediamanager__page h2,
 #mediamanager__page h3 {
-    font-family: Frutiger, Calibri, Myriad, "Nimbus Sans L", Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: __text__;
+  font-family: Frutiger, Calibri, Myriad, "Nimbus Sans L", Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: __text__;
 }
 
 /* to style button-like div in _fileuploader.css to look like other buttons,
    please add '.qq-upload-button' to the according styles (which don't really exist in this template) */
 .qq-upload-button {
-    border: 1px solid __border__;
-    background-color: __background_alt__;
-    padding: 0.125em 0.4em;
+  padding: .125em .4em;
+  background-color: __background_alt__;
+  border: 1px solid __border__;
 }
 
 
 /*____________ JS popup ____________*/
 
 .JSpopup {
-    background-color: __background__;
-    color: __text__;
-    border: 1px solid __border__;
-    line-height: 1.2;
-    padding: 0 .2em;
+  padding: 0 .2em;
+  line-height: 1.2;
+  color: __text__;
+  background-color: __background__;
+  border: 1px solid __border__;
 }
 
 .JSpopup ul,
 .JSpopup ol {
-    padding-left: 0;
+  padding-left: 0;
 }
 [dir=rtl] .JSpopup ul,
 [dir=rtl] .JSpopup ol {
-    padding-right: 0;
+  padding-right: 0;
 }

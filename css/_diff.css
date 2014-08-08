@@ -4,72 +4,72 @@
  */
 
 .dokuwiki table.diff {
-    width: 100%;
-    border-width: 0;
+  width: 100%;
+  border-width: 0;
 }
 .dokuwiki table.diff th,
 .dokuwiki table.diff td {
-    vertical-align: top;
-    padding: 0;
-    border-width: 0;
-    /* no style.ini colours because deleted and added lines have a fixed background colour */
-    background-color: #fff;
-    color: #333;
+  padding: 0;
+  color: #333;
+  vertical-align: top;
+  /* no style.ini colours because deleted and added lines have a fixed background colour */
+  background-color: #fff;
+  border-width: 0;
 }
 
 /* table header */
 .dokuwiki table.diff th {
-    border-bottom: 1px solid __border__;
-    font-size: 110%;
-    font-weight: normal;
+  font-size: 110%;
+  font-weight: normal;
+  border-bottom: 1px solid __border__;
 }
 .dokuwiki table.diff th a {
-    font-weight: bold;
+  font-weight: bold;
 }
 .dokuwiki table.diff th span.user {
-    font-size: .9em;
+  font-size: .9em;
 }
 .dokuwiki table.diff th span.sum {
-    font-size: .9em;
-    font-weight: bold;
+  font-size: .9em;
+  font-weight: bold;
 }
 .dokuwiki table.diff th.minor {
-    color: #999;
+  color: #999;
 }
 .dokuwiki table.diff_sidebyside th {
-    width: 50%;
+  width: 50%;
 }
 
 /* table body */
 .dokuwiki table.diff .diff-lineheader {
-    width: .7em;
-    text-align: right;
+  width: .7em;
+  text-align: right;
 }
 [dir=rtl] .dokuwiki table.diff .diff-lineheader {
-    text-align: left;
+  text-align: left;
 }
 .dokuwiki table.diff .diff-lineheader,
 .dokuwiki table.diff td {
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
 }
 .dokuwiki table.diff td.diff-blockheader {
-    font-weight: bold;
+  font-weight: bold;
 }
 .dokuwiki table.diff .diff-addedline {
-    background-color: #cfc;
-    color: inherit;
+  color: inherit;
+  background-color: #cfc;
 }
 .dokuwiki table.diff .diff-deletedline {
-    background-color: #fdd;
-    color: inherit;
+  color: inherit;
+  background-color: #fdd;
 }
 .dokuwiki table.diff td.diff-context {
-    background-color: #eee;
-    color: inherit;
+  color: inherit;
+  background-color: #eee;
 }
 .dokuwiki table.diff td.diff-addedline strong,
 .dokuwiki table.diff td.diff-deletedline strong {
-    color: #f00;
-    background-color: inherit;
-    font-weight: bold;
+  font-weight: bold;
+  color: #f00;
+  background-color: inherit;
 }

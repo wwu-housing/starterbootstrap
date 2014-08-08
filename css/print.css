@@ -5,9 +5,9 @@
  */
 
 body {
-    font: normal 87.5%/1.3 Garamond, Baskerville, "Hoefler Text", "Nimbus Roman No9 L", serif;
-    background-color: #fff;
-    color: #000;
+  font: normal 87.5%/1.3 Garamond, Baskerville, "Hoefler Text", "Nimbus Roman No9 L", serif;
+  color: #000;
+  background-color: #fff;
 }
 
 /* hide certain sections */
@@ -22,41 +22,40 @@ video,
 #dokuwiki__footer, #dokuwiki_footer,
 #breadcrumbs,
 .skip-to-content {
-    display: none;
+  display: none;
 }
 
 * {
-    border: none;
-    border-bottom: none;
+  border: none;
+  border-bottom: none;
 }
 .navbar.navbar-fixed-top {
-    position: static;
+  position: static;
 }
 .navbar .navbar-inner {
-    -webkit-box-shadow:none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border:none;
-    min-height: auto;
-    height: auto;
-    background-color: #fff;
-    background-image: none;
-    filter: none;
-
+  height: auto;
+  min-height: auto;
+  background-color: #fff;
+  background-image: none;
+  filter: none;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 .navbar .container-fluid * {
-    display: none;
+  display: none;
 }
 .navbar a.brand {
-    font-weight: bold;
-    display: block;
-    text-decoration: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    font-size: 150%;
-    color: #000;
-    margin-bottom: -30px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -30px;
+  font-size: 150%;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  border: none;
 }
 
 h1,
@@ -66,11 +65,11 @@ h4,
 h5,
 caption,
 legend {
-    clear: both;
-    margin: 10px 0 10px;
+  margin: 10px 0 10px;
+  clear: both;
 }
 p, table, pre, ul, ol {
-    margin: 0 0 10px;
+  margin: 0 0 10px;
 }
 
 /*ul {
@@ -95,64 +94,64 @@ ol ol ol ol ol {
 /* undo icons */
 a:link,
 a:visited {
-    text-decoration: none;
-    border-bottom: 1pt dotted;
-    color: #333;
-    background-color: inherit;
-    background-image: none;
-    padding: 0;
+  padding: 0;
+  color: #333;
+  text-decoration: none;
+  background-color: inherit;
+  background-image: none;
+  border-bottom: 1pt dotted;
 }
 
 /* display href after link */
 a:after {
-   content: " [" attr(href) "]";
-   font-size: 90%;
+  font-size: 90%;
+  content: " [" attr(href) "]";
 }
 a.brand:after,
 a.btn:after {
-    display: none;
-    content: "";
+  display: none;
+  content: "";
 }
 
 /* code blocks */
 pre {
-    font-family: monospace;
+  font-family: monospace;
 }
 dl.code dt,
 dl.file dt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* images */
 img {
-    border-width: 0;
-    vertical-align: middle;
+  vertical-align: middle;
+  border-width: 0;
 }
 img.media {
-    margin: .2em 0;
+  margin: .2em 0;
 }
 img.medialeft {
-    margin: .2em 1.5em .2em 0;
+  margin: .2em 1.5em .2em 0;
 }
 img.mediaright {
-    margin: .2em 0 .2em 1.5em;
+  margin: .2em 0 .2em 1.5em;
 }
 img.mediacenter {
-    margin: .2em auto;
+  margin: .2em auto;
 }
 
 mark {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 blockquote {
-    padding: 0 10pt;
-    margin: 0;
-    border: solid #ccc;
-    border-width: 0 0 0 2pt;
+  padding: 0 10pt;
+  margin: 0;
+  border: solid #ccc;
+  border-width: 0 0 0 2pt;
 }
 [dir=rtl] blockquote {
-    border-width: 0 2pt 0 0;
+  border-width: 0 2pt 0 0;
 }
 
 /* tables */
@@ -179,51 +178,51 @@ th {
 }*/
 
 .youarehere .breadcrumb.well {
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    border: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: none;
 }
 .youarehere .home {
-    display: none;
+  display: none;
 }
 .youarehere .home a:after {
-    display: none;
-    content: "";
+  display: none;
+  content: "";
 }
 .youarehere .separator {
-    display: none;
+  display: none;
 }
 .youarehere li {
-    display: none;
-    list-style: none;
+  display: none;
+  list-style: none;
 }
 .youarehere li:last-child {
-    display: inline;
+  display: inline;
 }
 
 /*____________ a bit of layout ____________*/
 
 #dokuwiki__top {
-    margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 #dokuwiki__header {
-    border-bottom: 2pt solid #ccc;
+  border-bottom: 2pt solid #ccc;
 }
 #dokuwiki__header h1 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 #dokuwiki__header h1 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .dokuwiki div.footnotes {
-    clear: both;
-    border-top: 1pt solid #000;
-    margin-top: 10pt;
+  margin-top: 10pt;
+  clear: both;
+  border-top: 1pt solid #000;
 }
 #dokuwiki__content {
-    width: 100%;
-    margin-left: 0px;
+  width: 100%;
+  margin-left: 0;
 }
 
 
@@ -236,51 +235,51 @@ div.info,
 div.success,
 div.error,
 .dokuwiki .secedit {
-    display: none;
+  display: none;
 }
 
 .visible-phone .skip-to-content {
-    display: none !important;
+  display: none !important;
 }
 .visible-phone {
-    margin: 0;
-    padding: 0;
+  padding: 0;
+  margin: 0;
 }
 .visible-phone li {
-    margin:0;
-    padding:0;
+  padding: 0;
+  margin: 0;
 }
 .navbar .btn.btn-navbar {
-    display: none;
-    visibility: hidden;
-    margin: 0;
-    padding: 0;
-    border: none;
+  display: none;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+  border: none;
 }
 
 /* align table cells */
 .leftalign {
-    text-align: left;
+  text-align: left;
 }
 .centeralign {
-    text-align: center;
+  text-align: center;
 }
 .rightalign {
-    text-align: right;
+  text-align: right;
 }
 
 /* underline */
 em.u {
-    font-style: normal;
-    text-decoration: underline;
+  font-style: normal;
+  text-decoration: underline;
 }
 em em.u {
-    font-style: italic;
+  font-style: italic;
 }
 
 div.clearer {
-    clear: both;
-    line-height: 0;
-    height: 0;
-    overflow: hidden;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+  line-height: 0;
 }

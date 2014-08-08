@@ -222,7 +222,7 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
     print '<div class="form-group">';
     print '<input type="text" ';
     if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
-    if(!$autocomplete) print 'autocomplete="off" ';
+    print ' autocomplete="off" ';
     print 'id="qsearch__in" accesskey="f" name="id" class="form-control col-lg-3" title="[F]" placeholder="' . $lang['btn_search'] . '" /> ';
     print '</div>';
     if($ajax) print '<div id="qsearch__out" class="ajax_qsearch"></div>';
