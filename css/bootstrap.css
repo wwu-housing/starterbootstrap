@@ -1120,23 +1120,15 @@ mark,
   padding: .2em;
   background-color: #fcf8e3;
 }
-.leftalign,
-td.leftalign,
 .text-left {
   text-align: left;
 }
-.rightalign,
-td.rightalign,
 .text-right {
   text-align: right;
 }
-.centeralign,
-td.centeralign,
 .text-center {
   text-align: center;
 }
-.justifyalign,
-td.justifyalign,
 .text-justify {
   text-align: justify;
 }
@@ -1252,7 +1244,6 @@ dl {
 }
 dt,
 dd {
-  padding: 1px, 5px;
   line-height: 1.42857143;
 }
 dt {
@@ -6755,6 +6746,29 @@ div.notify hr {
 }
 div.notify .alert-link {
   color: #66512c;
+}
+.leftalign,
+td.leftalign {
+  text-align: left;
+}
+.rightalign,
+td.rightalign {
+  text-align: right;
+}
+.centeralign,
+td.centeralign {
+  text-align: center;
+}
+.justifyalign,
+td.justifyalign {
+  text-align: justify;
+}
+dt,
+dd {
+  padding: 1px, 5px;
+}
+thead tr:first-child th {
+  cursor: pointer;
 }
 /* Sidebar
  * Also see list-group.less */
