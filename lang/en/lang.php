@@ -14,3 +14,5 @@ $lang['site_tools']        = 'Site Tools';
 $lang['page_tools']        = 'Page Tools';
 $lang['skip_to_content']   = 'Skip to Content';
 $lang['skip_to_nav']       = 'Skip to Navigation';
+$lang['left']              = 'Left';
+$lang['right']             = 'Right';

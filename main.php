@@ -2,17 +2,17 @@
 /**
  * DokuWiki Starter Bootstrap Template
  *
- * @link     http://dokuwiki.org/template:starter[M JE
- * @author   Anika Henke <anika@selfthinker.org>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @link     http://dokuwiki.org/template:starterbootstrap
+ * @author   Cameron Littel <cameron@camlittle.com>
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER['REMOTE_USER'] );
-$showSidebar = page_findnearest(tpl_getConf('sidebarID')) && ($ACT=='show');
+$showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
 $sidebarCols = (int) tpl_getConf('sidebar_cols');
+$sidebarPos = tpl_getConf('sidebar_pos');
 if ($sidebarCols < 0 || $sidebarCols >= 12) {
 	$sidebarCols = 3;
 }
@@ -110,7 +110,14 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
 
             <section class="wrapper row"><!-- PAGE ACTIONS -->
                 <!-- ********** CONTENT ********** -->
-                <div id="dokuwiki__content" class="<?php if ($ACT == 'show' && $sidebar_contents != ""): ?>col-sm-<?php echo 12 - $sidebarCols; ?> col-sm-push-<?php echo $sidebarCols; ?> <?php else: ?>col-xs-12<?php endif; ?>">
+                <div id="dokuwiki__content" class="<?php
+                    if ($ACT == 'show' && $sidebar_contents != ""):
+                        ?>col-sm-<?php echo 12 - $sidebarCols; ?><?php
+                        if ($sidebarPos == "Left"):
+                            ?> col-sm-push-<?php echo $sidebarCols; ?> <?php
+                        endif; ?><?php
+                    else: ?>col-xs-12<?php
+                    endif; ?>">
                     <?php if($conf['youarehere']){ ?>
                         <div class="youarehere">
                             <?php bootstrap_tpl_youarehere() ?>
@@ -138,7 +145,10 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
 
                 <!-- ********** ASIDE ********** -->
                 <?php if ($ACT == 'show'): ?>
-                <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?> col-sm-pull-<?php echo 12 - $sidebarCols; ?>">
+                <aside id="dokuwiki__aside" class="col-sm-<?php echo $sidebarCols; ?><?php
+                    if ($sidebarPos == "Left"):
+                        ?> col-sm-pull-<?php echo 12 - $sidebarCols; ?><?php
+                    endif; ?>">
                     <?php if ($showSidebar && $sidebarCols > 0): ?>
                     <div class="sidebar-page">
                         <?php

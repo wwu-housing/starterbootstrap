@@ -25,7 +25,7 @@ jQNew(document).ready(function() {
     });
 
     /* http://www.kryogenix.org/code/browser/sorttable/ */
-    jQNew('#dokuwiki__content .page table').each(function() {
+    jQNew('.page table').each(function() {
         sorttable.makeSortable(jQNew(this).get(0));
     });
 
@@ -49,7 +49,7 @@ jQNew(document).ready(function() {
 
     /* override footnote popups */
     // kill old event
-    jQuery('a.fn_top').unbind('mouseover', dw_page.footnoteDisplay);
+    jQNew('a.fn_top').unbind('mouseover', dw_page.footnoteDisplay);
     dw_page.insituPopup = function(target, popup_id) {
         // on first hover, set up and show the popover
         $el = jQNew(target);
@@ -60,6 +60,7 @@ jQNew(document).ready(function() {
                 'toggle': 'popover',
                 'placement': 'bottom',
                 'trigger': 'hover',
+                'html': true,
                 'container': '#dokuwiki__content'
             }).addClass('popover-trigger').popover('show');
         }
@@ -278,7 +279,7 @@ if (window.toolbar !== undefined) {
     window.toolbar[window.toolbar.length] = {
         'type'  : 'InsertTable', // new type that links to the function
         'title' : 'Insert Table',
-        'icon'  : '../../tpl/starter-bootstrap/img/table.png'
+        'icon'  : '../../tpl/starterbootstrap/img/table.png'
     };
 }
 jQNew('#toc_contents').slideToggle('slow');

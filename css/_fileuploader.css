@@ -4,13 +4,13 @@
  */
 
 .qq-uploader {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .qq-uploader .error {
-    color: #f00;
-    background-color: #fff;
+  color: #f00;
+  background-color: #fff;
 }
 
 /* select file button */
@@ -19,98 +19,98 @@
    it should be styled the same way as your other buttons,
    preferably in the same place, so just add '.qq-upload-button' to those styles */
 .qq-upload-button {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 100%;
-    cursor: pointer;
-    margin: 1px 1px 5px;
+  display: inline-block;
+  margin: 1px 1px 5px;
+  font-size: 100%;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
 * html .qq-upload-button,
-*+html .qq-upload-button {
-    display: inline;
+* + html .qq-upload-button {
+  display: inline;
 }
 
 .qq-upload-button-focus {
-    outline: 1px dotted;
+  outline: 1px dotted;
 }
 
 /* drop area */
 
 .qq-upload-drop-area {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    min-height: 70px;
-    z-index: 2;
-    background: __background_neu__;
-    color: __text__;
-    text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 70px;
+  color: __text__;
+  text-align: center;
+  background: __background_neu__;
 }
 
 .qq-upload-drop-area span {
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -8px;
-    font-size: 120%;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  margin-top: -8px;
+  font-size: 120%;
 }
 
 .qq-upload-drop-area-active {
-    background: __background_alt__;
+  background: __background_alt__;
 }
 
 /* list of files to upload */
 
 div.qq-uploader ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .qq-uploader li {
-    margin: 0 0 5px;
-    color: __text__;
+  margin: 0 0 5px;
+  color: __text__;
 }
 
 .qq-uploader li span,
 .qq-uploader li input,
 .qq-uploader li a {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .qq-upload-file {
-    display: block;
-    font-weight: bold;
+  display: block;
+  font-weight: bold;
 }
 
 .qq-upload-spinner {
-    display: inline-block;
-    background: url("../../images/throbber.gif");
-    width: 15px;
-    height: 15px;
-    vertical-align: text-bottom;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: text-bottom;
+  background: url("../../images/throbber.gif");
 }
 
 .qq-upload-size,
 .qq-upload-cancel {
-    font-size: 85%;
+  font-size: 85%;
 }
 
 .qq-upload-failed-text {
-    display: none;
+  display: none;
 }
 .qq-upload-fail .qq-upload-failed-text {
-    display: inline;
+  display: inline;
 }
 
 .qq-action-container * {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 .qq-overwrite-check input {
-    margin-left: 10px;
+  margin-left: 10px;
 }
