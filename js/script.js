@@ -61,6 +61,10 @@ jQNew(document).ready(function() {
                 'placement': 'bottom',
                 'trigger': 'hover',
                 'html': true,
+                'delay': {
+                    show: 0,
+                    hide: 1000
+                },
                 'container': '#dokuwiki__content'
             }).addClass('popover-trigger').popover('show');
         }
