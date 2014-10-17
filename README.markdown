@@ -47,3 +47,14 @@ repo](https://github.com/apexskier/bootstrap/compare/starterbootstrap).
 If you do decide to work on the less, you can still run grunt, and should still
 be able to build everything. The Gruntfile has been modified to build into
 starterbootstrap's js and css directories and use jQNew.
+
+Examples
+--------
+
+The following list contains sites using this template I know of. Raise an issue or 
+contact me if you'd like to be added to this list.
+
+  * http://dennis.dieploegers.de
+  * http://www.tributieimposte.it/portaleiuc
+  * http://elgitar.com/
+  * http://www.animint.net/
