@@ -20,6 +20,7 @@ Features
   * Collapsible table of contents.
   * Bootstrappy support for acronyms, quicksearch, and more.
   * [Sorttable](http://www.kryogenix.org/code/browser/sorttable/) built in.
+  * Built in layout configuration.
 
 Javascript
 ----
