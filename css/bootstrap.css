@@ -6418,6 +6418,7 @@ button.close {
   position: relative;
   top: 1px;
   display: inline-block;
+  padding-right: .5em;
   font-family: 'Glyphicons Halflings';
   font-size: 80%;
   font-style: normal;
