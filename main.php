@@ -96,7 +96,7 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
             </div>
         </div>
 
-        <div class="container not-header">
+        <div class="container<?php if ((int) tpl_getConf('full_width') === 1) { echo "-fluid"; } ?> not-header">
             <div class="notifications">
                 <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
             </div>
