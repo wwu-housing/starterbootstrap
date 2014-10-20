@@ -58,4 +58,4 @@ contact me if you'd like to be added to this list.
   * http://www.tributieimposte.it/portaleiuc
   * http://elgitar.com/
   * http://www.animint.net/
-  * http://bioscript.io/doku.php
+  * http://bioscript.io/
