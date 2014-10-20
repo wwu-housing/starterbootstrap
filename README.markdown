@@ -51,10 +51,11 @@ starterbootstrap's js and css directories and use jQNew.
 Examples
 --------
 
-The following list contains sites using this template I know of. Raise an issue or 
+The following list contains sites using this template or a fork of it. Raise an issue or 
 contact me if you'd like to be added to this list.
 
   * http://dennis.dieploegers.de
   * http://www.tributieimposte.it/portaleiuc
   * http://elgitar.com/
   * http://www.animint.net/
+  * http://bioscript.io/doku.php
