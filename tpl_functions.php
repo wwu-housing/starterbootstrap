@@ -293,7 +293,7 @@ function bootstrap_html_TOC($toc){
     $out .= '<div class="panel-heading"><h3 class="panel-title" data-toggle="collapse" data-target="#toc_contents">';
     $out .= $lang['toc'];
     $out .= ' <b class="caret"></b></h3></div>'.DOKU_LF;
-    $out .= '<div id="toc_contents" class="collapse in"><div class="panel-body">';
+    $out .= '<div id="toc_contents" class="panel-collapse collapse in"><div class="panel-body">';
     $out .= bootstrap_toc_html_buildlist($toc,'','html_list_toc');
     $out .= '</div></div>';
     $out .= '</div>'.DOKU_LF;
