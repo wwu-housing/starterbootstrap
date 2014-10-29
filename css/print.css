@@ -1,11 +1,13 @@
 /**
  * This file provides the styles for printing.
  *
- * @todo: improve and finish
+ * TODO: improve and finish
  */
 
 body {
-  font: normal 87.5%/1.3 Garamond, Baskerville, "Hoefler Text", "Nimbus Roman No9 L", serif;
+  font-family: Garamond, Baskerville, "Hoefler Text", "Nimbus Roman No9 L", serif;
+  font-size: 11pt;
+  line-height: 13pt;
   color: #000;
   background-color: #fff;
 }
@@ -23,12 +25,14 @@ video,
 #breadcrumbs,
 .skip-to-content {
   display: none;
+  width: 0;
+  max-width: 0;
 }
 
 * {
-  border: none;
-  border-bottom: none;
+  border-width: 0;
 }
+
 .navbar.navbar-fixed-top {
   position: static;
 }
@@ -177,18 +181,12 @@ th {
     font-weight: bold;
 }*/
 
-.youarehere .breadcrumb.well {
+.youarehere .breadcrumb {
   padding: 0;
   margin: 0;
+  margin-bottom: 15px;
   background: #fff;
   border: none;
-}
-.youarehere .home {
-  display: none;
-}
-.youarehere .home a:after {
-  display: none;
-  content: "";
 }
 .youarehere .separator {
   display: none;
@@ -197,8 +195,17 @@ th {
   display: none;
   list-style: none;
 }
+.youarehere a:after {
+  display: none;
+  content: "";
+}
 .youarehere li:last-child {
   display: inline;
+}
+.youarehere li:last-child a:after {
+  display: inline;
+  font-size: 90%;
+  content: " [" attr(href) "]";
 }
 
 /*____________ a bit of layout ____________*/
@@ -220,9 +227,12 @@ th {
   clear: both;
   border-top: 1pt solid #000;
 }
+.container.not-header,
+.wrapper,
 #dokuwiki__content {
+  left: 0;
   width: 100%;
-  margin-left: 0;
+  margin: 0;
 }
 
 

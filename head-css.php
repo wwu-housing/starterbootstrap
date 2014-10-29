@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
 <?php tpl_includeFile('meta.html') ?>
-<!-- dokuwiki's php css compressor doesn't play nice with media queries -->
+
+<!-- NOTE: dokuwiki's php css compressor doesn't play nice with media queries -->
 <link href="<?php print DOKU_TPL; ?>css/bootstrap.min.css" rel="stylesheet">
-<!-- <link href="<?php print DOKU_TPL; ?>css/bootstrap.css" rel="stylesheet">
-<link href="<?php print DOKU_TPL; ?>css/bootstrap.css.map" rel="stylesheet"> -->
+<link href="<?php print DOKU_TPL; ?>css/print.css" rel="stylesheet" media="print">
 <script src="<?php print DOKU_TPL; ?>js/respond.min.js" type="text/javascript"></script>
