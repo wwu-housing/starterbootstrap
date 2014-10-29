@@ -492,9 +492,9 @@
 }
 
 #mediamanager__diff .imageDiff.opacity .image2 {
-       opacity: .5;
+         opacity: .5;
 
-  -moz-opacity: .5;
+    -moz-opacity: .5;
   -khtml-opacity: .5;
 }
 
