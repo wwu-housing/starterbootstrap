@@ -7583,6 +7583,7 @@ textarea#config__manager select {
   display: block;
   float: left;
   min-width: 160px;
+  max-width: 400px;
   padding: 5px 0;
   padding: 0;
   margin: 2px 0 0;
@@ -7626,6 +7627,10 @@ textarea#config__manager select {
 }
 #qsearch__out ul > li {
   list-style: none;
+}
+#qsearch__out ul > li a {
+  word-wrap: break-word;
+  white-space: normal;
 }
 #IE6 #dokuwiki__aside {
   width: 23%;
