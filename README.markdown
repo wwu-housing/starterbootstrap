@@ -55,6 +55,7 @@ Examples
 The following list contains sites using this template or a fork of it. Raise an issue or 
 contact me if you'd like to be added to this list.
 
+  * http://piratebox.cc/start
   * http://dennis.dieploegers.de
   * http://www.tributieimposte.it/portaleiuc
   * http://elgitar.com/
