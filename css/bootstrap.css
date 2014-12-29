@@ -7632,6 +7632,10 @@ textarea#config__manager select {
   word-wrap: break-word;
   white-space: normal;
 }
+.search_quickresult .search_quickhits a {
+  word-wrap: break-word;
+  white-space: normal;
+}
 #IE6 #dokuwiki__aside {
   width: 23%;
   padding: 0;
