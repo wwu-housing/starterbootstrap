@@ -6869,6 +6869,7 @@ thead tr:first-child th {
 }
 .sidebar-page ul [class^="glyphicon-"],
 .sidebar-page ul [class*=" glyphicon-"] {
+  padding-left: 8px;
   margin-top: 2px;
   cursor: pointer;
 }
@@ -7066,6 +7067,13 @@ fieldset[disabled] #media_manager .btn.active {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+}
+.dokuwiki .secedit {
+  position: relative;
+  z-index: 100;
+}
+html[dir="rtl"] .dokuwiki .secedit {
+  float: left;
 }
 #tool__bar {
   position: relative;
