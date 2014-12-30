@@ -42,16 +42,6 @@ function _tpl_register($link=0, $wrapper=0) {
  */
 function _tpl_action($type, $link=0, $wrapper=0) {
     switch ($type) {
-        case 'discussion':
-            if (tpl_getConf('discussionPage')) {
-                _tpl_discussion(tpl_getConf('discussionPage'), tpl_getLang('discussion'), tpl_getLang('back_to_article'), $link, $wrapper);
-            }
-            break;
-        case 'userpage':
-            if (tpl_getConf('userPage')) {
-                _tpl_userpage(tpl_getConf('userPage'), tpl_getLang('userpage'), $link, $wrapper);
-            }
-            break;
         case 'register': // deprecated
             _tpl_register($link, $wrapper);
             break;
