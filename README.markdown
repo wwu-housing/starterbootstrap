@@ -15,8 +15,8 @@ Features
 
   * Insert table toolbar button.
   * Viewing, editing, and detail pages styled with bootstrap.
-  * Built in wiki structure (navigation) sidebar.
-  * Supports collapsible dokuwiki sidebar menu.
+  * Auto generating wiki sidebar (use "automatic" in sidebar configurationt).
+  * Collapsible sidebar bootstrap menu.
   * Collapsible table of contents.
   * Bootstrappy support for acronyms, quicksearch, and more.
   * [Sorttable](http://www.kryogenix.org/code/browser/sorttable/) built in.
@@ -52,7 +52,7 @@ starterbootstrap's js and css directories and use jQNew.
 Examples
 --------
 
-The following list contains sites using this template or a fork of it. Raise an issue or 
+The following list contains sites using this template or a fork of it. Raise an issue or
 contact me if you'd like to be added to this list.
 
   * http://piratebox.cc/start
