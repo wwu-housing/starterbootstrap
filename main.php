@@ -10,7 +10,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER['REMOTE_USER'] );
-$showSidebar = page_findnearest($conf['sidebar']) && ($ACT=='show');
+$showSidebar = (page_findnearest($conf['sidebar']) || $conf['sidebar'] == "automatic") && ($ACT=='show');
 $sidebarCols = (int) tpl_getConf('sidebar_cols');
 $sidebarPos = tpl_getConf('sidebar_pos');
 if ($sidebarCols < 0 || $sidebarCols >= 12) {
@@ -106,7 +106,14 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
 
             <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
-            <?php $sidebar_contents = bootstrap_tpl_get_sidebar($conf['sidebar'], false); ?>
+            <?php
+                $sidebar_contents = "";
+                if ($conf['sidebar'] == 'automatic') {
+                    $sidebar_contents = "automatic";
+                } else {
+                    $sidebar_contents = bootstrap_tpl_get_sidebar($conf['sidebar'], false);
+                }
+            ?>
 
             <section class="wrapper row"><!-- PAGE ACTIONS -->
                 <!-- ********** CONTENT ********** -->
@@ -131,11 +138,7 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
                     <div class="page" role="main">
                     <!-- wikipage start -->
                         <?php
-                        if ($ID == "starterbootstrap:index" && auth_quickaclcheck($id) > AUTH_CREATE) {
-                            include_once("generate_index.php");
-                        } else {
-                            tpl_content(false); /* the main content */
-                        }
+                        tpl_content(false); /* the main content */
                         ?>
                     <!-- wikipage stop -->
                     </div>
@@ -153,7 +156,11 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
                     <div class="sidebar-page">
                         <?php
                             tpl_includeFile('sidebarheader.html');
-                            echo $sidebar_contents;
+                            if ($conf['sidebar'] == "automatic") {
+                                include_once("generate_index.php");
+                            } else {
+                                echo $sidebar_contents;
+                            }
                             tpl_includeFile('sidebarfooter.html');
                         ?>
                     </div>

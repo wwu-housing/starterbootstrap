@@ -88,18 +88,18 @@ function _array2treer($source_arr, &$_this, $parent_id, $_this_id, $key_children
     }
 }
 
-function _html_buildlist(&$data) {
+function _html_buildlist(&$data, $level) {
     $ret = array();
 
     foreach ($data as $item) {
-        $ret[] = "<li" . (($item['type'] == 'd') ? (" class=\"dir\" ") : '') . ">";
-        $ret[] = preg_replace("#^<span[^>]+>(.+)</span>$#i", "$1", html_wikilink(":" . $item['target'], null));
+        $ret[] = "<li class=\"level" . $level . (($item['type'] == 'd') ? (" dir") : '') . "\">";
+        $ret[] = "<div class=\"li\">" . preg_replace("#^<span[^>]+>(.+)</span>$#i", "$1", html_wikilink(":" . $item['target'], null)) . "</div>";
         // append child nodes, if exists
         if ($item['type']=='d') { //isset($item['child_nodes'])) {
             if (isset($item['child_nodes'])) {
                 $ret[] = "<ul>";
                 // static method used to be able to make menu w/o make class object
-                $ret[] = _html_buildlist($item['child_nodes']);
+                $ret[] = _html_buildlist($item['child_nodes'], $level + 1);
                 $ret[] = "</ul>";
             }
         }
@@ -107,6 +107,8 @@ function _html_buildlist(&$data) {
     }
     return join("\n",$ret);
 }
+
+// TODO: add caching
 
 $data = array();
 
@@ -118,7 +120,7 @@ foreach ($data as $k => $v) {
 
 $data = array2tree($data,'');
 
-$data = "<ul class=\"generated-index\">" . _html_buildlist($data) . "</ul>";
+$data = "<ul class=\"generated-index\">" . _html_buildlist($data, 1) . "</ul>";
 echo $data;
 
 ?>

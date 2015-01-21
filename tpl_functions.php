@@ -533,11 +533,11 @@ function bootstrap_tpl_get_sidebar($pageid, $cache) {
     $rev = '';
     $file = wikiFN($pageid, $rev);
 
-    if($cache && !$rev){
+    if ($cache && !$rev) {
         if(@file_exists($file)) {
             $html = p_cached_output($file,'xhtml',$pageid);
         }
-    }else{
+    } else {
         if(@file_exists($file)) {
             $html = p_render('xhtml',p_get_instructions(io_readWikiPage($file,$pageid,$rev)),$info); //no caching on old revisions
         }
