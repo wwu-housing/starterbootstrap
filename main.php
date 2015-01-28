@@ -97,12 +97,12 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
         </div>
 
         <div class="container<?php if ((int) tpl_getConf('full_width') === 1) { echo "-fluid"; } ?> not-header">
-            <div class="notifications">
+            <div class="notifications hidden-print">
                 <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
             </div>
 
-            <a href="#dokuwiki__content" class="sr-only "><?php echo $lang['skip_to_content']; ?></a>
-            <a href="#dokuwiki__aside" class="skip-to-sidebar visible-xs btn-block btn btn-info"><?php echo "Skip to Navigation"; // echo $lang['skip_to_nav']; ?></a>
+            <a href="#dokuwiki__content" class="sr-only hidden-print"><?php echo $lang['skip_to_content']; ?></a>
+            <a href="#dokuwiki__aside" class="skip-to-sidebar hidden-print visible-xs btn-block btn btn-info"><?php echo "Skip to Navigation"; // echo $lang['skip_to_nav']; ?></a>
 
             <?php if($conf['breadcrumbs']) _tpl_breadcrumbs(); ?>
 
@@ -170,7 +170,7 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
             </section><!-- /wrapper -->
 
             <!-- ********** FOOTER ********** -->
-            <footer id="dokuwiki__footer">
+            <footer id="dokuwiki__footer" class="hidden-print">
                 <ul class="doc breadcrumb pull-right">
                     <li><?php tpl_action('top', 1, ''); ?></li>
                     <li><?php tpl_pageinfo() /* 'Last modified' etc */ ?></li>

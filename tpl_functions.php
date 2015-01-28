@@ -280,11 +280,11 @@ function bootstrap_html_TOC($toc){
     if(!count($toc)) return '';
     global $lang;
     $out  = '<!-- TOC START -->'.DOKU_LF;
-    $out .= '<div id="dw_toc" class="panel panel-default pull-right col-sm-4 col-md-3 col-xs-12">'.DOKU_LF;
-    $out .= '<div class="panel-heading"><h3 class="panel-title" data-toggle="collapse" data-target="#toc_contents">';
+    $out .= '<div id="dw_toc" class="hidden-print panel panel-default pull-right col-sm-4 col-md-3 col-xs-12">'.DOKU_LF;
+    $out .= '<div class="panel-heading hidden-print"><h3 class="panel-title" data-toggle="collapse" data-target="#toc_contents">';
     $out .= $lang['toc'];
     $out .= ' <b class="caret"></b></h3></div>'.DOKU_LF;
-    $out .= '<div id="toc_contents" class="panel-collapse collapse in"><div class="panel-body">';
+    $out .= '<div id="toc_contents" class="hidden-print panel-collapse collapse in"><div class="panel-body">';
     $out .= bootstrap_toc_html_buildlist($toc,'','html_list_toc');
     $out .= '</div></div>';
     $out .= '</div>'.DOKU_LF;
@@ -357,7 +357,7 @@ function _tpl_breadcrumbs() {
 
     $last = count($crumbs);
     if ($last > 1) {
-        print '<!-- BREADCRUMBS --><div class="row" id="breadcrumbs"><div class="col-lg-12"><ul class="breadcrumb">'.$lang['breadcrumb'].':&nbsp; ';
+        print '<!-- BREADCRUMBS --><div id="breadcrumbs" class="row hidden-print"><div class="col-lg-12"><ul class="breadcrumb">'.$lang['breadcrumb'].':&nbsp; ';
         $i = 0;
         foreach ($crumbs as $id => $name) {
             $i++;
@@ -386,7 +386,7 @@ function bootstrap_tpl_youarehere() {
     $parts = explode(':', $ID);
     $count = count($parts);
 
-    print '<ul class="breadcrumb">' . $lang['youarehere'] . ':&nbsp; ';
+    print '<ul class="breadcrumb hidden-print">' . $lang['youarehere'] . ':&nbsp; ';
 
     // always print the start page
     echo '<li class="home">';

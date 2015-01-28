@@ -17,12 +17,7 @@ audio,
 video,
 #dokuwiki__header .tools,
 #dokuwiki__aside,
-.dokuwiki .breadcrumbs,
-.dokuwiki .toc,
-#dw__toc, #dw_toc,
 #dokuwiki__pagetools, #dokuwiki_pagetools,
-#dokuwiki__footer, #dokuwiki_footer,
-#breadcrumbs,
 .skip-to-content {
   display: none;
   width: 0;
