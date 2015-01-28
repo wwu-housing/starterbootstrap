@@ -231,10 +231,11 @@ function _tpl_toc($return = false) {
     global $INPUT;
     $toc = array();
 
-    if(is_array($TOC)) {
-        // if a TOC was prepared in global scope, always use it
-        $toc = $TOC;
-    } elseif(($ACT == 'show' || substr($ACT, 0, 6) == 'export') && !$REV && $INFO['exists']) {
+    //if(is_array($TOC))
+    // NOTE:
+    // This will happen if sidebar has headings in it, so we don't want to use
+    // a TOC from the global scope. I suspect this could break some plugins.
+    if(($ACT == 'show' || substr($ACT, 0, 6) == 'export') && !$REV && $INFO['exists']) {
         // get TOC from metadata, render if neccessary
         $meta = p_get_metadata($ID, false, METADATA_RENDER_USING_CACHE);
         if(isset($meta['internal']['toc'])) {
