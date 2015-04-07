@@ -4,6 +4,8 @@ Starter Bootstrap Dokuwiki Template
 [Bootstrap](http://twitter.github.io/bootstrap/) [Dokuwiki](https://www.dokuwiki.org/dokuwiki) template
 based on the [starter template](https://www.dokuwiki.org/template:starter).
 
+[Demo](http://dokuwiki.camlittle.com)
+
 This template is designed to be responsive on all modern devices, accessible,
 and good looking. It aims to replace most of the default Dokuwiki styling with
 equivalents from available Bootstrap styles.
