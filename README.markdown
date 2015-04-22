@@ -1,6 +1,8 @@
 Starter Bootstrap Dokuwiki Template
 ======
 
+permalinks branch
+
 [Bootstrap](http://twitter.github.io/bootstrap/) [Dokuwiki](https://www.dokuwiki.org/dokuwiki) template
 based on the [starter template](https://www.dokuwiki.org/template:starter).
 
