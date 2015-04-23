@@ -290,3 +290,23 @@ if (window.toolbar !== undefined) {
 setTimeout(function() {
     jQNew('#toc_contents').collapse('hide');
 }, 10);
+
+function createPermalinks(){
+    var h2Array = document.getElementsByTagName("h2");
+    for (i=0; i<h2Array.length; i++){
+        var newTitle = jQNew(h2Array[i]).text();
+        var anchorName = createAnchorName(newTitle);
+        jQNew(h2Array[i]).prepend('<a href= #' + anchorName + ' id="' + anchorName + '_anchor"' + ' aria-hidden=true class="anchor"></a>');
+	jQNew("#" + anchorName + '_anchor').prepend('<span class="glyphicon glyphicon-link"></span>');
+    };
+
+};
+
+//Function that takes the content of the h2 tag, lower cases it, and adds hyphens to be used in an anchor tag (used by createPermalinks function)
+function createAnchorName(contentName){
+	var contentNameLower = contentName.toLowerCase();
+	var contentNameHyphen = contentNameLower.split(' ').join('-');
+	return contentNameHyphen;
+}
+                
+createPermalinks();
