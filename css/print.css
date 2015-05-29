@@ -66,6 +66,9 @@ caption,
 legend {
   margin: 10px 0 10px;
   clear: both;
+  page-break-before: auto;
+  page-break-inside: avoid;
+  page-break-after: avoid;
 }
 p, table, pre, ul, ol {
   margin: 0 0 10px;
