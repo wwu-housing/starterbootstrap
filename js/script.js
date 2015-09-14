@@ -293,9 +293,12 @@ setTimeout(function() {
 
 function createPermalinks() {
     jQNew(':header').each(function() {
+        console.log(jQNew(this));
         var headerName = jQNew(this).attr('id');
-        jQNew(this).prepend('<a href="#' + headerName + '"' + ' id="' + headerName + '_anchor"' + ' aria-hidden="true" class="anchor"><span class="glyphicon glyphicon-link"></span></a>');
-    }); 
+        if (headerName) {
+            jQNew(this).prepend('<a href="#' + headerName + '"' + ' id="' + headerName + '_anchor"' + ' aria-hidden="true" class="anchor"><span class="glyphicon glyphicon-link"></span></a>');
+        }
+    });
 };
-                    
+
 createPermalinks();

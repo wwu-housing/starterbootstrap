@@ -7676,20 +7676,50 @@ h4 > .anchor,
 h5 > .anchor,
 h6 > .anchor {
   position: absolute;
-  bottom: 0;
-  left: -18px;
-  display: none;
-  padding-bottom: 4px;
-  font-size: 14px;
+  right: 100%;
+  z-index: 10;
+  display: noen;
+  height: 100%;
+  padding-top: 1px;
+  padding-right: 2px;
+  font-size: 80%;
   line-height: inherit;
+  color: #333;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in-out;
+       -o-transition: opacity 100ms ease-in-out;
+          transition: opacity 100ms ease-in-out;
 }
-h1 :hover > .anchor,
-h2 :hover > .anchor,
-h3 :hover > .anchor,
-h4 :hover > .anchor,
-h5 :hover > .anchor,
-h6 :hover > .anchor {
+h1 > .anchor:hover,
+h2 > .anchor:hover,
+h3 > .anchor:hover,
+h4 > .anchor:hover,
+h5 > .anchor:hover,
+h6 > .anchor:hover,
+h1 > .anchor:focus,
+h2 > .anchor:focus,
+h3 > .anchor:focus,
+h4 > .anchor:focus,
+h5 > .anchor:focus,
+h6 > .anchor:focus {
   display: inline-block;
+  opacity: 1;
+}
+h1:hover > .anchor,
+h2:hover > .anchor,
+h3:hover > .anchor,
+h4:hover > .anchor,
+h5:hover > .anchor,
+h6:hover > .anchor,
+h1:focus > .anchor,
+h2:focus > .anchor,
+h3:focus > .anchor,
+h4:focus > .anchor,
+h5:focus > .anchor,
+h6:focus > .anchor {
+  display: inline-block;
+  color: #222;
+  opacity: 1;
 }
 .navbar-brand-img img {
   height: 100%;
