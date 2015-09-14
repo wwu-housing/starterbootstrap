@@ -1,6 +1,6 @@
 /*!
  * Bootstrap v3.3.0 (http://getbootstrap.com)
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
@@ -7660,5 +7660,41 @@ textarea#config__manager select {
 #IE6 .dokuwiki a.urlextern {
   padding-left: 0;
   background-image: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+h1 > .anchor,
+h2 > .anchor,
+h3 > .anchor,
+h4 > .anchor,
+h5 > .anchor,
+h6 > .anchor {
+  position: absolute;
+  bottom: 0;
+  left: -18px;
+  display: none;
+  padding-bottom: 4px;
+  font-size: 14px;
+  line-height: inherit;
+}
+h1 :hover > .anchor,
+h2 :hover > .anchor,
+h3 :hover > .anchor,
+h4 :hover > .anchor,
+h5 :hover > .anchor,
+h6 :hover > .anchor {
+  display: inline-block;
+}
+.navbar-brand-img img {
+  height: 100%;
+}
+.navbar-brand + .navbar-brand {
+  padding-left: 0;
 }
 /*# sourceMappingURL=bootstrap.css.map */
