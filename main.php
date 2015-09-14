@@ -27,6 +27,32 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
         [<?php echo strip_tags($conf['title'])?>]
     </title>
     <?php @require_once(dirname(__FILE__).'/head-css.php'); ?>
+<?php
+$brandImg = tpl_getConf('header_img');
+if ($brandImg == '') {
+    $brandImg = $DOKU_INC . 'brand.png';
+    if (!file_exists($brandImg)) $brandImg = $DOKU_INC . 'brand.jpg';
+    if (!file_exists($brandImg)) $brandImg = '';
+}
+if ($brandImg != ''):
+    $brandImgHeight = tpl_getConf('header_height');
+    if ($brandImgHeight && ctype_digit($brandImgHeight)) $brandImgHeight .= 'px';
+    if ($brandImgHeight == '') $brandImgHeight = 'auto';
+    $brandImgMargin = tpl_getConf('header_padding');
+    if ($brandImgMargin == '') {
+        $brandImgMargin = '8';
+    }
+    if (ctype_digit($brandImgMargin)) $brandImgMargin .= 'px';
+?>
+    <style>
+        .navbar-brand-img {
+            box-sizing: content-box;
+            padding-top: <?php echo $brandImgMargin; ?>;
+            padding-bottom: <?php echo $brandImgMargin; ?>;
+            <?php if ($brandImgHeight) { echo 'height: ', $brandImgHeight, ';\n'; } ?>
+        }
+    </style>
+<?php endif; ?>
 </head>
 
 <body data-spy="scroll" data-target="#dw_toc">
@@ -49,7 +75,12 @@ if ($sidebarCols < 0 || $sidebarCols >= 12) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <?php tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="navbar-brand"') ?>
+                <?php if ($brandImg != '') { ?>
+                    <a class="navbar-brand-img navbar-brand" href="<?php echo $DOKU_URL; ?>"><img src="<?php echo $brandImg; ?>" alt="<?php $conf['title'] ?>"></a>
+                <?php } ?>
+                <?php if ($brandImg == '' || tpl_getConf('header_title')) {
+                tpl_link(wl(),$conf['title'],'accesskey="h" title="[H]" class="navbar-brand"');
+                } ?>
             </div>
             <div class="navbar-collapse collapse" id="topnav">
                 <ul class="nav navbar-nav navbar-right">

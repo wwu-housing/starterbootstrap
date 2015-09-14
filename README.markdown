@@ -23,6 +23,17 @@ Features
   * Bootstrappy support for acronyms, quicksearch, and more.
   * [Sorttable](http://www.kryogenix.org/code/browser/sorttable/) built in.
   * Built in layout configuration.
+  * Image/Logo support in navigation/header.
+
+Logo Support
+----
+
+The theme looks for a ``brand.png`` or ``brand.jpg`` file in the root of the
+dokuwiki install and displays it if found. You can override this in the
+``header_img`` template setting. The template settings contain fields for
+setting the vertical padding and height of the logo image. By default, the
+theme displays both the logo and title of the wiki. The ``header_title`` option
+can be used to display only the logo.
 
 Javascript
 ----
