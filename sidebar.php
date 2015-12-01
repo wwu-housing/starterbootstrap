@@ -68,9 +68,6 @@ function tpl_list_folder($dataList, $findAndProcessStartpage) {
 
     $currentLevel = 1;
 
-    $pathinfo = pathinfo($_SERVER['REQUEST_URI']);
-    $url = $pathinfo['dirname'];
-
     echo "<div class='well well-nav'><ul class=\"nav nav-list\">\n";
 
     tpl_processStartPage("","tof");
